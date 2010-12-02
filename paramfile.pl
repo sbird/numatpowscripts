@@ -44,9 +44,9 @@ while(<$INHAND>){
         #Set output files
         print $OUTHAND "\n#Transfer output files\n";
         for(my $i=0; $i<=$#red; $i++){
-                print $OUTHAND "transfer_redshift($i) = $red[$i]\n";
-                print $OUTHAND "transfer_filename($i) = transfer_$red[$i].dat\n";
-                print $OUTHAND "transfer_matterpower($i) = matterpow_$red[$i].dat\n";
+                print $OUTHAND "transfer_redshift(".($i+1).") = $red[$i]\n";
+                print $OUTHAND "transfer_filename(".($i+1).") = transfer_$red[$i].dat\n";
+                print $OUTHAND "transfer_matterpower(".($i+1).") = matterpow_$red[$i].dat\n";
         }
 close($INHAND);
 close($OUTHAND);
