@@ -10,51 +10,70 @@ import matplotlib.pyplot as plt
 
 
 #Function to make all the plots in a directory. 
-
+#Arguments are: outdir, datadir (ie, where powerspec is)
 class neutrino_power:
-        zerodir=""
-        matpowdir=""
-        outdir=""
-        dirs=""
-        def __init__(self,out,data,matpow="/home/spb41/cosmomc-src/cosmomc/camb/out/"):
-                self.matpowdir=matpow
-                self.outdir=out
-                self.dirs=glob.glob(data+"/b*p*nu*z*")
-                for d in self.dirs:
-                        if re.search(data+r"/b(\d+)p(\d+)nu0z(\d+)",d):
-                               self.zerodir=self.dirs.pop(self.dirs.index(d))
-                               break
-                for d in self.dirs:
-                        self.plot_directory(d)
+    zerodir=""
+    matpowdir=""
+    outdir=""
+    dirs=""
+    def __init__(self,out="/home/spb41/data3/NU_DM/plots",data="/home/spb41/data3/NU_DM", matpow="/home/spb41/cosmomc-src/cosmomc/camb/out/"):
+        self.matpowdir=matpow
+        self.outdir=out
+        if data[-1] == "/":
+            data = data[:-1]
+        self.dirs=glob.glob(data+"/*/b*p*nu*z*")
+        self.dirs = [ d for d in self.dirs if not re.search(out,d) ]
 
-        def plot_directory(self,dir):
-                #Find the nu mass in the directory
-                m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",dir)
-                m_nu=float(m.group(3))
-                files=glob.glob(dir+"/powerspec_0*")
-                for f in files:
-                        zz=round(self.get_redshift(f),1)
-                        if zz >= 1 or zz <0.001:
-                                zz=int(zz)
-                        print "file: "+f+" at z="+str(zz)
-                        zerof=path.basename(f)
-                        endpath=(re.split("/",path.dirname(f)))[-1]
-                        halo=path.join(self.matpowdir,"nu0_matterpow_"+str(zz)+".dat")
-                        if path.exists(halo):
-                                plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"_matterpow_"+str(zz)+".dat"),colour="blue")
-#                                plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"-lin_matterpow_"+str(zz)+".dat"), colour="black")
-                        else:
-                                print "Could not find "+halo
-                        plot_rel_folded_power(path.join(self.zerodir,zerof),f,colour="red")
-                        plt.title(r"P(k) change (KSPACE), $m_{\nu} = "+str(m_nu)+", z="+str(zz)+"$")
-                        outdir=path.join(self.outdir,endpath)
-                        if not path.exists(outdir):
-                                os.makedirs(outdir)
-                        save_figure(path.join(self.outdir,endpath+"/graph_z"+str(zz)))
-                        plt.clf()
+    def plot_directory(self,dirs):
+        if np.size(dirs) == 1:
+            dirs = [dirs,]
+        #Find the nu mass in the directory
+        m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",dirs[0])
+        m_nu=m.group(3)
+        if m_nu == '0':
+            return
+        files=glob.glob(dirs[0]+"/powerspec_0*")
+        endpath=(re.split("/",dirs[0]))[-1]
+        outdir=path.join(self.outdir,endpath)
+        if not path.exists(outdir):
+            os.makedirs(outdir)
+        print "Output to: "+outdir
+        for f in files:
+            zz=round(self.get_redshift(f),1)
+            if zz >= 1 or zz <0.001:
+                zz=int(zz)
+            print "file: "+f+" at z="+str(zz)
+            zerof=path.basename(f)
+            halo=path.join(self.matpowdir,"nu0_matterpow_"+str(zz)+".dat")
+            if path.exists(halo):
+                plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+"_matterpow_"+str(zz)+".dat"),colour="blue")
+#                plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"-lin_matterpow_"+str(zz)+".dat"), colour="black")
+            else:
+                print "Could not find "+halo
+            lss=[":","-.","-"]
+            colours=["grey", "green","red"]
+            for d in dirs:
+                f2 = glob.glob(path.join(d,zerof))
+                m = re.search("nu"+m_nu,d)
+                zerodir=glob.glob(d[:m.start()]+"nu0z*")
+                if np.size(zerodir)>0:
+                    zerodir=zerodir[0]
+                else:
+                    raise IOError,"No Massless neutrino simulation found for "+d
+                if np.size(f2) != 0:
+                    plot_rel_folded_power(path.join(zerodir,zerof),f2[0],colour=colours.pop(), ls=lss.pop())
+                else:
+                    print "Could not find: "+path.join(d,zerof)
 
-        def get_redshift(self,file):
-                f = open(file, 'r')
-                a=float(f.readline())
-                f.close()
-                return (1./a)-1.
+            plt.title(r"P(k) change, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
+            zzs=re.sub(r"\.",r"_",str(zz))
+            out=path.join(outdir,"graph_z"+zzs)
+            print out
+            save_figure(path.join(outdir,"graph_z"+zzs))
+            plt.clf()
+
+    def get_redshift(self,file):
+        f = open(file, 'r')
+        a=float(f.readline())
+        f.close()
+        return (1./a)-1.
