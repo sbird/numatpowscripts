@@ -11,7 +11,7 @@ my $newparams="params-nu$o_nu.ini";
 if(!$halo){
 $newparams="params-nu$o_nu-lin.ini";
 }
-my @red = (9, 4,3,2,1,0.5, 0.2,0);
+my @red = (99,49,9, 4,3,2,1,0.5, 0.2,0);
 #Read in template parameter file
 open(my $INHAND, "<","$paramfile") or die "Could not open $paramfile for reading!";
 open(my $OUTHAND, ">","$newparams") or die "Could not open $newparams for writing!";
