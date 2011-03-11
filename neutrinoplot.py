@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("Agg")
+matplotlib.use("TkAgg")
 from power_specs import matter_pow
 import re
 import glob
@@ -23,6 +23,7 @@ class neutrino_power:
             data = data[:-1]
         self.dirs=glob.glob(data+"/*/b*p*nu*z*")
         self.dirs = [ d for d in self.dirs if not re.search(out,d) ]
+        self.dirs = [ d for d in self.dirs if not re.search("\d+nu0z\d+",d) ]
 
     def plot_directory(self,dirs):
         if np.size(dirs) == 1:
@@ -42,7 +43,6 @@ class neutrino_power:
             zz=round(self.get_redshift(f),1)
             if zz >= 1 or zz <0.001:
                 zz=int(zz)
-            print "file: "+f+" at z="+str(zz)
             zerof=path.basename(f)
             halo=path.join(self.matpowdir,"nu0_matterpow_"+str(zz)+".dat")
             if path.exists(halo):
@@ -54,23 +54,90 @@ class neutrino_power:
             colours=["grey", "green","red"]
             for d in dirs:
                 f2 = glob.glob(path.join(d,zerof))
-                m = re.search("nu"+m_nu,d)
-                zerodir=glob.glob(d[:m.start()]+"nu0z*")
-                if np.size(zerodir)>0:
-                    zerodir=zerodir[0]
-                else:
-                    raise IOError,"No Massless neutrino simulation found for "+d
+                zerodir=self.find_zero(d)
                 if np.size(f2) != 0:
+                    print "file: "+f2[0]+" at z="+str(zz)
                     plot_rel_folded_power(path.join(zerodir,zerof),f2[0],colour=colours.pop(), ls=lss.pop())
                 else:
                     print "Could not find: "+path.join(d,zerof)
 
             plt.title(r"P(k) change, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
             zzs=re.sub(r"\.",r"_",str(zz))
-            out=path.join(outdir,"graph_z"+zzs)
-            print out
-            save_figure(path.join(outdir,"graph_z"+zzs))
-            plt.clf()
+            plt.figure()
+#             save_figure(path.join(outdir,"graph_z"+zzs))
+#             plt.clf()
+
+    def plot_ics(self, dirs):
+        if np.size(dirs) == 1:
+            dirs = [dirs,]
+        #Find the nu mass in the directory
+        m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",dirs[0])
+        m_nu=m.group(3)
+        if m_nu == '0':
+            return
+        f=glob.glob(path.join(dirs[0],"PK-DM-ics_*"))
+        if np.size(f) != 1:
+            raise IOError, "Found: "+str(np.size(f))+" IC power spectra"
+        m=re.search(r"PK-DM-ics_(\d+)-(\d+)-z(\d+)-nu",f[0])
+        zz=m.group(3)
+        box=float(m.group(2))
+        halo=path.join(self.matpowdir,"nu0_matterpow_"+zz+".dat")
+        if path.exists(halo):
+            plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+"_matterpow_"+zz+".dat"),colour="blue")
+        else:
+            print "Could not find "+halo
+        lss=[":","-.","-"]
+        colours=["grey", "green","red"]
+        for d in dirs:
+            zdir=self.find_zero(d)
+            f = glob.glob(path.join(d,"PK-DM-ics_*"))
+            if np.size(f) != 1:
+                raise IOError, "Found: "+str(np.size(f))+" IC power spectra in "+d
+            zdir=self.find_zero(d)
+            f2 = glob.glob(path.join(zdir,"PK-DM-ics_*"))
+            if np.size(f2) != 1:
+                raise IOError, "Found: "+str(np.size(f2))+" IC power spectra in "+zdir
+            plot_genpk_power(f2[0],f[0], box,colour=colours.pop())
+
+        plt.title(r"P(k) for ICs, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
+
+    def find_zero(self, d):
+            m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)",d)
+            m_nu=m.group(3)
+            m = re.search("nu"+m_nu,d)
+            zerodir=glob.glob(d[:m.start()]+"nu0z*")
+            if np.size(zerodir)>0:
+                zerodir=zerodir[0]
+            else:
+                raise IOError,"No massless neutrino simulation found for "+d
+            return zerodir
+    
+    def plot_conv_diffs(self, dir1, dir2):
+        #Find the nu mass in the directory
+        files1=map(path.basename, glob.glob(dir1+"/powerspec_0*"))
+        files2=map(path.basename,glob.glob(dir2+"/powerspec_0*"))
+        files = []
+        #Make sure files contains only things in both directories.
+        for f in files1:
+            if files2.count(f) > 0:
+                files.append(f)
+            else:
+                print "Could not find: "+path.join(dir2,f)
+        zdir1=self.find_zero(dir1)
+        zdir2=self.find_zero(dir2)
+        line=np.array([])
+        legname=np.array([])
+        for f in files:
+            (kk1, rpk1)=get_rel_folded_power(path.join(zdir1,f),path.join(dir1,f))
+            (kk2, rpk2)=get_rel_folded_power(path.join(zdir2,f),path.join(dir2,f))
+            (kk, rpk)=get_diff_folded_power(kk1,rpk1,kk2,rpk2)
+            line=np.append(line,plt.semilogx(kk,rpk))
+            legname=np.append(legname,f)
+
+        plt.title(r"Change, "+dir1+"  "+dir2)
+        plt.ylabel(r'Percentage change')
+        plt.xlabel("k /(h MPc-1)")
+        plt.legend(line,legname)
 
     def get_redshift(self,file):
         f = open(file, 'r')
