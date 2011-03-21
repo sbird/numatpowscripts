@@ -25,7 +25,7 @@ class neutrino_power:
         self.dirs = [ d for d in self.dirs if not re.search(out,d) ]
         self.dirs = [ d for d in self.dirs if not re.search("\d+nu0z\d+",d) ]
 
-    def plot_directory(self,dirs):
+    def plot_directory(self,dirs, save=False):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         #Find the nu mass in the directory
@@ -63,9 +63,12 @@ class neutrino_power:
 
             plt.title(r"P(k) change, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
             zzs=re.sub(r"\.",r"_",str(zz))
-            plt.figure()
-#             save_figure(path.join(outdir,"graph_z"+zzs))
-#             plt.clf()
+            if save:
+                plt.figure(99)
+                save_figure(path.join(outdir,"graph_z"+zzs))
+                plt.clf()
+            else:
+                plt.figure()
 
     def plot_ics(self, dirs):
         if np.size(dirs) == 1:
@@ -91,26 +94,31 @@ class neutrino_power:
         for d in dirs:
             zdir=self.find_zero(d)
             f = glob.glob(path.join(d,"PK-DM-ics_*"))
+#             f = glob.glob(path.join(d,"powerspec_ics.txt"))
             if np.size(f) != 1:
                 raise IOError, "Found: "+str(np.size(f))+" IC power spectra in "+d
             zdir=self.find_zero(d)
             f2 = glob.glob(path.join(zdir,"PK-DM-ics_*"))
+#             f2 = glob.glob(path.join(zdir,"powerspec_ics.txt"))
             if np.size(f2) != 1:
                 raise IOError, "Found: "+str(np.size(f2))+" IC power spectra in "+zdir
-            plot_genpk_power(f2[0],f[0], box,colour=colours.pop())
+#             plot_rel_folded_power(f2[0],f[0],colour=colours.pop())
+            plot_genpk_power(f2[0],f[0], box, o_nu = float(m_nu)*0.13/6, colour=colours.pop())
 
         plt.title(r"P(k) for ICs, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
 
     def find_zero(self, d):
-            m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)",d)
+            m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",d)
             m_nu=m.group(3)
-            m = re.search("nu"+m_nu,d)
-            zerodir=glob.glob(d[:m.start()]+"nu0z*")
-            if np.size(zerodir)>0:
-                zerodir=zerodir[0]
-            else:
-                raise IOError,"No massless neutrino simulation found for "+d
-            return zerodir
+            zz=m.group(4)
+            new = re.sub("nu"+m_nu,"nu0",d)
+            zerodir=glob.glob(new)
+            if np.size(zerodir)==0:
+                n=re.search("nu"+m_nu,d)
+                zerodir=glob.glob(d[:n.start()]+"nu0z"+zz)
+                if np.size(zerodir) == 0:
+                        raise IOError,"No massless neutrino simulation found for "+d
+            return zerodir[0]
     
     def plot_conv_diffs(self, dir1, dir2):
         #Find the nu mass in the directory
