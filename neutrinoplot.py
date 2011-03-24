@@ -35,18 +35,30 @@ class neutrino_power:
             return
         files=glob.glob(dirs[0]+"/powerspec_0*")
         endpath=(re.split("/",dirs[0]))[-1]
-        outdir=path.join(self.outdir,endpath)
-        if not path.exists(outdir):
-            os.makedirs(outdir)
-        print "Output to: "+outdir
+        if save:
+            outdir=path.join(self.outdir,endpath)
+            if not path.exists(outdir):
+                os.makedirs(outdir)
+            print "Output to: "+outdir
+        #Search for various other parameters we might have changed
+        halosuf="_matterpow_"
+        n=re.search(r"om([\d+\.]+)",dirs[0])
+        if n:
+            halosuf="om"+n.group(1)+halosuf
+        n=re.search(r"ns([\d+\.]+)",dirs[0])
+        if n:
+            halosuf="ns"+n.group(1)+halosuf
+        n=re.search(r"h([\d\.]+)",dirs[0])
+        if n:
+            halosuf="h"+n.group(1)+halosuf
         for f in files:
             zz=round(self.get_redshift(f),1)
             if zz >= 1 or zz <0.001:
                 zz=int(zz)
             zerof=path.basename(f)
-            halo=path.join(self.matpowdir,"nu0_matterpow_"+str(zz)+".dat")
+            halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
             if path.exists(halo):
-                plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+"_matterpow_"+str(zz)+".dat"),colour="blue")
+                plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
 #                plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"-lin_matterpow_"+str(zz)+".dat"), colour="black")
             else:
                 print "Could not find "+halo
