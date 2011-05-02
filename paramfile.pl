@@ -14,6 +14,7 @@ if($#ARGV >= 2){
 my $halo=1;
 
 my $o_cdm=$om-0.05- $o_nu;
+my $ol = 1 - $om;
 my $m_nu=$o_nu*6/13.*100;
 my $paramfile="default-params.ini";
 my $newparams="params-nu$o_nu";
@@ -35,7 +36,7 @@ if($ns != 1.0){
         $newparams = $newparams."ns$ns";
 }
 $newparams .=".ini";
-my @red = (99,49,9, 4,3,2,1,0.5, 0.2,0);
+my @red = (99,49,9, 4,3,2,1,0.5,0.3, 0.2,0.1,0);
 $hub*=100;
 #Read in template parameter file
 open(my $INHAND, "<","$paramfile") or die "Could not open $paramfile for reading!";
@@ -46,6 +47,7 @@ while(<$INHAND>){
         s/^\s*use_physical\s*=\s*[\w\/.-]*/use_physical = F/i;
         s/^\s*omega_cdm\s*=\s*[\w\/.-]*/omega_cdm=$o_cdm/i;
         s/^\s*omega_baryon\s*=\s*[\w\/.-]*/omega_baryon=0.05/i;
+        s/^\s*omega_lambda\s*=\s*[\w\/.-]*/omega_lambda=$ol/i;
         s/^\s*omega_neutrino\s*=\s*[\w\/.-]*/omega_neutrino=$o_nu/i;
         s/^\s*hubble\s*=\s*[\w\/.-]*/hubble = $hub/i;
         #Set things we always need here
