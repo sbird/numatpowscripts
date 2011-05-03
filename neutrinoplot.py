@@ -52,7 +52,7 @@ class neutrino_power:
         else:
             print "Could not find "+halo
 
-    def plot_directory(self, dirs, redshifts=None, save=False):
+    def plot_directory(self, dirs, redshifts=None, save=False, maxk=500):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = self.parse_dirname(dirs[0])
@@ -75,7 +75,7 @@ class neutrino_power:
             zerof=path.basename(f) #Bare filename
             self.plot_halofit(halosuf,zz,m_nu) #Find halofit
             lss=[":","-.","-","-"]
-            colours=["green","orange","red","red"]
+            colours=["green","orange","red"]
             for d in dirs:
                 #glob for directories with other seeds
                 seeds=glob.glob(d+"see*")
@@ -90,12 +90,13 @@ class neutrino_power:
                 #Find mean
                 total=np.shape(spk)[0]
                 relpk=np.sum(spk,0)/total
-                plt.semilogx(kk,relpk,color=colours.pop(), ls=lss.pop())
+                ind=np.where(kk < maxk)
+                plt.semilogx(kk[ind],relpk[ind],color=colours.pop(), ls=lss.pop())
                 #Find stddev
                 if total > 1:
                     disp = np.sqrt(np.sum((spk - relpk)**2,0)/((total-1)*1.*total))
-                    plt.semilogx(kk,relpk+disp,color="grey", ls=":")
-                    plt.semilogx(kk,relpk-disp,color="grey", ls=":")
+                    plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
+                    plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
 
             plt.ylabel(r'$\delta$ P(k)')
             plt.xlabel("k /(h MPc-1)")
