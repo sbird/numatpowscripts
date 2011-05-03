@@ -1,5 +1,5 @@
 import matplotlib
-matplotlib.use("TkAgg")
+# matplotlib.use("TkAgg")
 from power_specs import matter_pow
 import re
 import glob
@@ -198,7 +198,7 @@ class neutrino_power:
         plt.title(r"Change, "+dir1+"  "+dir2)
         plt.ylabel(r'Percentage change')
         plt.xlabel("k /(h MPc-1)")
-        plt.legend(line,legname)
+        plt.legend(line,legname,loc=3,ncol=2, mode="expand", borderaxespad=0.)
 
     def get_redshift(self,file):
         f = open(file, 'r')
