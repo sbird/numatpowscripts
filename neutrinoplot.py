@@ -42,8 +42,7 @@ class neutrino_power:
             halosuf="h"+n.group(1)+halosuf
         return (m_nu, halosuf)
 
-    def plot_halofit(self, f,halosuf, zz):
-        zerof=path.basename(f)
+    def plot_halofit(self, halosuf, zz,m_nu):
         halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
 #         zhalo=glob.glob(path.join(self.find_zero(dirs[0]),"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
 #         halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
@@ -67,24 +66,39 @@ class neutrino_power:
                 os.makedirs(outdir)
             print "Output to: "+outdir
         for f in files:
-            zz=round(self.get_redshift(f),1)
-            if redshifts != None and np.any(np.abs(np.around(redshifts,1)-zz)/(zz+1e-7) < 0.1):
+            zz=self.get_redshift(f)
+            if redshifts != None and np.any(np.abs(redshifts-zz)/(zz+1e-7) > 0.005):
                 continue
-                
             if zz >= 1 or zz <0.001:
                 zz=int(zz)
-            self.plot_halofit(f,halosuf,zz) #Find halofit
-            lss=[":","-.","-"]
-            colours=["grey", "green","red"]
+            zz=np.around(zz,3)
+            zerof=path.basename(f) #Bare filename
+            self.plot_halofit(halosuf,zz,m_nu) #Find halofit
+            lss=[":","-.","-","-"]
+            colours=["green","orange","red","red"]
             for d in dirs:
-                f2 = glob.glob(path.join(d,zerof))
-                zerodir=self.find_zero(d)
-                if np.size(f2) != 0:
-                    print "file: "+f2[0]+" at z="+str(zz)
-                    plot_rel_folded_power(path.join(zerodir,zerof),f2[0],colour=colours.pop(), ls=lss.pop())
-                else:
-                    print "Could not find: "+path.join(d,zerof)
+                #glob for directories with other seeds
+                seeds=glob.glob(d+"see*")
+                (kk, relpk) = self.get_single_file_power(d,zerof,zz)
+                if np.size(relpk) == 0:
+                    continue
+                spk=np.array([relpk,])
+                #Get all power spectra
+                for s in seeds:
+                    (kk, spka) = self.get_single_file_power(s,zerof,zz)
+                    spk=np.append(spk,[spka,],0)
+                #Find mean
+                total=np.shape(spk)[0]
+                relpk=np.sum(spk,0)/total
+                plt.semilogx(kk,relpk,color=colours.pop(), ls=lss.pop())
+                #Find stddev
+                if total > 1:
+                    disp = np.sqrt(np.sum((spk - relpk)**2,0)/((total-1)*1.*total))
+                    plt.semilogx(kk,relpk+disp,color="grey", ls=":")
+                    plt.semilogx(kk,relpk-disp,color="grey", ls=":")
 
+            plt.ylabel(r'$\delta$ P(k)')
+            plt.xlabel("k /(h MPc-1)")
             plt.title(r"P(k) change, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
             if save:
                 zzs=re.sub(r"\.",r"_",str(zz))
@@ -93,6 +107,16 @@ class neutrino_power:
                 plt.clf()
             elif redshifts == None:
                 plt.figure()
+
+    def get_single_file_power(self,d, zerof,zz):
+        f2 = glob.glob(path.join(d,zerof))
+        zerodir=self.find_zero(d)
+        if np.size(f2) != 0:
+            print "file: "+f2[0]+" at z="+str(zz)
+            return get_rel_folded_power(path.join(zerodir,zerof),f2[0])
+        else:
+            print "Could not find: "+path.join(d,zerof)
+            return (np.empty(0), np.empty(0))
 
     def plot_ics(self, dirs):
         if np.size(dirs) == 1:
