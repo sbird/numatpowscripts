@@ -20,8 +20,7 @@ def partvskspace(m_nu):
         m_nu = str(np.around(m_nu,1))
         neut.plot_conv_diffs('/data/spb41_2/NU_DM/PART/b150p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi,ex_zz=np.array([49,9,4,3,2]))
         plt.xlim(0.05,10)
-        plt.ylim(-6,4)
-        plt.title("Grid vs Particle Methods, $m_{\nu} = "+m_nu+"$")
+        plt.title(r'Grid vs Particle Methods, $m_\nu = '+m_nu+'$')
 
 #512+150Mpc boxes
 def halofit_sim_compare(redshift,m_nu):
@@ -39,7 +38,13 @@ def halofit_sim_compare(redshift,m_nu):
         plt.clf()
 
 partvskspace(0.3)
+plt.ylim(-4,2)
+save_figure(path.join(neut.outdir,"partvskspace0_3"))
+plt.clf()
 partvskspace(0.6)
+plt.ylim(-6,1)
+save_figure(path.join(neut.outdir,"partvskspace0_6"))
+plt.clf()
 
 for z in [0, 0.2, 0.5, 1]:
         for m in [0.15, 0.3, 0.6]:
