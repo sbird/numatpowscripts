@@ -42,7 +42,18 @@ class neutrino_power:
             halosuf="h"+n.group(1)+halosuf
         return (m_nu, halosuf)
 
-    def plot_directory(self, dirs, redshift=None, save=False):
+    def plot_halofit(self, f,halosuf, zz):
+        zerof=path.basename(f)
+        halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
+#         zhalo=glob.glob(path.join(self.find_zero(dirs[0]),"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
+#         halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
+        if path.exists(halo):
+            plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
+#             plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"-lin_matterpow_"+str(zz)+".dat"), colour="black")
+        else:
+            print "Could not find "+halo
+
+    def plot_directory(self, dirs, redshifts=None, save=False):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = self.parse_dirname(dirs[0])
@@ -57,20 +68,12 @@ class neutrino_power:
             print "Output to: "+outdir
         for f in files:
             zz=round(self.get_redshift(f),1)
-            if redshifts != None and np.any(np.abs(np.around(redshifts,1)-zz)/zz < 0.1):
+            if redshifts != None and np.any(np.abs(np.around(redshifts,1)-zz)/(zz+1e-7) < 0.1):
                 continue
                 
             if zz >= 1 or zz <0.001:
                 zz=int(zz)
-            zerof=path.basename(f)
-            halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
-#             zhalo=glob.glob(path.join(self.find_zero(dirs[0]),"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
-#             halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
-            if path.exists(halo):
-                plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
-#                plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"-lin_matterpow_"+str(zz)+".dat"), colour="black")
-            else:
-                print "Could not find "+halo
+            self.plot_halofit(f,halosuf,zz) #Find halofit
             lss=[":","-.","-"]
             colours=["grey", "green","red"]
             for d in dirs:
@@ -83,13 +86,13 @@ class neutrino_power:
                     print "Could not find: "+path.join(d,zerof)
 
             plt.title(r"P(k) change, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
-            zzs=re.sub(r"\.",r"_",str(zz))
             if save:
+                zzs=re.sub(r"\.",r"_",str(zz))
                 plt.figure(99)
                 save_figure(path.join(outdir,"graph_z"+zzs))
                 plt.clf()
-#             else:
-#                 plt.figure()
+            elif redshifts == None:
+                plt.figure()
 
     def plot_ics(self, dirs):
         if np.size(dirs) == 1:
@@ -141,7 +144,7 @@ class neutrino_power:
                         raise IOError,"No massless neutrino simulation found for "+d
             return zerodir[0]
     
-    def plot_conv_diffs(self, dir1, dir2):
+    def plot_conv_diffs(self, dir1, dir2, ex_zz=None):
         #Find the nu mass in the directory
         files1=map(path.basename, glob.glob(dir1+"/powerspec_0*"))
         files2=map(path.basename,glob.glob(dir2+"/powerspec_0*"))
@@ -157,12 +160,15 @@ class neutrino_power:
         line=np.array([])
         legname=np.array([])
         for f in files:
+            zz=self.get_redshift(path.join(dir1,f))
+            if ex_zz != None and np.any(np.abs(np.around(ex_zz,1)-zz)/(zz+1e-7) < 0.1):
+                continue
             (kk1, rpk1)=get_rel_folded_power(path.join(zdir1,f),path.join(dir1,f))
             (kk2, rpk2)=get_rel_folded_power(path.join(zdir2,f),path.join(dir2,f))
             rpk=100*(rebin(rpk2,kk2,kk1)-rpk1)
 #             (kk, rpk)=get_diff_folded_power(kk1,rpk1,kk2,rpk2)
             line=np.append(line,plt.semilogx(kk1,rpk))
-            legname=np.append(legname,"z="+str(self.get_redshift(path.join(dir1,f))))
+            legname=np.append(legname,"z="+str(np.around(zz,1)))
 
         plt.title(r"Change, "+dir1+"  "+dir2)
         plt.ylabel(r'Percentage change')
