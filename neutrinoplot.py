@@ -52,7 +52,7 @@ class neutrino_power:
         else:
             print "Could not find "+halo
 
-    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], colours=["green","black","orange","red"],lss=[":","-.","-","-"]):
+    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], colours=None, lss=None):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = self.parse_dirname(dirs[0])
@@ -74,6 +74,10 @@ class neutrino_power:
             zz=np.around(zz,3)
             zerof=path.basename(f) #Bare filename
             self.plot_halofit(halosuf,zz,m_nu) #Find halofit
+            if lss == None:
+                lss=[":","-.","-","-"]
+            if colours == None:
+                colours=["black","green","orange","red"]
             maxks=list(maxks)
             for d in dirs:
                 #glob for directories with other seeds
