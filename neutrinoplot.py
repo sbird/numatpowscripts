@@ -52,7 +52,7 @@ class neutrino_power:
         else:
             print "Could not find "+halo
 
-    def plot_directory(self, dirs, redshifts=None, save=False, maxk=500):
+    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], colours=["green","black","orange","red"],lss=[":","-.","-","-"]):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = self.parse_dirname(dirs[0])
@@ -74,8 +74,7 @@ class neutrino_power:
             zz=np.around(zz,3)
             zerof=path.basename(f) #Bare filename
             self.plot_halofit(halosuf,zz,m_nu) #Find halofit
-            lss=[":","-.","-","-"]
-            colours=["green","orange","red"]
+            maxks=list(maxks)
             for d in dirs:
                 #glob for directories with other seeds
                 seeds=glob.glob(d+"see*")
@@ -90,7 +89,10 @@ class neutrino_power:
                 #Find mean
                 total=np.shape(spk)[0]
                 relpk=np.sum(spk,0)/total
-                ind=np.where(kk < maxk)
+                if maxks != []:
+                    ind=np.where(kk < maxks.pop())
+                else:
+                    ind=np.where(kk)
                 plt.semilogx(kk[ind],relpk[ind],color=colours.pop(), ls=lss.pop())
                 #Find stddev
                 if total > 1:
