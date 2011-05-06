@@ -24,6 +24,7 @@ class neutrino_power:
         self.dirs=glob.glob(data+"/*/b*p*nu*z*")
         self.dirs = [ d for d in self.dirs if not re.search(out,d) ]
         self.dirs = [ d for d in self.dirs if not re.search("\d+nu0z\d+",d) ]
+        self.dirs = [ d for d in self.dirs if not re.search("\d+z\d+seed\d*",d) ]
     
     def parse_dirname(self, dir):
         #Find the nu mass in the directory
@@ -48,11 +49,11 @@ class neutrino_power:
 #         halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
         if path.exists(halo):
             plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
-#             plot_rel_power(halo,path.join(self.matpowdir,"nu"+str(m_nu)+"-lin_matterpow_"+str(zz)+".dat"), colour="black")
+#             plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls="--")
         else:
             print "Could not find "+halo
 
-    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], colours=None, lss=None):
+    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = self.parse_dirname(dirs[0])
@@ -74,10 +75,14 @@ class neutrino_power:
             zz=np.around(zz,3)
             zerof=path.basename(f) #Bare filename
             self.plot_halofit(halosuf,zz,m_nu) #Find halofit
-            if lss == None:
+            if lssin == None:
                 lss=[":","-.","-","-"]
-            if colours == None:
+            else:
+                lss=lssin
+            if coloursin == None:
                 colours=["black","green","orange","red"]
+            else:
+                colours=coloursin
             maxks=list(maxks)
             for d in dirs:
                 #glob for directories with other seeds
