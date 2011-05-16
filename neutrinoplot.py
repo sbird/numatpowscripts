@@ -49,7 +49,8 @@ class neutrino_power:
 #         halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
         if path.exists(halo):
             plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
-#             plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls="--")
+#             plot_rel_power(path.join(self.matpowdir,"nu0"+"-mod"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-mod"+halosuf+str(zz)+".dat"),colour="green", ls="--")
+            plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls="--")
         else:
             print "Could not find "+halo
 
