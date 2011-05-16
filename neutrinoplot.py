@@ -86,27 +86,16 @@ class neutrino_power:
                 colours=coloursin
             maxks=list(maxks)
             for d in dirs:
-                #glob for directories with other seeds
-                seeds=glob.glob(d+"see*")
-                (kk, relpk) = self.get_single_file_power(d,zerof,zz)
+                (kk,relpk,disp)=self.get_pk_with_seeds(d,zerof,zz)
                 if np.size(relpk) == 0:
                     continue
-                spk=np.array([relpk,])
-                #Get all power spectra
-                for s in seeds:
-                    (kk, spka) = self.get_single_file_power(s,zerof,zz)
-                    spk=np.append(spk,[spka,],0)
-                #Find mean
-                total=np.shape(spk)[0]
-                relpk=np.sum(spk,0)/total
                 if maxks != []:
                     ind=np.where(kk < maxks.pop())
                 else:
                     ind=np.where(kk)
                 plt.semilogx(kk[ind],relpk[ind],color=colours.pop(), ls=lss.pop())
                 #Find stddev
-                if total > 1:
-                    disp = np.sqrt(np.sum((spk - relpk)**2,0)/((total-1)*1.*total))
+                if np.size(disp) > 0:
                     plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
                     plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
 
@@ -120,6 +109,26 @@ class neutrino_power:
                 plt.clf()
             elif redshifts == None:
                 plt.figure()
+
+    def get_pk_with_seeds(self,d,zerof,zz):
+        #glob for directories with other seeds
+        seeds=glob.glob(d+"see*")
+        (kk, relpk) = self.get_single_file_power(d,zerof,zz)
+        if np.size(relpk) == 0:
+            return (kk,relpk,relpk)
+        spk=np.array([relpk,])
+        #Get all power spectra
+        for s in seeds:
+            (kk, spka) = self.get_single_file_power(s,zerof,zz)
+            spk=np.append(spk,[spka,],0)
+        #Find mean
+        total=np.shape(spk)[0]
+        relpk=np.sum(spk,0)/total
+        disp=np.empty(0)
+        #Find stddev
+        if total > 1:
+            disp = np.sqrt(np.sum((spk - relpk)**2,0)/((total-1)*1.*total))
+        return (kk, relpk,disp)
 
     def get_single_file_power(self,d, zerof,zz):
         f2 = glob.glob(path.join(d,zerof))
