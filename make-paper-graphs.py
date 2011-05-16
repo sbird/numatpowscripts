@@ -29,11 +29,14 @@ def halofit_sim_compare(redshift,m_nu):
         else:
                 zi=str(49)
         m_nu=str(m_nu)
-#         neut.plot_directory('/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z'+zi,redshifts=redshift,maxk=0.5)
-        neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi],redshifts=redshift)
+        if m_nu == "0.15":
+                neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z24','/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z49'],redshifts=redshift, maxks=[1.5,])
+        else:
+                neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi],redshifts=redshift, maxks=[1.5,])
         plt.xlim(0.01,10)
         zzs=re.sub(r"\.",r"_",str(np.around(redshift,2)))
         m_nus=re.sub(r"\.",r"_",m_nu)
+#         plt.ylim(0.5,1)
         save_figure(path.join(neut.outdir,"nu"+m_nus+"z"+zzs))
         plt.clf()
 
