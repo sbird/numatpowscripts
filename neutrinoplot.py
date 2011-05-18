@@ -43,18 +43,19 @@ class neutrino_power:
             halosuf="h"+n.group(1)+halosuf
         return (m_nu, halosuf)
 
-    def plot_halofit(self, halosuf, zz,m_nu):
+    def plot_halofit(self, halosuf, zz,m_nu, halofit=True):
         halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
 #         zhalo=glob.glob(path.join(self.find_zero(dirs[0]),"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
 #         halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
         if path.exists(halo):
-            plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
+            if halofit:
+                plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
 #             plot_rel_power(path.join(self.matpowdir,"nu0"+"-mod"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-mod"+halosuf+str(zz)+".dat"),colour="green", ls="--")
             plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls="--")
         else:
             print "Could not find "+halo
 
-    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None):
+    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None, halofit=True):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = self.parse_dirname(dirs[0])
@@ -75,7 +76,7 @@ class neutrino_power:
                 zz=int(zz)
             zz=np.around(zz,3)
             zerof=path.basename(f) #Bare filename
-            self.plot_halofit(halosuf,zz,m_nu) #Find halofit
+            self.plot_halofit(halosuf,zz,m_nu,halofit=halofit) #Find halofit
             if lssin == None:
                 lss=[":","-.","-","-"]
             else:
@@ -99,9 +100,9 @@ class neutrino_power:
                     plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
                     plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
 
-            plt.ylabel(r'$\delta$ P(k)')
+            plt.ylabel(r'$\Delta$ P(k) /P')
             plt.xlabel("k /(h MPc-1)")
-            plt.title(r"P(k) change, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
+            plt.title(r"Effect of massive neutrinos for $M_{\nu} = "+m_nu+", z="+str(zz)+"$")
             if save:
                 zzs=re.sub(r"\.",r"_",str(zz))
                 plt.figure(99)
@@ -201,18 +202,15 @@ class neutrino_power:
                 files.append(f)
             else:
                 print "Could not find: "+path.join(dir2,f)
-        zdir1=self.find_zero(dir1)
-        zdir2=self.find_zero(dir2)
         line=np.array([])
         legname=np.array([])
         for f in files:
             zz=self.get_redshift(path.join(dir1,f))
             if ex_zz != None and np.any(np.abs(np.around(ex_zz,1)-zz)/(zz+1e-7) < 0.1):
                 continue
-            (kk1, rpk1)=get_rel_folded_power(path.join(zdir1,f),path.join(dir1,f))
-            (kk2, rpk2)=get_rel_folded_power(path.join(zdir2,f),path.join(dir2,f))
+            (kk1, rpk1,disp)=self.get_pk_with_seeds(dir1,f,zz)
+            (kk2, rpk2,disp)=self.get_pk_with_seeds(dir2,f,zz)
             rpk=100*(rebin(rpk2,kk2,kk1)-rpk1)
-#             (kk, rpk)=get_diff_folded_power(kk1,rpk1,kk2,rpk2)
             line=np.append(line,plt.semilogx(kk1,rpk))
             legname=np.append(legname,"z="+str(np.around(zz,1)))
 
