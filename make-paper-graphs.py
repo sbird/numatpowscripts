@@ -14,11 +14,11 @@ neut=neu.neutrino_power(data="/data/spb41_2/NU_DM", out="/home/spb41/Lyman-alpha
 #Kspace vs particle plots
 def partvskspace(m_nu):
         if m_nu > 0.3:
-                zi=str(99)
+                zi="99"
         else:
-                zi=str(49)
+                zi="49"
         m_nu = str(np.around(m_nu,1))
-        neut.plot_conv_diffs('/data/spb41_2/NU_DM/PART/b150p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi,ex_zz=np.array([49,9,4,3,2]))
+        neut.plot_conv_diffs('/data/spb41_2/NU_DM/PART/b150p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi,ex_zz=np.array([49,9,4,3,0.5,0.2]), lss=["-.","--","-"])
         plt.xlim(0.05,10)
         plt.title(r'Grid vs Particle Methods, $m_\nu = '+m_nu+'$')
 
@@ -34,6 +34,7 @@ def halofit_sim_compare(redshift,m_nu):
         else:
                 neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi],redshifts=redshift, maxks=[1.5,])
         plt.xlim(0.01,10)
+        plt.ylim(ymax=1.0)
         zzs=re.sub(r"\.",r"_",str(np.around(redshift,2)))
         m_nus=re.sub(r"\.",r"_",m_nu)
 #         plt.ylim(0.5,1)
@@ -41,10 +42,10 @@ def halofit_sim_compare(redshift,m_nu):
         plt.clf()
 
 #Initial plots of grid and particle, to make the point that they are basically the same.
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-","--"])
+neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-","-."])
 save_figure(path.join(neut.outdir,"shapepvsgridz1"))
 plt.clf()
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-","."])
+neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-","-."])
 save_figure(path.join(neut.outdir,"shapepvsgridz0"))
 plt.clf()
 
@@ -59,6 +60,6 @@ save_figure(path.join(neut.outdir,"partvskspace0_6"))
 plt.clf()
 
 #Halofit graphs
-for z in [0, 0.2, 0.5, 1]:
+for z in [0, 0.2, 0.5, 1,2,3]:
         for m in [0.15, 0.3, 0.6]:
                 halofit_sim_compare(z,m)

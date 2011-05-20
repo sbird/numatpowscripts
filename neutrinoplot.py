@@ -78,13 +78,15 @@ class neutrino_power:
             zerof=path.basename(f) #Bare filename
             self.plot_halofit(halosuf,zz,m_nu,halofit=halofit) #Find halofit
             if lssin == None:
-                lss=[":","-.","-","-"]
+                lss=["-","-","-.",":"]
             else:
                 lss=lssin
+            lss.reverse()
             if coloursin == None:
-                colours=["black","green","orange","red"]
+                colours=["red","orange","green","black"]
             else:
                 colours=coloursin
+            colours.reverse()
             maxks=list(maxks)
             for d in dirs:
                 (kk,relpk,disp)=self.get_pk_with_seeds(d,zerof,zz)
@@ -96,13 +98,13 @@ class neutrino_power:
                     ind=np.where(kk)
                 plt.semilogx(kk[ind],relpk[ind],color=colours.pop(), ls=lss.pop())
                 #Find stddev
-                if np.size(disp) > 0:
-                    plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
-                    plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
+#                 if np.size(disp) > 0:
+#                     plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
+#                     plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
 
-            plt.ylabel(r'$\Delta$ P(k) /P')
-            plt.xlabel("k /(h MPc-1)")
-            plt.title(r"Effect of massive neutrinos for $M_{\nu} = "+m_nu+", z="+str(zz)+"$")
+            plt.ylabel(r'$\Delta$ P /P')
+            plt.xlabel("k /(h MPc$^{-1}$)")
+            plt.title(r"Change in $P(k)$ for $M_{\nu} = "+m_nu+", z="+str(zz)+"$")
             if save:
                 zzs=re.sub(r"\.",r"_",str(zz))
                 plt.figure(99)
@@ -185,13 +187,14 @@ class neutrino_power:
             new = re.sub("nu"+m_nu,"nu0",d)
             zerodir=glob.glob(new)
             if np.size(zerodir)==0:
+                print "Warning! No exact zero match found for "+d
                 n=re.search("nu"+m_nu,d)
                 zerodir=glob.glob(d[:n.start()]+"nu0z"+zz)
                 if np.size(zerodir) == 0:
                         raise IOError,"No massless neutrino simulation found for "+d
             return zerodir[0]
     
-    def plot_conv_diffs(self, dir1, dir2, ex_zz=None):
+    def plot_conv_diffs(self, dir1, dir2, ex_zz=None, lss=None):
         #Find the nu mass in the directory
         files1=map(path.basename, glob.glob(dir1+"/powerspec_0*"))
         files2=map(path.basename,glob.glob(dir2+"/powerspec_0*"))
@@ -202,22 +205,23 @@ class neutrino_power:
                 files.append(f)
             else:
                 print "Could not find: "+path.join(dir2,f)
-        line=np.array([])
-        legname=np.array([])
-        for f in files:
+        if lss!=None:
+            lss.reverse()
+        for f in sorted(files):
             zz=self.get_redshift(path.join(dir1,f))
             if ex_zz != None and np.any(np.abs(np.around(ex_zz,1)-zz)/(zz+1e-7) < 0.1):
                 continue
             (kk1, rpk1,disp)=self.get_pk_with_seeds(dir1,f,zz)
             (kk2, rpk2,disp)=self.get_pk_with_seeds(dir2,f,zz)
             rpk=100*(rebin(rpk2,kk2,kk1)-rpk1)
-            line=np.append(line,plt.semilogx(kk1,rpk))
-            legname=np.append(legname,"z="+str(np.around(zz,1)))
+            if lss !=None:
+                plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)), ls=lss.pop())
+            plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)))
 
         plt.title(r"Change, "+dir1+"  "+dir2)
-        plt.ylabel(r'Percentage change')
-        plt.xlabel("k /(h MPc-1)")
-        plt.legend(line,legname,loc=3,ncol=2, mode="expand", borderaxespad=0.)
+        plt.ylabel(r'$\Delta$ P/P (%)')
+        plt.xlabel("k /(h MPc$^{-1}$)")
+        plt.legend(loc=3,ncol=3, mode="expand", borderaxespad=0.)
 
     def get_redshift(self,file):
         f = open(file, 'r')
