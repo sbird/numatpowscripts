@@ -24,15 +24,9 @@ def partvskspace(m_nu):
 
 #512+150Mpc boxes
 def halofit_sim_compare(redshift,m_nu):
-        if m_nu > 0.3:
-                zi=str(99)
-        else:
-                zi=str(49)
+        zi = { "0.15" : "24", "0.3" : "49", "0.6" : "99"}
         m_nu=str(m_nu)
-        if m_nu == "0.15":
-                neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z24','/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z49'],redshifts=redshift, maxks=[1.5,])
-        else:
-                neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b512p512nu'+m_nu+'z'+zi,'/data/spb41_2/NU_DM/KSPACE/b150p512nu'+m_nu+'z'+zi],redshifts=redshift, maxks=[1.5,])
+        neut.plot_directory(['/data/spb41_2/NU_DM/PART/b512p512nu'+m_nu+'z'+zi[m_nu],'/data/spb41_2/NU_DM/PART/b150p512nu'+m_nu+'z'+zi[m_nu]],redshifts=redshift, maxks=[1.5,])
         plt.xlim(0.01,10)
         plt.ylim(ymax=1.0)
         zzs=re.sub(r"\.",r"_",str(np.around(redshift,2)))
@@ -42,24 +36,28 @@ def halofit_sim_compare(redshift,m_nu):
         plt.clf()
 
 #Initial plots of grid and particle, to make the point that they are basically the same.
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-","-."])
+neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-","-."],coloursin=["green","red"])
+plt.xlim(0.02,20)
+plt.ylim(0.7,1.0)
 save_figure(path.join(neut.outdir,"shapepvsgridz1"))
 plt.clf()
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-","-."])
+neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-","-."],coloursin=["green","red"])
+plt.xlim(0.02,20)
+plt.ylim(0.7,1.0)
 save_figure(path.join(neut.outdir,"shapepvsgridz0"))
 plt.clf()
 
 #Part vs KSPACE percentage
 partvskspace(0.3)
-plt.ylim(-4,2)
+plt.ylim(-5,1)
 save_figure(path.join(neut.outdir,"partvskspace0_3"))
 plt.clf()
 partvskspace(0.6)
-plt.ylim(-6,1)
+plt.ylim(-7,0)
 save_figure(path.join(neut.outdir,"partvskspace0_6"))
 plt.clf()
 
 #Halofit graphs
 for z in [0, 0.2, 0.5, 1,2,3]:
-        for m in [0.15, 0.3, 0.6]:
+        for m in [0.3, 0.6]:
                 halofit_sim_compare(z,m)

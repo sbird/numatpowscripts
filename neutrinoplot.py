@@ -216,7 +216,8 @@ class neutrino_power:
             rpk=100*(rebin(rpk2,kk2,kk1)-rpk1)
             if lss !=None:
                 plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)), ls=lss.pop())
-            plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)))
+            else:
+                plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)))
 
         plt.title(r"Change, "+dir1+"  "+dir2)
         plt.ylabel(r'$\Delta$ P/P (%)')
