@@ -59,5 +59,5 @@ plt.clf()
 
 #Halofit graphs
 for z in [0, 0.2, 0.5, 1,2,3]:
-        for m in [0.3, 0.6]:
+        for m in [0.15, 0.3, 0.6]:
                 halofit_sim_compare(z,m)
