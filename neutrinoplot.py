@@ -102,9 +102,9 @@ class neutrino_power:
 #                     plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
 #                     plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
 
-            plt.ylabel(r'$\Delta$ P /P')
+            plt.ylabel(r'$\Delta^2_\nu /\Delta^2_\mathrm{CDM}$')
             plt.xlabel("k /(h MPc$^{-1}$)")
-            plt.title(r"Change in $P(k)$ for $M_{\nu} = "+m_nu+", z="+str(zz)+"$")
+            plt.title(r"Change in $\Delta^2(k)$ for $M_{\nu} = "+m_nu+", z="+str(zz)+"$")
             if save:
                 zzs=re.sub(r"\.",r"_",str(zz))
                 plt.figure(99)
@@ -220,7 +220,7 @@ class neutrino_power:
                 plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)))
 
         plt.title(r"Change, "+dir1+"  "+dir2)
-        plt.ylabel(r'$\Delta$ P/P (%)')
+        plt.ylabel(r'$\Delta^2_\nu /\Delta^2_\mathrm{CDM}$')
         plt.xlabel("k /(h MPc$^{-1}$)")
         plt.legend(loc=3,ncol=3, mode="expand", borderaxespad=0.)
 

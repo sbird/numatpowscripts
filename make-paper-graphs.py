@@ -36,12 +36,12 @@ def halofit_sim_compare(redshift,m_nu):
         plt.clf()
 
 #Initial plots of grid and particle, to make the point that they are basically the same.
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-","-."],coloursin=["green","red"])
+neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-.","-"],coloursin=["red","green"])
 plt.xlim(0.02,20)
 plt.ylim(0.7,1.0)
 save_figure(path.join(neut.outdir,"shapepvsgridz1"))
 plt.clf()
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-","-."],coloursin=["green","red"])
+neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-.","-"],coloursin=["red","green"])
 plt.xlim(0.02,20)
 plt.ylim(0.7,1.0)
 save_figure(path.join(neut.outdir,"shapepvsgridz0"))
