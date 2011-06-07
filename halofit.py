@@ -16,7 +16,7 @@
 import math
 import re
 import numpy as np
-from scipy.integrate import quad,Inf
+from scipy.integrate import quad,Inf,romb
 from scipy.optimize import bisect
 from scipy.interpolate import InterpolatedUnivariateSpline
 
@@ -26,6 +26,7 @@ class halofit:
     om_v=0.
     CAMB_Pk = np.array([])
     intpk=0
+    ksig=1e6
     k = np.array([])
     logkmax=0
     logkmin=0
@@ -37,13 +38,16 @@ class halofit:
         zz=float(m.group(1))
         self.k=mk1[1:,0]
         self.CAMB_Pk=mk1[1:,1]
-        self.intpk=InterpolatedUnivariateSpline(np.log(self.k),self.CAMB_Pk)
         self.logkmax=np.log(self.k[-1])
         self.logkmin=np.log(self.k[0])
         a = 1./(1+zz)
         self.om_m = self.omega_m(a, omm0, omv0)  
         self.om_v = self.omega_v(a, omm0, omv0)
-
+        # Remember => plin = k^3 * P(k) * constant
+        # constant = 4*pi*V/(2*pi)^3 
+        self.Delta_l = self.k**3*self.CAMB_Pk*self.anorm
+#         self.intpk=InterpolatedUnivariateSpline(np.log(self.k),self.Delta_l)
+        self.ksig = self._ksig()
 
     """Find omega_m at a given expansion factor"""
     def omega_m(self, aa,om_m0,om_v0):
@@ -57,34 +61,42 @@ class halofit:
         return omega_v
 
     # Find Delta^2(k) given k
-    def Delta(self,logk):
-        Pk=self.intpk(logk)
+#     def Delta(self,logk):
+#         Delta=self.intpk(logk)
         #Guard against interpolation errors
-        if Pk < 0:
-            Pk = 0
-        return np.exp(logk)**3*Pk*self.anorm
-            
+#         if Pk < 0:
+#             Pk = 0
+#         return Delta
 
     #Function to pass to integrator
-    def wintegrand(self,logk,R):
-        return self.Delta(logk)*math.exp(-(np.exp(logk)*R)**2)
-
 #     def wintegrand(self,logk,R):
-#         anorm = 1./(2*math.pi**2)
-#         k=np.exp(logk)
-#         return self.CAMB_Pk*k**3*anorm*np.exp(-(k*R)**2)
+#         return self.Delta(logk)*math.exp(-(np.exp(logk)*R)**2)
+
+    def wintegrand(self,R):
+        return self.Delta_l*np.exp(-(self.k*R)**2)
+
     def sigma2(self,logR):
         R=np.exp(logR)
-        (s2,err) = quad(self.wintegrand,self.logkmin,self.logkmax,args=(R,),epsrel=1e-5)
-        if err > 0.01:
-                print "Integration error: %g",err
+        size=4*2**int(np.round(np.log2(np.size(self.k))))+1
+        lspacek=np.linspace(self.logkmin,self.logkmax,size)
+        intpk=InterpolatedUnivariateSpline(np.log(self.k),self.wintegrand(R))
+        Delta=intpk(lspacek)
+        s2 = romb(Delta, lspacek[1]-lspacek[0])
         return s2
+
+
+#     def sigma2(self,logR):
+#         R=np.exp(logR)
+#         (s2,err) = quad(self.wintegrand,self.logkmin,self.logkmax,args=(R,),epsrel=1e-5)
+#         if err > 0.01:
+#                 print "Integration error: %g",err
+#         return s2
     
     def sigdiff(self,logR):
         s2=self.sigma2(logR)
         return np.sqrt(s2)-1
     
-    def ksig(self):
+    def _ksig(self):
         xlogr1=-7
         xlogr2=7
         #If no non-linear growth, return linear theory
@@ -104,31 +116,27 @@ class halofit:
         delta = logR*0.03 #NR 5.7; cbrt(1e-6)(1e-6)**0.25
         return -(np.log(self.sigma2(logR+2*delta))-2*np.log(self.sigma2(logR))+np.log(self.sigma2(logR-2*delta)))/(2*delta)**2
 
-    def do_nonlin(self):
-        #BR09 put neutrinos into the matter as well
-        # calculate nonlinear wavenumber (rknl), effective spectral index (rneff) and 
-        # curvature (rncur) of the power spectrum at the desired redshift, using method 
-        # described in Smith et al (2002).
-        ksig = self.ksig()
-        # Remember => plin = k^3 * P(k) * constant
-        # constant = 4*pi*V/(2*pi)^3 
-        Delta_lin = self.k**3*self.CAMB_Pk*self.anorm
-
-        # calculate nonlinear power according to halofit: pnl = pq + ph,
-        # where pq represents the quasi-linear (halo-halo) power and 
-        # where ph is represents the self-correlation halo term. 
- 
-        (pnl,pq,ph) = self.halofit(self.neff(ksig),self.curv(ksig),ksig,Delta_lin)   # halo fitting formula 
-        return self.k, pnl,pq,ph
+    """BR09 put neutrinos into the matter as well
+       calculate nonlinear wavenumber (rknl), effective spectral index (rneff) and 
+       curvature (rncur) of the power spectrum at the desired redshift, using method 
+       described in Smith et al (2002).
+       calculate nonlinear power according to halofit: pnl = pq + ph,
+       where pq represents the quasi-linear (halo-halo) power and 
+       where ph is represents the self-correlation halo term."""
+    def do_nonlin(self,s1=0,s2=0):
+        neff=self.neff(self.ksig)
+        curv=self.curv(self.ksig)
+        (pnl,pq,ph) = self.halofit(neff,curv,self.ksig,self.Delta_l,s1,s2)   # halo fitting formula 
+        return pnl
 
     """halo model nonlinear fitting formula as described in 
     Appendix C of Smith et al. (2002)"""
-    def halofit(self,rn,rncur,ksig,plin):
-        gam=0.86485+0.2989*rn+0.1631*rncur
+    def halofit(self,rn,rncur,ksig,plin,s1=0,s2=0):
+        gam=s2+0.86485+0.2989*rn+0.1631*rncur
         a=1.4861+1.83693*rn+1.67618*rn*rn+0.7940*rn*rn*rn+ 0.1670756*rn*rn*rn*rn-0.620695*rncur
         a=10**a
         b=10**(0.9463+0.9466*rn+0.3084*rn*rn-0.940*rncur)
-        c=10**(-0.2807+0.6669*rn+0.3214*rn*rn-0.0793*rncur)
+        c=10**(s1-0.2807+0.6669*rn+0.3214*rn*rn-0.0793*rncur)
         xmu=10**(-3.54419+0.19086*rn)
         xnu=10**(0.95897+1.2857*rn)
         alpha=1.38848+0.3701*rn-0.1452*rn*rn
