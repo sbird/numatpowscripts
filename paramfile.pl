@@ -6,12 +6,14 @@ my $o_nu=shift;
 my $om=0.3;
 my $hub=0.7;
 my $ns=1.0;
+my $as=2.27;
 if($#ARGV >= 2){
         $om=shift;
         $hub=shift;
         $ns=shift;
+        $as=shift;
 }
-my $halo=1;
+my $halo=0;
 
 my $o_cdm=$om-0.05- $o_nu;
 my $ol = 1 - $om;
@@ -35,9 +37,14 @@ if($ns != 1.0){
         $root = $root."ns$ns";
         $newparams = $newparams."ns$ns";
 }
+if($as != 2.27){
+        $root = $root."as$as";
+        $newparams = $newparams."as$as";
+}
 $newparams .=".ini";
 my @red = (99,49,9, 4,3,2,1,0.5,0.3, 0.2,0.1,0);
 $hub*=100;
+$as*=1e-9;
 #Read in template parameter file
 open(my $INHAND, "<","$paramfile") or die "Could not open $paramfile for reading!";
 open(my $OUTHAND, ">","$newparams") or die "Could not open $newparams for writing!";
@@ -58,11 +65,11 @@ while(<$INHAND>){
         #Set initial conditions; scalar_amp is to give sigma_8 = 0.878 at z=0 with nu=0.
         #Pivot irrelevant as n_s = 1
         s/^\s*initial_power_num\s*=\s*[\w\/.-]*/initial_power_num = 1/i;
-        s/^\s*scalar_amp\(1\)\s*=\s*[\w\/.-]*/scalar_amp(1) = 2.27e-9/i;
+        s/^\s*scalar_amp\(1\)\s*=\s*[\w\/.-]*/scalar_amp(1) = $as/i;
         s/^\s*scalar_spectral_index\(1\)\s*=\s*[\w\/.-]*/scalar_spectral_index(1) = $ns/i;
         s/^\s*scalar_nrun\(1\)\s*=\s*[\w\/.-]*/scalar_nrun(1) = 0/i;
         #Set up output
-        s/^\s*transfer_kmax\s*=\s*[\w\/.-]*/transfer_kmax = 30/i;
+        s/^\s*transfer_kmax\s*=\s*[\w\/.-]*/transfer_kmax = 300/i;
         my $nout=$#red+1;
         s/^\s*transfer_num_redshifts\s*=\s*[\w\/.-]*/transfer_num_redshifts = $nout/i;
         s/^\s*transfer_interp_matterpower\s*=\s*[\w\/.-]*/transfer_interp_matterpower = T/i;
