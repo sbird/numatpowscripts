@@ -8,7 +8,60 @@ import os.path as path
 from plot_mat_pow import *
 import matplotlib.pyplot as plt
 
+"""Find a linear CAMB power spectrum, given a simulation. 
+Written for the python halofit implementation"""
+def find_linpk(simpk,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/"):
+    zz=get_redshift(simpk)
+    if zz >= 1 or zz <0.001:
+        zz=int(zz)
+    zz=np.around(zz,3)
+    (m_nu, halosuf) = parse_dirname(simpk)
+    linpk=path.join(pkdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat")
+    return linpk
+        
+"""Parse the directory name for neutrino mass, particles, and starting redshift"""
+def parse_dirname(dir):
+    #Find the nu mass in the directory
+    m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",dir)
+    m_nu=m.group(3)
+    #Search for various other parameters we might have changed
+    halosuf="_matterpow_"
+    n=re.search(r"om([\d+\.]+)",dir)
+    if n:
+        halosuf="om"+n.group(1)+halosuf
+    n=re.search(r"ns([\d+\.]+)",dir)
+    if n:
+        halosuf="ns"+n.group(1)+halosuf
+    n=re.search(r"h([\d\.]+)",dir)
+    if n:
+        halosuf="h"+n.group(1)+halosuf
+    n=re.search(r"as([\d+\.]+)",dir)
+    if n:
+        halosuf="as"+n.group(1)+halosuf
+    return (m_nu, halosuf)
 
+"""Open a file and read the first number to get its redshift"""
+def get_redshift(file):
+    f = open(file, 'r')
+    a=float(f.readline())
+    f.close()
+    return (1./a)-1.
+
+"""Find the directory corresponding to d with m_nu = 0"""
+def find_zero(d):
+        m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",d)
+        m_nu=m.group(3)
+        zz=m.group(4)
+        new = re.sub("nu"+m_nu,"nu0",d)
+        zerodir=glob.glob(new)
+        if np.size(zerodir)==0:
+            print "Warning! No exact zero match found for "+d
+            n=re.search("nu"+m_nu,d)
+            zerodir=glob.glob(d[:n.start()]+"nu0z"+zz)
+            if np.size(zerodir) == 0:
+                    raise IOError,"No massless neutrino simulation found for "+d
+        return zerodir[0]
+    
 #Function to make all the plots in a directory. 
 #Arguments are: outdir, datadir (ie, where powerspec is)
 class neutrino_power:
@@ -26,23 +79,6 @@ class neutrino_power:
         self.dirs = [ d for d in self.dirs if not re.search("\d+nu0z\d+",d) ]
         self.dirs = [ d for d in self.dirs if not re.search("\d+z\d+seed\d*",d) ]
     
-    def parse_dirname(self, dir):
-        #Find the nu mass in the directory
-        m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",dir)
-        m_nu=m.group(3)
-        #Search for various other parameters we might have changed
-        halosuf="_matterpow_"
-        n=re.search(r"om([\d+\.]+)",dir)
-        if n:
-            halosuf="om"+n.group(1)+halosuf
-        n=re.search(r"ns([\d+\.]+)",dir)
-        if n:
-            halosuf="ns"+n.group(1)+halosuf
-        n=re.search(r"h([\d\.]+)",dir)
-        if n:
-            halosuf="h"+n.group(1)+halosuf
-        return (m_nu, halosuf)
-
     def plot_halofit(self, halosuf, zz,m_nu, halofit=True):
         halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
 #         zhalo=glob.glob(path.join(self.find_zero(dirs[0]),"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
@@ -58,7 +94,7 @@ class neutrino_power:
     def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None, halofit=True):
         if np.size(dirs) == 1:
             dirs = [dirs,]
-        (m_nu, halosuf) = self.parse_dirname(dirs[0])
+        (m_nu, halosuf) = parse_dirname(dirs[0])
         if m_nu == '0':
             return
         files=glob.glob(dirs[0]+"/powerspec_0*")
@@ -69,7 +105,7 @@ class neutrino_power:
                 os.makedirs(outdir)
             print "Output to: "+outdir
         for f in files:
-            zz=self.get_redshift(f)
+            zz=get_redshift(f)
             if redshifts != None and np.any(np.abs(redshifts-zz)/(zz+1e-7) > 0.005):
                 continue
             if zz >= 1 or zz <0.001:
@@ -135,7 +171,7 @@ class neutrino_power:
 
     def get_single_file_power(self,d, zerof,zz):
         f2 = glob.glob(path.join(d,zerof))
-        zerodir=self.find_zero(d)
+        zerodir=find_zero(d)
         if np.size(f2) != 0:
             print "file: "+f2[0]+" at z="+str(zz)
             return get_rel_folded_power(path.join(zerodir,zerof),f2[0])
@@ -180,20 +216,6 @@ class neutrino_power:
 
         plt.title(r"P(k) for ICs, $m_{\nu} = "+m_nu+", z="+str(zz)+"$")
 
-    def find_zero(self, d):
-            m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",d)
-            m_nu=m.group(3)
-            zz=m.group(4)
-            new = re.sub("nu"+m_nu,"nu0",d)
-            zerodir=glob.glob(new)
-            if np.size(zerodir)==0:
-                print "Warning! No exact zero match found for "+d
-                n=re.search("nu"+m_nu,d)
-                zerodir=glob.glob(d[:n.start()]+"nu0z"+zz)
-                if np.size(zerodir) == 0:
-                        raise IOError,"No massless neutrino simulation found for "+d
-            return zerodir[0]
-    
     def plot_conv_diffs(self, dir1, dir2, ex_zz=None, lss=None):
         #Find the nu mass in the directory
         files1=map(path.basename, glob.glob(dir1+"/powerspec_0*"))
@@ -208,7 +230,7 @@ class neutrino_power:
         if lss!=None:
             lss.reverse()
         for f in sorted(files):
-            zz=self.get_redshift(path.join(dir1,f))
+            zz=get_redshift(path.join(dir1,f))
             if ex_zz != None and np.any(np.abs(np.around(ex_zz,1)-zz)/(zz+1e-7) < 0.1):
                 continue
             (kk1, rpk1,disp)=self.get_pk_with_seeds(dir1,f,zz)
@@ -224,8 +246,3 @@ class neutrino_power:
         plt.xlabel("k /(h MPc$^{-1}$)")
         plt.legend(loc=3,ncol=3, mode="expand", borderaxespad=0.)
 
-    def get_redshift(self,file):
-        f = open(file, 'r')
-        a=float(f.readline())
-        f.close()
-        return (1./a)-1.

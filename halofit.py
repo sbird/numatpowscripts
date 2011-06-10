@@ -34,7 +34,7 @@ class halofit:
 
     def __init__(self,pkfile,omm0=0.3,omv0=0.7):
         mk1=np.loadtxt(pkfile)
-        m=re.search(r"matterpow_(\d+).dat",pkfile)
+        m=re.search(r"matterpow_([\d.]+).dat",pkfile)
         zz=float(m.group(1))
         self.k=mk1[1:,0]
         self.CAMB_Pk=mk1[1:,1]
@@ -100,7 +100,7 @@ class halofit:
         xlogr1=-7
         xlogr2=7
         #If no non-linear growth, return linear theory
-        if self.sigma2(xlogr1) < 0:
+        if self.sigdiff(xlogr1) < 0:
                 return 1e6
         #Find non-linear scale k_sigma
         k_sig = 1./np.exp(bisect(self.sigdiff,xlogr1, xlogr2))
@@ -123,20 +123,20 @@ class halofit:
        calculate nonlinear power according to halofit: pnl = pq + ph,
        where pq represents the quasi-linear (halo-halo) power and 
        where ph is represents the self-correlation halo term."""
-    def do_nonlin(self,s1=0,s2=0):
+    def do_nonlin(self,par=[0,]):
         neff=self.neff(self.ksig)
         curv=self.curv(self.ksig)
-        (pnl,pq,ph) = self.halofit(neff,curv,self.ksig,self.Delta_l,s1,s2)   # halo fitting formula 
+        (pnl,pq,ph) = self.halofit(neff,curv,self.ksig,self.Delta_l,par)   # halo fitting formula 
         return pnl
 
     """halo model nonlinear fitting formula as described in 
     Appendix C of Smith et al. (2002)"""
-    def halofit(self,rn,rncur,ksig,plin,s1=0,s2=0):
-        gam=s2+0.86485+0.2989*rn+0.1631*rncur
+    def halofit(self,rn,rncur,ksig,plin,par):
+        gam=par[0]+par[1]*rn+par[2]*rncur+0.86485+0.2989*rn+0.1631*rncur
         a=1.4861+1.83693*rn+1.67618*rn*rn+0.7940*rn*rn*rn+ 0.1670756*rn*rn*rn*rn-0.620695*rncur
         a=10**a
         b=10**(0.9463+0.9466*rn+0.3084*rn*rn-0.940*rncur)
-        c=10**(s1-0.2807+0.6669*rn+0.3214*rn*rn-0.0793*rncur)
+        c=10**(-0.2807+0.6669*rn+0.3214*rn*rn-0.0793*rncur)
         xmu=10**(-3.54419+0.19086*rn)
         xnu=10**(0.95897+1.2857*rn)
         alpha=1.38848+0.3701*rn-0.1452*rn*rn
@@ -160,7 +160,7 @@ class halofit:
 
         y=self.k/ksig
 
-        php=a*y**(f1*3.)/(1+b*y**f2+(f3*c*y)**(3.-gam))
+        php=(a*y**(f1*3.))/(1+b*y**f2+(f3*c*y)**(3.-gam))   #*(1+par[0]*np.tanh((y/50)**2))
         ph=php/(1+xmu/y+xnu/y**2)
         pq=plin*((plin+1)**beta/(plin*alpha+1))*np.exp(-y/4.0-y**2/8.0)
 
