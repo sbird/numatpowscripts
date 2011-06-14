@@ -125,8 +125,13 @@ def get_folded_power(fname1):
         pk_aa = np.ravel(pk_a1[ind])
         return (np.concatenate([kk_b1,kk_aa1]), np.concatenate([pk_b1, pk_aa]))
 
+#This is a cache for files that will not change between reads
+folded_filedata={}
+
 """Load the folded power spectrum file"""
 def loadfolded(fname):
+        if fname in folded_filedata:
+                return folded_filedata[fname]
         f_in= np.fromfile(fname, sep=' ',count=-1)
         #Load header
         scale=1000
@@ -156,6 +161,7 @@ def loadfolded(fname):
                 ind=np.where(kk_b > 4*kk_b[0])
                 kk_b=kk_b[ind]
                 pk_b=pk_b[ind]
+        folded_filedata[fname]=(scale*kk_a, pk_a, scale*kk_b, pk_b)
 
         return (scale*kk_a, pk_a, scale*kk_b, pk_b)
 
@@ -190,35 +196,35 @@ def GetFoldedPower(adata, bins):
         TargetBins = 80
         if(np.max(K_A) == 0 or np.min(K_A) ==0):
                 raise Exception
-        MinDlogK = (np.log10(np.max(K_A)) - np.log10(np.min(K_A)))/TargetBins
-        deltak= MinDlogK
+        logK_A=np.log10(K_A)
+        MinDlogK = (np.max(logK_A) - np.min(logK_A))/TargetBins
         istart=0
-        ind=np.array([0])
-        k_list_A = np.array([])
-        Pk_list = np.array([])
-        count_list_A = np.array([])
-        while(istart < bins):
-                count = np.sum(ModeCount_A[ind])
-                deltak =  (np.log10(np.max(K_A[ind])) - np.log10(np.min(K_A[ind])))
-                if (deltak >= MinDlogK and count >= MinModeCount):
-                        pk = np.sum(SumPower_A[ind])/np.sum(ModeCount_A[ind])
-                        b = np.trunc(np.sum(ind*ModeCount_A[ind])/np.sum(ModeCount_A[ind]))
+        iend=0
+        k_list_A = []#np.array([])
+        Pk_list = []#np.array([])
+#         count_list_A =[]# np.array([])
+        count=0
+        targetlogK=MinDlogK+logK_A[istart]
+        while(iend < bins):
+                count+=ModeCount_A[iend]
+                iend+=1
+                if count >= MinModeCount and logK_A[iend-1] >= targetlogK:
+                        pk = np.sum(SumPower_A[istart:iend])/count
+                        b = np.trunc(np.sum(np.arange(istart,iend)*ModeCount_A[istart:iend])/count)
                         kk = K_A[b]
                         pk *= (ConvFac_A[b]*Specshape_A[b])
                         #This is a correction from what is done in pm_periodic. 
                         #I think it is some sort of bin weighted average.
                         #In pm_periodic he divides each mode by Specshape_A(k_mode)
                         #, and then sums them. Here he then multiplies by Specshape_A(k_bin)
-                        k_list_A=np.append(k_list_A,kk)
-                        Pk_list=np.append(Pk_list,pk)
-                        count_list_A=np.append(count_list_A, np.sum(ModeCount_A[ind]))
-                        istart+=1
-                        ind = np.array([istart])
+                        k_list_A.append(kk)
+                        Pk_list.append(pk)
+#                         count_list_A.append(count)
+                        istart=iend
+                        targetlogK=logK_A[istart]+MinDlogK
+                        count=0
                         if pk < 0:
                                 raise Exception
-                else: 
-                        istart+=1
-                        ind=np.append(ind, istart)
-        return (k_list_A, Pk_list)
+        return (np.array(k_list_A), np.array(Pk_list))
 
 
