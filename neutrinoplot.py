@@ -61,7 +61,39 @@ def find_zero(d):
             if np.size(zerodir) == 0:
                     raise IOError,"No massless neutrino simulation found for "+d
         return zerodir[0]
-    
+
+"""Get the P(k) from a single file, averaging over seed values"""
+def get_pk_with_seeds(d,zerof):
+    #glob for directories with other seeds
+    seeds=glob.glob(d+"see*")
+    (kk, relpk) = get_single_file_power(d,zerof)
+    if np.size(relpk) == 0:
+        return (kk,relpk,relpk)
+    spk=np.array([relpk,])
+    #Get all power spectra
+    for s in seeds:
+        (kk, spka) = get_single_file_power(s,zerof)
+        spk=np.append(spk,[spka,],0)
+    #Find mean
+    total=np.shape(spk)[0]
+    relpk=np.sum(spk,0)/total
+    disp=np.empty(0)
+    #Find stddev
+    if total > 1:
+        disp = np.sqrt(np.sum((spk - relpk)**2,0)/((total-1)*1.*total))
+    return (kk, relpk,disp)
+
+"""Get the P(k) from a single file"""
+def get_single_file_power(d, zerof):
+    f2 = glob.glob(path.join(d,zerof))
+    zerodir=find_zero(d)
+    if np.size(f2) != 0:
+#         print "file: "+f2[0]
+        return get_rel_folded_power(path.join(zerodir,zerof),f2[0])
+    else:
+        print "Could not find: "+path.join(d,zerof)
+        return (np.empty(0), np.empty(0))
+
 #Function to make all the plots in a directory. 
 #Arguments are: outdir, datadir (ie, where powerspec is)
 class neutrino_power:
@@ -125,7 +157,7 @@ class neutrino_power:
             colours.reverse()
             maxks=list(maxks)
             for d in dirs:
-                (kk,relpk,disp)=self.get_pk_with_seeds(d,zerof,zz)
+                (kk,relpk,disp)=get_pk_with_seeds(d,zerof)
                 if np.size(relpk) == 0:
                     continue
                 if maxks != []:
@@ -148,36 +180,6 @@ class neutrino_power:
                 plt.clf()
             elif redshifts == None:
                 plt.figure()
-
-    def get_pk_with_seeds(self,d,zerof,zz):
-        #glob for directories with other seeds
-        seeds=glob.glob(d+"see*")
-        (kk, relpk) = self.get_single_file_power(d,zerof,zz)
-        if np.size(relpk) == 0:
-            return (kk,relpk,relpk)
-        spk=np.array([relpk,])
-        #Get all power spectra
-        for s in seeds:
-            (kk, spka) = self.get_single_file_power(s,zerof,zz)
-            spk=np.append(spk,[spka,],0)
-        #Find mean
-        total=np.shape(spk)[0]
-        relpk=np.sum(spk,0)/total
-        disp=np.empty(0)
-        #Find stddev
-        if total > 1:
-            disp = np.sqrt(np.sum((spk - relpk)**2,0)/((total-1)*1.*total))
-        return (kk, relpk,disp)
-
-    def get_single_file_power(self,d, zerof,zz):
-        f2 = glob.glob(path.join(d,zerof))
-        zerodir=find_zero(d)
-        if np.size(f2) != 0:
-            print "file: "+f2[0]+" at z="+str(zz)
-            return get_rel_folded_power(path.join(zerodir,zerof),f2[0])
-        else:
-            print "Could not find: "+path.join(d,zerof)
-            return (np.empty(0), np.empty(0))
 
     def plot_ics(self, dirs):
         if np.size(dirs) == 1:
@@ -233,8 +235,8 @@ class neutrino_power:
             zz=get_redshift(path.join(dir1,f))
             if ex_zz != None and np.any(np.abs(np.around(ex_zz,1)-zz)/(zz+1e-7) < 0.1):
                 continue
-            (kk1, rpk1,disp)=self.get_pk_with_seeds(dir1,f,zz)
-            (kk2, rpk2,disp)=self.get_pk_with_seeds(dir2,f,zz)
+            (kk1, rpk1,disp)=get_pk_with_seeds(dir1,f)
+            (kk2, rpk2,disp)=get_pk_with_seeds(dir2,f)
             rpk=100*(rebin(rpk2,kk2,kk1)-rpk1)
             if lss !=None:
                 plt.semilogx(kk1,rpk,label="z="+str(np.around(zz,1)), ls=lss.pop())
