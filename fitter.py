@@ -5,7 +5,7 @@ import os.path as path
 import plot_mat_pow as pmat
 import neutrinoplot as neu
 import matplotlib.pyplot as plt
-from scipy.optimize import leastsq,fmin
+from scipy.optimize import leastsq,fmin,fmin_powell
 from scipy.interpolate import InterpolatedUnivariateSpline
 
 class fitter:
@@ -41,14 +41,14 @@ class fitter:
                 total+=np.sum((pk/halopk-1)**2)
             return total
 
-        def do_min(self):
-            x=fmin(self.halopk,[0,0,0])
+        def do_min(self, npar=4):
+            x=fmin(self.halopk,np.zeros(npar))
             self.best_fit=np.array(x)
             return x
 
         def plot_residual(self,file,par=0):
             (pk,halo)=self.simpk[file]
-            if np.size(par) < 3:
+            if np.size(par) < 4:
                     par=self.best_fit
             halofit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(self.logk))
             plt.semilogx(np.exp(self.logk),pk/halofit)
@@ -95,8 +95,14 @@ class relfit(fitter):
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),relpk[ind])
                 self.simpk[s]=(intpk(self.logk),halofit.relhalofit(l))
         
+        def do_min(self,npar=4):
+            x=fmin_powell(self.halopk,np.zeros(npar))
+            self.best_fit=np.array(x)
+            return x
+
+        
 class data:
-        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=6,maxz=3):
+        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=6,maxz=3,npar=4):
             self.pkfiles={} #simpk->linpk
 
             for dir in simdir:
@@ -109,9 +115,8 @@ class data:
                     self.pkfiles[f]=neu.find_linpk(f)
             self.fit=fitter(self.pkfiles,maxk=maxk)
             print "Loaded files, minimising"
-            pars=self.fit.do_min()
+            pars=self.fit.do_min(npar)
             print pars
-
 
 
             
