@@ -155,51 +155,63 @@ class relhalofit(halofit):
         self.CAMB_Pk=mk1[1:,1]/mk2[1:,1]
         self.logkmax=np.log(self.k[-1])
         self.logkmin=np.log(self.k[0])
-        a = 1./(1+zz)
-        self.om_m = self.omega_m(a, omm0, omv0)  
-        self.om_v = self.omega_v(a, omm0, omv0)
+        m=re.search(r'nu([\d.]+)',pkfile)
+        self.fnu=float(m.group(1))
+        self.a = 1./(1+zz)
+        self.om_m = self.omega_m(self.a, omm0, omv0)  
+        self.om_v = self.omega_v(self.a, omm0, omv0)
         # Remember => plin = k^3 * P(k) * constant
         # constant = 4*pi*V/(2*pi)^3 
         self.Delta=np.empty((2,np.size(self.k)))
         self.Delta[0] = self.k**3*mk1[1:,1]*self.anorm
         self.Delta[1] = self.k**3*mk2[1:,1]*self.anorm
         self.ksig = np.array([self._ksig(0),self._ksig(1)])
+        self.neff = np.array([self.neff(self.ksig[0],0),self.neff(self.ksig[1],1)])
+        self.curv = np.array([self.curv(self.ksig[0],0),self.curv(self.ksig[1],1)])
     
-    def do_nonlin(self,par=[0,0,0]):
+    def do_nonlin(self,par):
         ph=np.empty([2,np.size(self.Delta[0])])
         pq=np.array(ph)
         pnl=np.array(ph)
         for i in [0,1]:
             ks=self.ksig[i]
-            neff=self.neff(ks,i)
-            curv=self.curv(ks,i)
-            ph[i]=self.ph(ks,par) #self.halofit(neff,curv,ks,par)  
-            pq[i]=self.pq(self.Delta[i],ks,neff,par)
+            neff=self.neff[i]
+            curv=self.curv[i]
+            ph[i]=self.halofit(neff,curv,ks)  
+            pq[i]=self.pq(self.Delta[i],ks,neff)
             pnl[i]=ph[i]+pq[i]
-        return pnl[0]/pnl[1]
+#         y=self.k/self.ksig[0]
+#         return self.Delta[0]/self.Delta[1]
+        return pnl[0]/pnl[1]*(1+self.ph(self.a,self.ksig[0],self.fnu,par))
+
+    def pq(self,delta,ksig,rn):
+        alpha=1.38848+0.3701*rn-0.1452*rn*rn
+        beta=0.8291+0.9854*rn+0.3400*rn**2
+        y=self.k/ksig
+        pq=delta*((delta+1)**beta/(delta*alpha+1))*np.exp(-y/4.0-y**2/8.0)
+        return pq
 
     def do_lin(self):
         # halo fitting formula 
         return self.Delta[0]/self.Delta[1]
     
-    def pq(self,delta,ksig,rn,par):
-#        alpha=1.38848+0.3701*rn-0.1452*rn*rn
- #       beta=0.8291+0.9854*rn+0.3400*rn**2
-  #      y=self.k/ksig
-        pq=delta
-        #np.exp(-y/4.0-y**2/8.0)
-        return pq
+    def ph(self,a,ksig,fnu,ipar):
+        y=self.k
+        par=np.zeros(3)
+        par[0:np.size(ipar)]=ipar
+        #vnl=fnu*(y*par[0]+y**2*par[1])/(1+par[2]*(y/ksig)**2.5) #residual~0.3
+        vnl=fnu*(y*par[0]+y**2*par[1])/(1+par[2]*(y/ksig)**2.5) #+par[0]*self.fnu*a**2
+        return vnl
 
-    def ph(self,ksig,par):
-        q=1+y*par[0]+y**2*par[1]+y**3*par[2]
-
-    def halofit(self,rn,rncur,ksig,par):
-        gam=par[0]+0.86485+0.2989*rn+0.1631*rncur
+    def halofit(self,rn,rncur,ksig):
+        #Modifications from fitting halofit to the small-scale power    
+        extragam=0.13478598 -0.30378159*rn -1.6199286*rncur
+        gam=extragam+0.86485+0.2989*rn+0.1631*rncur
         a=1.4861+1.83693*rn+1.67618*rn*rn+0.7940*rn*rn*rn+ 0.1670756*rn*rn*rn*rn-0.620695*rncur
         a=10**a
-        b=10**(par[1]+0.9463+0.9466*rn+0.3084*rn*rn-0.940*rncur)
+        b=10**(0.9463+0.9466*rn+0.3084*rn*rn-0.940*rncur)
         c=10**(-0.2807+0.6669*rn+0.3214*rn*rn-0.0793*rncur)
-        xmu=10**(par[2]-3.54419+0.19086*rn)
+        xmu=10**(-3.54419+0.19086*rn)
         xnu=10**(0.95897+1.2857*rn)
 
         if abs(1-self.om_m) > 0.01: 
