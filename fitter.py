@@ -12,32 +12,30 @@ class fitter:
         """Args:
             linpk - File(s) containing linear theory power spectrum
             simpk - File(s) containing simulated data to fit to
-            maxk - Maximum k to use in the fit
+            maxk - Maximum multiple of the box to use
             mink - Minimum multiple of the box to use"""
-        def __init__(self,infiles,maxk=6,mink=4):
+        def __init__(self,infiles,maxk=104,mink=4):
             #Dictionary containing a tuple with (P(k), halo) objects, indexed with filename
             self.simpk={}
-            self.logk=np.array([])
             for s,l in infiles.iteritems():
                 #Get the power
                 (k,pk)=pmat.get_folded_power(s)
                 #Exclude the edges
-                mink=k[0]*mink
-                ind=np.where((k < maxk) * (k > mink))
-                #Setup self.logk if not already done
-                if np.size(self.logk) ==0:
-                    #Rebin it to be evenly log spaced
-                    self.logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*4)
+                tmink=k[0]*mink
+                tmaxk=k[0]*maxk
+                ind=np.where((k < tmaxk) * (k > tmink))
+                #Rebin it to be evenly log spaced
+                logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),pk[ind])
-                self.simpk[s]=(intpk(self.logk),halofit.halofit(l))
+                self.simpk[s]=(logk,intpk(logk),halofit.halofit(l))
         
         """Function to find squared residuals of power spectra"""
         def halopk(self,par):
             total=0
             for s,tu in self.simpk.iteritems():
-                (pk,halo)=tu
+                (logk,pk,halo)=tu
                 intpk=InterpolatedUnivariateSpline(np.log(halo.k),halo.do_nonlin(par))
-                halopk=intpk(self.logk)
+                halopk=intpk(logk)
                 total+=np.sum((pk/halopk-1)**2)
             return total
 
@@ -47,18 +45,32 @@ class fitter:
             return x
 
         def plot_residual(self,file,par=0):
-            (pk,halo)=self.simpk[file]
+            (logk, pk,halo)=self.simpk[file]
             if np.size(par) < 4:
                     par=self.best_fit
-            halofit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(self.logk))
-            plt.semilogx(np.exp(self.logk),pk/halofit)
-            return (self.logk,pk/halofit)
+            halofit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(logk))
+            plt.semilogx(np.exp(logk),pk/halofit)
+        
+        def plot_residual_outside(self,file,par=0):
+            linpk=neu.find_linpk(file)
+            (d,f)=path.split(file)
+            (k,pk,disp)=neu.get_pk_with_seeds(d,f)
+            ind=np.where((k <= k[0]*102) * (k >= 4*k[0]))
+            #Rebin it to be evenly log spaced
+            logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
+            intpk=InterpolatedUnivariateSpline(np.log(k[ind]),pk[ind])
+            #Rebin it to be evenly log spaced
+            halo=halofit.relhalofit(linpk)
+            if np.size(par) < 4:
+                    par=self.best_fit
+            hfit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(logk))
+            plt.semilogx(np.exp(logk),intpk(logk)/hfit)
 
         def plot_fit_and_sim(self,file,par=0):
-            (pk,halo)=self.simpk[file]
+            (logk,pk,halo)=self.simpk[file]
             if np.size(par) < 3:
                     par=self.best_fit
-            k=np.exp(self.logk)
+            k=np.exp(logk)
             halofit=pmat.rebin(halo.do_nonlin(par),halo.k,k)
             plt.semilogx(k,pk)
             plt.semilogx(k,halofit,ls="--")
@@ -75,25 +87,23 @@ class relfit(fitter):
         """Args:
             linpk - File(s) containing linear theory power spectrum
             simpk - File(s) containing simulated data to fit to
-            maxk - Maximum k to use in the fit
+            maxk - Maximum multiple of the box to use
             mink - Minimum multiple of the box to use"""
-        def __init__(self,infiles,maxk=6,mink=2.5):
+        def __init__(self,infiles,maxk=102,mink=2.5):
             #Dictionary containing a tuple with (P(k), halo) objects, indexed with filename
             self.simpk={}
-            self.logk=np.array([])
             for s,l in infiles.iteritems():
                 #Get the power
                 (d,f)=path.split(s)
                 (k,relpk,disp)=neu.get_pk_with_seeds(d,f)
                 #Exclude the edges
-                mink=k[0]*mink
-                ind=np.where((k <= maxk) * (k >= mink))
-                #Setup self.logk if not already done
-                if np.size(self.logk) ==0:
-                    #Rebin it to be evenly log spaced
-                    self.logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*4)
+                tmink=k[0]*mink
+                tmaxk=k[0]*maxk
+                ind=np.where((k <= tmaxk) * (k >= tmink))
+                #Rebin it to be evenly log spaced
+                logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*4)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),relpk[ind])
-                self.simpk[s]=(intpk(self.logk),halofit.relhalofit(l))
+                self.simpk[s]=(logk,intpk(logk),halofit.relhalofit(l))
         
         def do_min(self,npar=4):
             x=fmin_powell(self.halopk,np.zeros(npar))
@@ -102,7 +112,7 @@ class relfit(fitter):
 
         
 class data:
-        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=6,maxz=3,npar=4):
+        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=104,maxz=3,npar=4):
             self.pkfiles={} #simpk->linpk
 
             for dir in simdir:
