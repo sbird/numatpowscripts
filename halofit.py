@@ -17,7 +17,7 @@ import math
 import re
 import numpy as np
 from scipy.integrate import quad,Inf,romb
-from scipy.optimize import bisect
+from scipy.optimize import bisect,brentq
 from scipy.interpolate import InterpolatedUnivariateSpline
 
 class halofit:
@@ -38,6 +38,7 @@ class halofit:
         self.Delta=np.empty((1,np.size(self.k)))
         self.Delta[0] = self.k**3*mk1[1:,1]*self.anorm
         self.ksig = self._ksig()
+        self.y=self.k/self.ksig
 
     """Find omega_m at a given expansion factor"""
     def omega_m(self, aa,om_m0,om_v0):
@@ -73,7 +74,7 @@ class halofit:
         if self.sigdiff(xlogr1) < 0:
                 return 1e6
         #Find non-linear scale k_sigma
-        k_sig = 1./np.exp(bisect(self.sigdiff,xlogr1, xlogr2,args=(d,)))
+        k_sig = 1./np.exp(brentq(self.sigdiff,xlogr1, xlogr2,args=(d,)))
         return k_sig
     
     def neff(self,ksig,d=0):
@@ -96,22 +97,24 @@ class halofit:
     def do_nonlin(self,par=[0,]):
         neff=self.neff(self.ksig)
         curv=self.curv(self.ksig)
-        ph=self.halofit(neff,curv,self.ksig,par)  
-        pq=self.pq(self.Delta[0],self.ksig,neff)
+        ph=self.halofit(neff,curv,self.y,par)  
+        pq=self.pq(self.Delta[0],self.y,neff,par)
         # halo fitting formula 
         return ph+pq
 
-    def pq(self,delta,ksig,rn):
-        alpha=1.38848+0.3701*rn-0.1452*rn*rn
-        beta=0.8291+0.9854*rn+0.3400*rn**2
-        y=self.k/ksig
+    def pq(self,delta,y,rn,par):
+        extraalpha=par[0]*rn**7+par[1]*rn**8 #par[0]*rn**4#*rn+par[1]*rn**2
+        alpha=extraalpha+1.38848+0.3701*rn-0.1452*rn*rn
+        extrabeta=0#par[0]*rn**4#par[2]*rn+par[3]*rn**2#par[0]+par[1]*rn+par[2]*rn**2
+        beta=extrabeta+0.8291+0.9854*rn+0.3400*rn**2
         pq=delta*((delta+1)**beta/(delta*alpha+1))*np.exp(-y/4.0-y**2/8.0)
         return pq
 
     """halo model nonlinear fitting formula as described in 
     Appendix C of Smith et al. (2002)"""
-    def halofit(self,rn,rncur,ksig,par):
-        gam=par[0]+par[1]*rn+par[2]*rncur+0.86485+0.2989*rn+0.1631*rncur
+    def halofit(self,rn,rncur,y,par):
+        extragam=0.13478598 -0.30378159*rn -1.6199286*rncur
+        gam=extragam+0.86485+0.2989*rn+0.1631*rncur
         a=1.4861+1.83693*rn+1.67618*rn*rn+0.7940*rn*rn*rn+ 0.1670756*rn*rn*rn*rn-0.620695*rncur
         a=10**a
         b=10**(0.9463+0.9466*rn+0.3084*rn*rn-0.940*rncur)
@@ -134,8 +137,6 @@ class halofit:
             f1=1.0
             f2=1.
             f3=1.
-
-        y=self.k/ksig
 
         php=(a*y**(f1*3.))/(1+b*y**f2+(f3*c*y)**(3.-gam))
         ph=php/(1+xmu/y+xnu/y**2)
@@ -166,28 +167,35 @@ class relhalofit(halofit):
         self.Delta[0] = self.k**3*mk1[1:,1]*self.anorm
         self.Delta[1] = self.k**3*mk2[1:,1]*self.anorm
         self.ksig = np.array([self._ksig(0),self._ksig(1)])
-        self.neff = np.array([self.neff(self.ksig[0],0),self.neff(self.ksig[1],1)])
-        self.curv = np.array([self.curv(self.ksig[0],0),self.curv(self.ksig[1],1)])
-    
-    def do_nonlin(self,par):
+#         self.neff = np.array([self.neff(self.ksig[0],0),self.neff(self.ksig[1],1)])
+#         self.curv = np.array([self.curv(self.ksig[0],0),self.curv(self.ksig[1],1)])
+#         self.y=np.array([self.k/self.ksig[0],self.k/self.ksig[1]])
         ph=np.empty([2,np.size(self.Delta[0])])
         pq=np.array(ph)
-        pnl=np.array(ph)
+        self.pnl=np.array(ph)
+        self.rn=self.neff(self.ksig[0],0)
         for i in [0,1]:
             ks=self.ksig[i]
-            neff=self.neff[i]
-            curv=self.curv[i]
-            ph[i]=self.halofit(neff,curv,ks)  
-            pq[i]=self.pq(self.Delta[i],ks,neff)
-            pnl[i]=ph[i]+pq[i]
+            neff=self.neff(ks,i)
+            curv=self.curv(ks,i)
+            y=self.k/ks
+            ph[i]=self.halofit(neff,curv,y)  
+            pq[i]=self.pq(self.Delta[i],y,neff)
+            self.pnl[i]=ph[i]+pq[i]
+
+    
+    def do_nonlin(self,par):
 #         y=self.k/self.ksig[0]
 #         return self.Delta[0]/self.Delta[1]
-        return pnl[0]/pnl[1]*(1+self.ph(self.a,self.ksig[0],self.fnu,par))
+        return self.pnl[0]/self.pnl[1]*(1+self.ph(self.a,self.ksig[0],self.fnu,self.rn,par))
 
-    def pq(self,delta,ksig,rn):
-        alpha=1.38848+0.3701*rn-0.1452*rn*rn
+    def pq(self,delta,y,rn):
+        #Modification from fitting to the LCDM simulation, ns=0.9, as=2.0, and om=0.4
+        extraalpha=3.49121094e-05*rn**11
+        #OR:
+#         extraalpha=-0.00411522*rn**7-0.00221331*rn**8 
+        alpha=extraalpha+1.38848+0.3701*rn-0.1452*rn*rn
         beta=0.8291+0.9854*rn+0.3400*rn**2
-        y=self.k/ksig
         pq=delta*((delta+1)**beta/(delta*alpha+1))*np.exp(-y/4.0-y**2/8.0)
         return pq
 
@@ -195,15 +203,18 @@ class relhalofit(halofit):
         # halo fitting formula 
         return self.Delta[0]/self.Delta[1]
     
-    def ph(self,a,ksig,fnu,ipar):
+    def ph(self,a,ksig,fnu,rn,ipar):
         y=self.k
-        par=np.zeros(3)
+        par=np.zeros(7)
+        da=a-0.55
         par[0:np.size(ipar)]=ipar
+        ga=y-2*da
         #vnl=fnu*(y*par[0]+y**2*par[1])/(1+par[2]*(y/ksig)**2.5) #residual~0.3
-        vnl=fnu*(y*par[0]+y**2*par[1])/(1+par[2]*(y/ksig)**2.5) #+par[0]*self.fnu*a**2
+        vnl=fnu*par[0]*y*(1+par[1]*y**0.5+(par[2]+par[6]*rn)*da*y+(par[3]+par[5]*rn)/y**0.8 - (par[4]+0*rn)*(ga)**2/(1+2*ga**2)) #/abs(a-0.55)**0.8)# + par[3]*ksig))# +par[4]*ksig**2))
+        #Maybe add an fnu**2 term?
         return vnl
 
-    def halofit(self,rn,rncur,ksig):
+    def halofit(self,rn,rncur,y,fnu=0):
         #Modifications from fitting halofit to the small-scale power    
         extragam=0.13478598 -0.30378159*rn -1.6199286*rncur
         gam=extragam+0.86485+0.2989*rn+0.1631*rncur
@@ -229,8 +240,6 @@ class relhalofit(halofit):
             f1=1.0
             f2=1.
             f3=1.
-
-        y=self.k/ksig
 
         php=(a*y**(f1*3.))/(1+b*y**f2+(f3*c*y)**(3.-gam))
         ph=php/(1+xmu/y+xnu/y**2)
