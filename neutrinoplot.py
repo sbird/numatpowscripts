@@ -72,7 +72,10 @@ def get_pk_with_seeds(d,zerof):
     spk=np.array([relpk,])
     #Get all power spectra
     for s in seeds:
-        (kk, spka) = get_single_file_power(s,zerof)
+        try:
+            (kk, spka) = get_single_file_power(s,zerof)
+        except ValueError:
+            continue
         spk=np.append(spk,[spka,],0)
     #Find mean
     total=np.shape(spk)[0]
@@ -91,8 +94,7 @@ def get_single_file_power(d, zerof):
 #         print "file: "+f2[0]
         return get_rel_folded_power(path.join(zerodir,zerof),f2[0])
     else:
-        print "Could not find: "+path.join(d,zerof)
-        return (np.empty(0), np.empty(0))
+        raise ValueError,"Could not find: "+path.join(d,zerof)
 
 #Function to make all the plots in a directory. 
 #Arguments are: outdir, datadir (ie, where powerspec is)
