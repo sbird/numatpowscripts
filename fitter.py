@@ -4,6 +4,7 @@ import glob
 import os.path as path
 import plot_mat_pow as pmat
 import neutrinoplot as neu
+import re
 import matplotlib.pyplot as plt
 from scipy.optimize import leastsq,fmin,fmin_powell
 from scipy.interpolate import InterpolatedUnivariateSpline
@@ -46,7 +47,7 @@ class fitter:
 
         def plot_residual(self,file,par=0):
             (logk, pk,halo)=self.simpk[file]
-            if np.size(par) < 4:
+            if np.size(par) < 2:
                     par=self.best_fit
             halofit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(logk))
             plt.semilogx(np.exp(logk),pk/halofit)
@@ -68,7 +69,7 @@ class fitter:
 
         def plot_fit_and_sim(self,file,par=0):
             (logk,pk,halo)=self.simpk[file]
-            if np.size(par) < 3:
+            if np.size(par) < 2:
                     par=self.best_fit
             k=np.exp(logk)
             halofit=pmat.rebin(halo.do_nonlin(par),halo.k,k)
@@ -99,9 +100,12 @@ class relfit(fitter):
                 #Exclude the edges
                 tmink=k[0]*mink
                 tmaxk=k[0]*maxk
+                m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",d)
+                if m.group(1) == '512':
+                    tmaxk=0.5
                 ind=np.where((k <= tmaxk) * (k >= tmink))
                 #Rebin it to be evenly log spaced
-                logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*4)
+                logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),relpk[ind])
                 self.simpk[s]=(logk,intpk(logk),halofit.relhalofit(l))
         
@@ -112,7 +116,7 @@ class relfit(fitter):
 
         
 class data:
-        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=104,maxz=3,npar=4):
+        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=104,maxz=3,npar=4,mink=4, minz=0):
             self.pkfiles={} #simpk->linpk
 
             for dir in simdir:
@@ -120,10 +124,11 @@ class data:
                 if np.size(files)==0:
                     raise ValueError, "No files found!"
                 for f in files:
-                    if neu.get_redshift(f) > maxz:
+                    zz=neu.get_redshift(f)
+                    if zz > maxz or zz < minz:
                         continue
                     self.pkfiles[f]=neu.find_linpk(f)
-            self.fit=fitter(self.pkfiles,maxk=maxk)
+            self.fit=fitter(self.pkfiles,maxk=maxk,mink=mink)
             print "Loaded files, minimising"
             pars=self.fit.do_min(npar)
             print pars
