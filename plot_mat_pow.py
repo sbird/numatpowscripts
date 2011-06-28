@@ -36,7 +36,7 @@ def rebin(data, xaxis,newx):
         return newdata
 
 """ Translation of my old IDL script to plot the matter power"""
-def plot_power(matpow_filename,redshift):
+def plot_power(matpow_filename,redshift, colour=""):
         matpow=np.loadtxt(matpow_filename)
         k=matpow[1:,0]
         Pk=matpow[1:,1]
@@ -45,7 +45,10 @@ def plot_power(matpow_filename,redshift):
         plt.ylabel(r'$\Delta$ (k)')
         plt.xlabel("k /(h MPc-1)")
         plt.title("Power spectrum at z="+str(redshift))
-        plt.loglog(k, delta, linestyle="--")
+        if colour == "":
+            plt.loglog(k, delta, linestyle="--")
+        else:
+            plt.loglog(k, delta, linestyle="--",color=colour)
         return(k, delta)
 
 """Load a GenPk format power spectum."""
