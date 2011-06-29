@@ -117,7 +117,7 @@ class halofit:
     Appendix C of Smith et al. (2002)"""
     def halofit(self,rn,rncur,y,par):
         extragam=par[0]+par[1]*rn+par[2]*rncur
-#         extragam = 0.30915402 -0.09151534*rn -0.79149363*rncur
+        extragam += 0.3077315 -0.09030642*rn-0.79167135*rncur
         gam=extragam+0.86485+0.2989*rn+0.1631*rncur
         a=1.4861+1.83693*rn+1.67618*rn*rn+0.7940*rn*rn*rn+ 0.1670756*rn*rn*rn*rn-0.620695*rncur
         a=10**a
@@ -141,7 +141,6 @@ class halofit:
             f1=1.0
             f2=1.
             f3=1.
-#        q=par[0]*10**(rn*par[1])#+par[2]*rn**2+par[3]*rncur)
         php=(a*y**(f1*3.))/(1+b*y**f2+(f3*c*y)**(3.-gam))
         ph=php/(1+xmu/y+xnu/y**2)
         return ph
@@ -207,8 +206,8 @@ class relhalofit(halofit):
         par=np.zeros(8)
         par[0:np.size(ipar)]=ipar
         alpha=1.38848+0.3701*rn-0.1452*rn*rn
-        beta=0.8291+0.9854*rn+0.3400*rn**2+fnu*(par[5]+par[6]*rn)
-        deltaa=delta*(1+fnu*par[4]*self.k**2/(1+1.5*self.k**2))
+        beta=0.8291+0.9854*rn+0.3400*rn**2+fnu*(par[3]+par[4]*rn**2)
+        deltaa=delta*(1+fnu*par[2]*self.k**2/(1+1.5*self.k**2))
         qq=((deltaa+1)**beta/(deltaa*alpha+1))
         pq=delta*np.exp(-y/4.0-y**2/8.0)*qq
         return pq
@@ -219,21 +218,37 @@ class relhalofit(halofit):
     
     def ph(self,a,ksig,fnu,rn,par):
         y=self.k
-        vnl=fnu*(par[0]+par[1]*(self.omm0-0.3))*(1+par[2]*(y/ksig)**0.5)/(1+par[3]*y**3)
+        #1.81624328e+00   5.43828928e-04(1+par[2]*(y/ksig)**0.5)
+        vnl=fnu*(par[0]-18*(self.omm0-0.3))/(1+ par[1]*y**3)
         return vnl
 
     def halofit(self,rn,rncur,y,fnu=0,ipar=np.array([])):
         #Modifications from fitting halofit to the small-scale power   
         #Fit with:
-        # dd2=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0z99","/home/spb41/data3/NU_DM/PART/b150p512nu0z99as2.0","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","/home/spb41/data3/NU_DM/KSPACE/b150p512nu0z49om0.4"],maxz=3.1,npar=3, maxk=500,mink=6)
+#        dd10=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0z99","/home/spb41/data3/NU_DM/PART/b150p512nu0z99as2.0","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z49om0.4", "/home/spb41/data3/NU_DM/PART/b150p512nu0z99h0.75"],maxz=3.1,npar=3, maxk=500,mink=6)
+#Loaded files, minimising
+#Optimization terminated successfully.
+#         Current function value: 8.276652
+#         Iterations: 199
+#         Function evaluations: 356
+#[ 0.15838547 -0.14811995 -0.64698165]
+
         # I have used a high mink because otherwise it was straining to fit the wiggles on large
         # scales. A very high maxk because otherwise it was straining to fit the jump at 
         # the nyquist frequency. 
         # It doesn't fit high redshift well, because that is quasilinear. 
 #        extragam=0.13478598 -0.30378159*rn -1.6199286*rncur
-        par=np.zeros(8)
-        par[0:np.size(ipar)]=ipar
+#         par=np.zeros(8)
+#         par[0:np.size(ipar)]=ipar
+#         extragam = par[0] + par[1]*rn + par[2]*rncur
+        #With h0.75
+#         extragam = 0.15838547 -0.14811995*rn -0.64698165*rncur
+#Without h0.75
         extragam = 0.30915402 -0.09151534*rn -0.79149363*rncur
+# Result running the minimiser starting at the above
+#         extragam = 0.3077315 -0.09030642*rn-0.79167135*rncur
+#These two actually give very similar fits, and the second seems to match results better, so we use that.
+#Without h0.75, with maxz=4.1
 #         extragam= -0.20498307-0.3180079*rn -0.52459516
         gam=extragam+0.86485+0.2989*rn+0.1631*rncur
         a=1.4861+1.83693*rn+1.67618*rn*rn+0.7940*rn*rn*rn+ 0.1670756*rn*rn*rn*rn-0.620695*rncur
@@ -263,6 +278,17 @@ class relhalofit(halofit):
         ph=php/(1+xmu/y+xnu/y**2)
         return ph
 
-
-
+#Fit, ignoring the Omega_m dependence
+#This has ph = A fnu /(1+By**3)
+# pq = delta*(1+fnu k**2/(1+1.5*k**2)) beta+=fnu(C+rn*D)
+#dd2=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0.6z99","/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49","/home/spb41/data3/NU_DM/PART/b150p512nu0.15z24","/home/spb41/data3/NU_DM/PART/b512p512nu0.6z99","/home/spb41/data3/NU_DM/PART/b512p512nu0.3z49","/home/spb41/data3/NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=106,mink=6)
+#Loaded files, minimising
+#Optimization terminated successfully.
+#         Current function value: 0.059244
+#         Iterations: 10
+#         Function evaluations: 665
+#[  1.81624328e+00   5.43828928e-04   2.69688472e+01  -5.54112805e+00
+#   1.20574058e+00]
+#[  1.82016020e+00   4.97424853e-04   2.69234863e+01  -5.56587120e+00
+#   1.21066268e+00]
 
