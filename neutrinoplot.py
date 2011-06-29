@@ -63,6 +63,31 @@ def find_zero(d):
         return zerodir[0]
 
 """Get the P(k) from a single file, averaging over seed values"""
+def get_folded_power_with_seeds(f):
+    #glob for directories with other seeds
+    (d,zerof)=path.split(f)
+    seeds=glob.glob(d+"see*")
+    (kk, delta) = get_folded_power(path.join(d,zerof))
+    if np.size(delta) == 0:
+        return (kk,delta,delta)
+    spk=np.array([delta,])
+    #Get all power spectra
+    for s in seeds:
+        try:
+            (kk, spka) = get_folded_power(path.join(s,zerof))
+        except ValueError:
+            continue
+        spk=np.append(spk,[spka,],0)
+    #Find mean
+    total=np.shape(spk)[0]
+    delta=np.sum(spk,0)/total
+    disp=np.empty(0)
+    #Find stddev
+    if total > 1:
+        disp = np.sqrt(np.sum((spk - delta)**2,0)/((total-1)*1.*total))
+    return (kk, delta)
+
+"""Get the P(k) from a single file, averaging over seed values"""
 def get_pk_with_seeds(d,zerof):
     #glob for directories with other seeds
     seeds=glob.glob(d+"see*")
@@ -167,6 +192,9 @@ class neutrino_power:
                 else:
                     ind=np.where(kk)
                 plt.semilogx(kk[ind],relpk[ind],color=colours.pop(), ls=lss.pop())
+                if kk[ind][-1] > 6:
+                        print d
+                        print "max dP=",(1-np.min(relpk[ind]))/(float(m_nu)*0.013/0.6/0.3),"at z=",zz,"m_nu=",m_nu
                 #Find stddev
 #                 if np.size(disp) > 0:
 #                     plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
