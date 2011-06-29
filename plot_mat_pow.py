@@ -36,11 +36,17 @@ def rebin(data, xaxis,newx):
         return newdata
 
 """ Translation of my old IDL script to plot the matter power"""
-def plot_power(matpow_filename,redshift, colour=""):
+def get_power(matpow_filename):
         matpow=np.loadtxt(matpow_filename)
         k=matpow[1:,0]
         Pk=matpow[1:,1]
         delta=Pk*(k/(2*math.pi))**3*4*math.pi
+        #^2*2*!PI^2*2.4e-9*k*hub^3
+        return(k, delta)
+
+""" Translation of my old IDL script to plot the matter power"""
+def plot_power(matpow_filename,redshift, colour=""):
+        (k,delta)=get_power(matpow_filename)
         #^2*2*!PI^2*2.4e-9*k*hub^3
         plt.ylabel(r'$\Delta$ (k)')
         plt.xlabel("k /(h MPc-1)")
