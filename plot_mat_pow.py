@@ -134,6 +134,17 @@ def get_folded_power(fname1):
         pk_aa = np.ravel(pk_a1[ind])
         return (np.concatenate([kk_b1,kk_aa1]), np.concatenate([pk_b1, pk_aa]))
 
+def calc_norm(file1, file2):
+        (k1, delta1)=get_folded_power(file1)
+        (k2, delta2)=get_folded_power(file2)
+        max = 0.6
+        min = 0.1
+        ind = np.where((k1< 0.6)*(k1> 0.1))
+        ind2 = np.where((k2< 0.6)*(k2> 0.1))
+        diff = delta2[ind2]/rebin(delta1[ind],k1[ind],k2[ind2])
+        mean=np.mean(diff)
+        return mean
+
 #This is a cache for files that will not change between reads
 folded_filedata={}
 

@@ -21,13 +21,26 @@ class fitter:
             for s,l in infiles.iteritems():
                 #Get the power
                 (k,pk)=pmat.get_folded_power(s)
+                (d,f)=path.split(s)
                 #Exclude the edges
                 tmink=k[0]*mink
                 tmaxk=k[0]*maxk
                 ind=np.where((k < tmaxk) * (k > tmink))
+                m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",s)
+                if m.group(1) == '512':
+                    tmaxk=0.6
+                #Renormalise the smaller boxes with the bigger ones.
+                norm=1.0
+                if m.group(1) == '150':
+                    bigger = re.sub("b150","b512",s)
+                    try:
+                        norm = pmat.calc_norm(bigger,s)
+                    except IOError:
+                        norm = pmat.calc_norm(path.join("/home/spb41/data3/NU_DM/PART/b512p512nu0z99",f),
+                               path.join("/home/spb41/data3/NU_DM/PART/b150p512nu0z99",f))
                 #Rebin it to be evenly log spaced
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
-                intpk=InterpolatedUnivariateSpline(np.log(k[ind]),pk[ind])
+                intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*pk[ind])
                 self.simpk[s]=(logk,intpk(logk),halofit.halofit(l))
         
         """Function to find squared residuals of power spectra"""
@@ -102,11 +115,19 @@ class relfit(fitter):
                 tmaxk=k[0]*maxk
                 m=re.search(r"/b(\d+)p(\d+)nu([\d\.]+)z(\d+)",d)
                 if m.group(1) == '512':
-                    tmaxk=0.5
+                    tmaxk=0.6
+                #Renormalise the smaller boxes with the bigger ones.
+                norm=1.0
+                if m.group(1) == '150':
+                    bigger = re.sub("b150","b512",s)
+                    norm = pmat.calc_norm(bigger,s)
+                    z=path.join(neu.find_zero(d),f)
+                    bigz=re.sub("b150","b512",z)
+                    norm /= pmat.calc_norm(bigz,z)
                 ind=np.where((k <= tmaxk) * (k >= tmink))
                 #Rebin it to be evenly log spaced
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
-                intpk=InterpolatedUnivariateSpline(np.log(k[ind]),relpk[ind])
+                intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*relpk[ind])
                 self.simpk[s]=(logk,intpk(logk),halofit.relhalofit(l))
         
         def do_min(self,npar=4):
