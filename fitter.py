@@ -33,11 +33,11 @@ class fitter:
                 norm=1.0
                 if m.group(1) == '150':
                     bigger = re.sub("b150","b512",s)
-                    try:
-                        norm = pmat.calc_norm(bigger,s)
-                    except IOError:
-                        norm = pmat.calc_norm(path.join("/home/spb41/data3/NU_DM/PART/b512p512nu0z99",f),
-                               path.join("/home/spb41/data3/NU_DM/PART/b150p512nu0z99",f))
+#                     try:
+                    norm = pmat.calc_norm(bigger,s)
+#                     except IOError:
+#                         norm = pmat.calc_norm(path.join("/home/spb41/data3/NU_DM/PART/b512p512nu0z99",f),
+#                                path.join("/home/spb41/data3/NU_DM/PART/b150p512nu0z99",f))
                 #Rebin it to be evenly log spaced
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*pk[ind])
@@ -53,14 +53,16 @@ class fitter:
                 total+=np.sum((pk/halopk-1)**2)
             return total
 
-        def do_min(self, npar=4):
-            x=fmin(self.halopk,np.zeros(npar))
-            self.best_fit=np.array(x)
+        def do_min(self,npar=4, initial=0):
+            if np.size(initial) < npar:
+                initial=np.zeros(npar)
+            x=fmin_powell(self.halopk,initial)
+            self.best_fit=np.ravel(x)
             return x
 
         def plot_residual(self,file,par=0):
             (logk, pk,halo)=self.simpk[file]
-            if np.size(par) < 2:
+            if np.size(par) == 1 and par == 0:
                     par=self.best_fit
             halofit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(logk))
             plt.semilogx(np.exp(logk),pk/halofit)
@@ -120,21 +122,19 @@ class relfit(fitter):
                 norm=1.0
                 if m.group(1) == '150':
                     bigger = re.sub("b150","b512",s)
-                    norm = pmat.calc_norm(bigger,s)
-                    z=path.join(neu.find_zero(d),f)
-                    bigz=re.sub("b150","b512",z)
-                    norm /= pmat.calc_norm(bigz,z)
+                    try:
+                        norm = pmat.calc_norm(bigger,s)
+                        z=path.join(neu.find_zero(d),f)
+                        bigz=re.sub("b150","b512",z)
+                        norm /= pmat.calc_norm(bigz,z)
+                    except IOError:
+                        pass
                 ind=np.where((k <= tmaxk) * (k >= tmink))
                 #Rebin it to be evenly log spaced
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*relpk[ind])
                 self.simpk[s]=(logk,intpk(logk),halofit.relhalofit(l))
         
-        def do_min(self,npar=4):
-            x=fmin_powell(self.halopk,np.zeros(npar))
-            self.best_fit=np.array(x)
-            return x
-
         
 class data:
         def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=104,maxz=3,npar=4,mink=4, minz=0):
