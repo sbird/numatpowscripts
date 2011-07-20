@@ -49,7 +49,7 @@ def plot_power(matpow_filename,redshift, colour=""):
         (k,delta)=get_power(matpow_filename)
         #^2*2*!PI^2*2.4e-9*k*hub^3
         plt.ylabel(r'$\Delta$ (k)')
-        plt.xlabel("k /(h MPc-1)")
+        plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum at z="+str(redshift))
         if colour == "":
             plt.loglog(k, delta, linestyle="--")
@@ -82,7 +82,7 @@ def plot_genpk_power(matpow1,matpow2, box,o_nu = 0, colour="blue"):
         (k,Pk2)=load_genpk(matpow2,box, o_nu)
         #^2*2*!PI^2*2.4e-9*k*hub^3
         plt.ylabel("P(k) /(h-3 Mpc3)")
-        plt.xlabel("k /(h MPc-1)")
+        plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
         plt.semilogx(k, Pk2/Pk1, linestyle="-", color=colour)
 
@@ -96,7 +96,7 @@ def plot_rel_power(matpow1,matpow2, colour="blue", ls="--"):
         Pk2=mk2[1:,1]
         #^2*2*!PI^2*2.4e-9*k*hub^3
         plt.ylabel("P(k) /(h-3 Mpc3)")
-        plt.xlabel("k /(h MPc-1)")
+        plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
         plt.semilogx(k, Pk2/Pk1, linestyle=ls, color=colour)
 
@@ -120,7 +120,7 @@ def plot_rel_folded_power(fname1,fname2,colour="black", ls="-"):
         (kk,relpk)=get_rel_folded_power(fname1, fname2)
         plt.semilogx(kk,relpk,color=colour, ls=ls)
         plt.ylabel(r'$\delta$ P(k)')
-        plt.xlabel("k /(h MPc-1)")
+        plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
 
 def plot_folded_power(fname1):
