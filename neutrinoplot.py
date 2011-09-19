@@ -5,6 +5,7 @@ import re
 import glob
 import os
 import os.path as path
+import halofit as halofit_module
 from plot_mat_pow import *
 import matplotlib.pyplot as plt
 
@@ -140,12 +141,20 @@ class neutrino_power:
     
     def plot_halofit(self, halosuf, zz,m_nu, halofit=True):
         halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
-#         zhalo=glob.glob(path.join(self.find_zero(dirs[0]),"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
-#         halo=glob.glob(path.join(dirs[0],"CAMB_TABLES/tab_matterpow_"+str(zz)+"*.dat"))
         if path.exists(halo):
+            plt.ylabel("P(k) /(h-3 Mpc3)")
+            plt.xlabel("k /(h Mpc-1)")
+            plt.title("Power spectrum change")
             if halofit:
-                plot_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"),colour="blue")
-#             plot_rel_power(path.join(self.matpowdir,"nu0"+"-mod"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-mod"+halosuf+str(zz)+".dat"),colour="green", ls="--")
+                (k, relpk) = get_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"))
+                haloff=halofit_module.halofit(halo)
+                ksig = haloff.ksig
+                plt.semilogx(k,relpk,color="blue")
+                #Some estimate of the disp
+                disp = np.log(1+k/ksig)/(1+np.log(1+k/ksig))*(float(m_nu)*0.013/0.6/0.3)
+                plt.semilogx(k,relpk*(1+disp),color="green", ls="--")
+                plt.semilogx(k,relpk*(1-disp),color="green", ls="--")
+
             plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls="--")
         else:
             print "Could not find "+halo
@@ -195,10 +204,11 @@ class neutrino_power:
                 if kk[ind][-1] > 6:
                         print d
                         print "max dP=",(1-np.min(relpk[ind]))/(float(m_nu)*0.013/0.6/0.3),"at z=",zz,"m_nu=",m_nu
+
                 #Find stddev
-#                 if np.size(disp) > 0:
-#                     plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
-#                     plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
+                if np.size(disp) > 0:
+                    plt.semilogx(kk[ind],(relpk+disp)[ind],color="grey", ls=":")
+                    plt.semilogx(kk[ind],(relpk-disp)[ind],color="grey", ls=":")
 
             plt.ylabel(r'$\Delta^2_\nu /\Delta^2_\mathrm{CDM}$')
             plt.xlabel("k /(h Mpc$^{-1}$)")
