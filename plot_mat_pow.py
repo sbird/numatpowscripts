@@ -89,16 +89,20 @@ def plot_genpk_power(matpow1,matpow2, box,o_nu = 0, colour="blue"):
 
 """ Translation of my old IDL script to plot the matter power"""
 def plot_rel_power(matpow1,matpow2, colour="blue", ls="--"):
+        (k, Pk) = get_rel_power(matpow1, matpow2)
+        plt.ylabel("P(k) /(h-3 Mpc3)")
+        plt.xlabel("k /(h Mpc-1)")
+        plt.title("Power spectrum change")
+        plt.semilogx(k, Pk, linestyle=ls, color=colour)
+
+def get_rel_power(matpow1,matpow2):
         mk1=np.loadtxt(matpow1)
         mk2=np.loadtxt(matpow2)
         k=mk1[1:,0]
         Pk1=mk1[1:,1]
         Pk2=mk2[1:,1]
         #^2*2*!PI^2*2.4e-9*k*hub^3
-        plt.ylabel("P(k) /(h-3 Mpc3)")
-        plt.xlabel("k /(h Mpc-1)")
-        plt.title("Power spectrum change")
-        plt.semilogx(k, Pk2/Pk1, linestyle=ls, color=colour)
+        return (k, Pk2/Pk1)
 
 def get_rel_folded_power(fname1, fname2):
         #Note for some reason the small scale power is first in the file.
