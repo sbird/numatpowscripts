@@ -143,6 +143,7 @@ class neutrino_power:
         halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
         if path.exists(halo):
             plt.ylabel("P(k) /(h-3 Mpc3)")
+            linstyle="-."
             plt.xlabel("k /(h Mpc-1)")
             plt.title("Power spectrum change")
             if halofit:
@@ -154,8 +155,9 @@ class neutrino_power:
                 disp = np.log(1+k/ksig)/(1+np.log(1+k/ksig))*(float(m_nu)*0.013/0.6/0.3)
                 plt.semilogx(k,relpk*(1+disp),color="green", ls="--")
                 plt.semilogx(k,relpk*(1-disp),color="green", ls="--")
+                linstyle="--"
 
-            plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls="--")
+            plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls=linstyle)
         else:
             print "Could not find "+halo
 

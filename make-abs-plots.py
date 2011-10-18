@@ -4,22 +4,42 @@ import matplotlib.pyplot as plt
 import plot_mat_pow as pmat
 import neutrinoplot as neu
 import numpy as np
+#Load 512 simulations
+(k_sim, delta_sim) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b512p512nu0z99/powerspec_008.txt")
+(k_sima, delta_sima) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b512p512nu0.6z99/powerspec_008.txt")
+(k_sim1, delta_sim1) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b512p512nu0z99/powerspec_005.txt")
+(k_simb, delta_simb) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b512p512nu0.6z99/powerspec_005.txt")
+#Plot absolute simulations
+ind=np.where(k_sim < 0.4)
+plt.loglog(k_sim[ind],delta_sim[ind]/k_sim[ind], color="green")
+plt.loglog(k_sima[ind],delta_sima[ind]/k_sima[ind],color="green",ls="--")
+plt.loglog(k_sim1[ind],delta_sim1[ind]/k_sim1[ind], color="black")
+plt.loglog(k_simb[ind],delta_simb[ind]/k_simb[ind],color="black",ls="--")
 #Load simulations
 (k_sim, delta_sim) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b150p512nu0z99/powerspec_008.txt")
 (k_sima, delta_sima) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b150p512nu0.6z99/powerspec_008.txt")
 (k_sim1, delta_sim1) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b150p512nu0z99/powerspec_005.txt")
 (k_simb, delta_simb) = neu.get_folded_power_with_seeds("/home/spb41/data3/NU_DM/PART/b150p512nu0.6z99/powerspec_005.txt")
-#Plot absolute simulations
-plt.loglog(k_sim,delta_sim/k_sim, color="green")
-plt.loglog(k_sima,delta_sima/k_sima,color="green",ls="--")
-plt.loglog(k_sim1,delta_sim1/k_sim1, color="black")
-plt.loglog(k_simb,delta_simb/k_simb,color="black",ls="--")
+#Load linear theory
+(k, delta_lin) = pmat.get_power("/home/spb41/cosmomc-src/cosmomc/camb/out/nu0-lin_matterpow_0.dat")
+(k1, delta1_lin) = pmat.get_power("/home/spb41/cosmomc-src/cosmomc/camb/out/nu0-lin_matterpow_1.dat")
+(ka, delta_lina) = pmat.get_power("/home/spb41/cosmomc-src/cosmomc/camb/out/nu0.6-lin_matterpow_0.dat")
+(k1a, delta1_lina) = pmat.get_power("/home/spb41/cosmomc-src/cosmomc/camb/out/nu0.6-lin_matterpow_1.dat")
+plt.loglog(k,delta_lin/k, color="green",ls="-.")
+plt.loglog(ka,delta_lina/k,color="green",ls=":")
+plt.loglog(k1,delta1_lin/k, color="black",ls="-.")
+plt.loglog(k1a,delta1_lina/k,color="black",ls=":")
+ind=np.where(k_sim > k_sim[0]*4)
+plt.loglog(k_sim[ind],delta_sim[ind]/k_sim[ind], color="green")
+plt.loglog(k_sima[ind],delta_sima[ind]/k_sima[ind],color="green",ls="--")
+plt.loglog(k_sim1[ind],delta_sim1[ind]/k_sim1[ind], color="black")
+plt.loglog(k_simb[ind],delta_simb[ind]/k_simb[ind],color="black",ls="--")
 #Setup plot titles
 plt.title("Matter Power Spectra at $z=0,1$")
 plt.ylabel(r'$\Delta^2$(k)/k /(Mpc h-1)')
 plt.xlabel("k /(h Mpc-1)")
-plt.ylim(1,1e2)
-plt.xlim(0.1,10)
+plt.ylim(0.5,1e2)
+plt.xlim(0.05,10)
 plt.savefig("/home/spb41/Lyman-alpha/neutrinopaper/plots/absolute.pdf")
 plt.clf()
 #Get 512Mpc boxes

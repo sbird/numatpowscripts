@@ -36,16 +36,21 @@ def halofit_sim_compare(redshift,m_nu):
         plt.clf()
 
 #Initial plots of grid and particle, to make the point that they are basically the same.
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=1, halofit=False, lssin=["-.","-"],coloursin=["red","green"])
-plt.xlim(0.02,20)
-plt.ylim(0.7,1.0)
-save_figure(path.join(neut.outdir,"shapepvsgridz1"))
-plt.clf()
-neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.3z49','/data/spb41_2/NU_DM/PART/b150p512nu0.3z49'],redshifts=0, halofit=False, lssin=["-.","-"],coloursin=["red","green"])
-plt.xlim(0.02,20)
-plt.ylim(0.7,1.0)
-save_figure(path.join(neut.outdir,"shapepvsgridz0"))
-plt.clf()
+def shapepvsgrid(zz) :
+        neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE/b150p512nu0.6z99','/data/spb41_2/NU_DM/PART/b150p512nu0.6z99'],redshifts=zz, halofit=False, lssin=["--","-"],coloursin=["red","green"])
+        neut.plot_directory(['/data/spb41_2/NU_DM/KSPACE-BIG/b512p512nu0.6z99','/data/spb41_2/NU_DM/PART/b512p512nu0.6z99'],redshifts=zz, halofit=False, maxks=[0.4,0.4], lssin=["--","-"],coloursin=["red","green"])
+        plt.xlim(0.005,20)
+        plt.ylim(0.3,1.0)
+        save_figure(path.join(neut.outdir,"shapepvsgridz"+str(zz)))
+        plt.clf()
+
+shapepvsgrid(0)
+shapepvsgrid(1)
+shapepvsgrid(2)
+shapepvsgrid(3)
+shapepvsgrid(4)
+shapepvsgrid(9)
+shapepvsgrid(49)
 
 #Part vs KSPACE percentage
 partvskspace(0.3)
