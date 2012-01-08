@@ -44,6 +44,20 @@ def get_power(matpow_filename):
         #^2*2*!PI^2*2.4e-9*k*hub^3
         return(k, delta)
 
+""" Get the neutrino power from CAMB"""
+def get_nu_power(matpow_filename):
+        matpow=np.loadtxt(matpow_filename)
+        transfer_file=re.sub("_matterpow_","_transfer_",matpow_filename)
+        
+        trans=np.loadtxt(transfer_file)
+        T_nu=trans[1:,5]
+        T_tot=trans[1:,6]
+        k=matpow[1:,0]
+        Pk=matpow[1:,1]*(T_nu/T_tot)**2
+        delta=Pk*(k/(2*math.pi))**3*4*math.pi
+        #^2*2*!PI^2*2.4e-9*k*hub^3
+        return(k, delta)
+
 """ Translation of my old IDL script to plot the matter power"""
 def plot_power(matpow_filename,redshift, colour=""):
         (k,delta)=get_power(matpow_filename)
