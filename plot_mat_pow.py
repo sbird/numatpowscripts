@@ -168,8 +168,8 @@ folded_filedata={}
 
 """Load the folded power spectrum file"""
 def loadfolded(fname):
-        if fname in folded_filedata:
-                return folded_filedata[fname]
+        if fname in folded_filedata and os.path.getmtime(fname) <= folded_filedata[fname][0]:
+                return folded_filedata[fname][1]
         f_in= np.fromfile(fname, sep=' ',count=-1)
         #Load header
         scale=1000
@@ -199,7 +199,7 @@ def loadfolded(fname):
                 ind=np.where(kk_b > 4*kk_b[0])
                 kk_b=kk_b[ind]
                 pk_b=pk_b[ind]
-        folded_filedata[fname]=(scale*kk_a, pk_a, scale*kk_b, pk_b)
+        folded_filedata[fname]=(os.path.getmtime(fname), (scale*kk_a, pk_a, scale*kk_b, pk_b))
 
         return (scale*kk_a, pk_a, scale*kk_b, pk_b)
 
