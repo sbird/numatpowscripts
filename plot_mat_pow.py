@@ -163,6 +163,23 @@ def calc_norm(file1, file2):
         mean=np.mean(diff)
         return mean
 
+#Load the neutrino power spectrum in the format output 
+#by the internal gadget integrator
+def get_nu_power(fname):
+        f_in= np.fromfile(fname, sep=' ',count=-1)
+        time=f_in[0]
+        bins=f_in[1]
+        data=f_in[2:(2*bins+2)].reshape(bins,2)
+        scale=1000
+        pk=data[:,1]
+        k=data[:,0]
+        delta=pk*k**3*4*math.pi
+        return (k*scale, delta)
+
+def plot_nu_power(fname):
+        (kk,delta)=get_nu_power(fname)
+        plt.loglog(kk,delta)
+
 #This is a cache for files that will not change between reads
 folded_filedata={}
 
