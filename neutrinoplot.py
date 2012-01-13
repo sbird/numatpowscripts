@@ -1,6 +1,5 @@
 import matplotlib
 # matplotlib.use("TkAgg")
-from power_specs import matter_pow
 import re
 import glob
 import os
