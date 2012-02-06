@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 ( $#ARGV < 0) and die "Please specify a neutrino mass";
-my $o_nu=shift; 
+my $m_nu=shift; 
 my $om=0.3;
 my $hub=0.7;
 my $ns=1.0;
@@ -15,9 +15,9 @@ if($#ARGV >= 2){
 }
 my $halo=0;
 
+my $o_nu=$m_nu/(93.14*$hub*$hub);
 my $o_cdm=$om-0.05- $o_nu;
 my $ol = 1 - $om;
-my $m_nu=$o_nu*6/13.*100;
 my $paramfile="default-params.ini";
 my $newparams="params-nu$o_nu";
 my $root = "out/nu$m_nu";
