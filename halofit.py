@@ -16,7 +16,7 @@
 import math
 import re
 import numpy as np
-from scipy.integrate import quad,Inf,romb
+from scipy.integrate import *
 from scipy.optimize import bisect,brentq
 from scipy.interpolate import InterpolatedUnivariateSpline
 
