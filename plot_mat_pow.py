@@ -58,6 +58,11 @@ def get_nu_power(matpow_filename):
         #^2*2*!PI^2*2.4e-9*k*hub^3
         return(k, delta)
 
+""" Plot the neutrino power from CAMB"""
+def plot_nu_power(fname):
+        (kk,delta)=get_nu_power(fname)
+        plt.loglog(kk,delta)
+
 """ Translation of my old IDL script to plot the matter power"""
 def plot_power(matpow_filename,redshift, colour=""):
         (k,delta)=get_power(matpow_filename)
@@ -163,9 +168,9 @@ def calc_norm(file1, file2):
         mean=np.mean(diff)
         return mean
 
-#Load the neutrino power spectrum in the format output 
-#by the internal gadget integrator
-def get_nu_power(fname):
+"""Load the neutrino power spectrum in the format output 
+by the internal gadget integrator"""
+def get_nu_folded_power(fname):
         f_in= np.fromfile(fname, sep=' ',count=-1)
         time=f_in[0]
         bins=f_in[1]
@@ -176,8 +181,10 @@ def get_nu_power(fname):
         delta=pk*k**3*4*math.pi
         return (k*scale, delta)
 
-def plot_nu_power(fname):
-        (kk,delta)=get_nu_power(fname)
+"""Plot the neutrino power spectrum in the format output 
+by the internal gadget integrator"""
+def plot_nu_folded_power(fname):
+        (kk,delta)=get_nu_folded_power(fname)
         plt.loglog(kk,delta)
 
 #This is a cache for files that will not change between reads
