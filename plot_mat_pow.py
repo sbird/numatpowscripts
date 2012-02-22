@@ -47,11 +47,17 @@ def get_power(matpow_filename):
 """ Get the neutrino power from CAMB"""
 def get_nu_power(matpow_filename):
         matpow=np.loadtxt(matpow_filename)
-        transfer_file=re.sub("_pk","_tk",matpow_filename)
-        transfer_file=re.sub("_matterpow","_transfer",matpow_filename)
+        using_class=re.search("_pk",matpow_filename)
+        if using_class:
+                transfer_file=re.sub("_pk","_tk",matpow_filename)
+        else:
+                transfer_file=re.sub("_matterpow","_transfer",matpow_filename)
         
         trans=np.loadtxt(transfer_file)
-        T_nu=trans[1:,5]
+        if using_class:
+                T_nu=trans[1:,5]/3
+        else:
+                T_nu=trans[1:,5]
         T_tot=trans[1:,6]
         k=matpow[1:,0]
         Pk=matpow[1:,1]*(T_nu/T_tot)**2
