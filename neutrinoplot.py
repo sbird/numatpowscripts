@@ -8,7 +8,7 @@ import halofit as halofit_module
 from plot_mat_pow import *
 import matplotlib.pyplot as plt
 
-"""Find a linear CAMB power spectrum, given a simulation. 
+"""Find a linear CAMB power spectrum, given a simulation.
 Written for the python halofit implementation"""
 def find_linpk(simpk,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/"):
     zz=get_redshift(simpk)
@@ -18,7 +18,7 @@ def find_linpk(simpk,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/"):
     (m_nu, halosuf) = parse_dirname(simpk)
     linpk=path.join(pkdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat")
     return linpk
-        
+
 """Parse the directory name for neutrino mass, particles, and starting redshift"""
 def parse_dirname(dir):
     #Find the nu mass in the directory
@@ -121,7 +121,7 @@ def get_single_file_power(d, zerof):
     else:
         raise ValueError,"Could not find: "+path.join(d,zerof)
 
-#Function to make all the plots in a directory. 
+#Function to make all the plots in a directory.
 #Arguments are: outdir, datadir (ie, where powerspec is)
 class neutrino_power:
     zerodir=""
@@ -137,15 +137,15 @@ class neutrino_power:
         self.dirs = [ d for d in self.dirs if not re.search(out,d) ]
         self.dirs = [ d for d in self.dirs if not re.search("\d+nu0z\d+",d) ]
         self.dirs = [ d for d in self.dirs if not re.search("\d+z\d+seed\d*",d) ]
-    
+
     def plot_halofit(self, halosuf, zz,m_nu, halofit=True):
-        halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
-        if path.exists(halo):
-            plt.ylabel("P(k) /(h-3 Mpc3)")
-            linstyle="-."
-            plt.xlabel("k /(h Mpc-1)")
-            plt.title("Power spectrum change")
-            if halofit:
+        if halofit:
+            halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
+            if path.exists(halo):
+                plt.ylabel("P(k) /(h-3 Mpc3)")
+                linstyle="-."
+                plt.xlabel("k /(h Mpc-1)")
+                plt.title("Power spectrum change")
                 (k, relpk) = get_rel_power(halo,path.join(self.matpowdir,"nu"+m_nu+halosuf+str(zz)+".dat"))
                 haloff=halofit_module.halofit(halo)
                 ksig = haloff.ksig
@@ -155,10 +155,8 @@ class neutrino_power:
                 plt.semilogx(k,relpk*(1+disp),color="green", ls="--")
                 plt.semilogx(k,relpk*(1-disp),color="green", ls="--")
                 linstyle="--"
-
-            plot_rel_power(path.join(self.matpowdir,"nu0"+"-lin"+halosuf+str(zz)+".dat"),path.join(self.matpowdir,"nu"+m_nu+"-lin"+halosuf+str(zz)+".dat"),colour="black", ls=linstyle)
-        else:
-            print "Could not find "+halo
+            else:
+                print "Could not find "+halo
 
     def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None, halofit=True):
         if np.size(dirs) == 1:
@@ -195,6 +193,8 @@ class neutrino_power:
             maxks=list(maxks)
             for d in dirs:
                 (kk,relpk,disp)=get_pk_with_seeds(d,zerof)
+                #plot linear theory curve from the simulation directory
+                plot_rel_power(path.join(find_zero(d),"ics"+halosuf+str(zz)+".dat"),path.join(d,"ics"+halosuf+str(zz)+".dat"),colour="black", ls='--')
                 if np.size(relpk) == 0:
                     continue
                 if maxks != []:
