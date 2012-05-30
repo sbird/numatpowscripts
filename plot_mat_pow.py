@@ -40,9 +40,11 @@ def get_power(matpow_filename):
         matpow=np.loadtxt(matpow_filename)
         k=matpow[1:,0]
         Pk=matpow[1:,1]
-        delta=Pk*(k/(2*math.pi))**3*4*math.pi
+        #Adjust Fourier convention
+        Pk*=(1./(2*math.pi))**3*4*math.pi
+        delta=Pk*k**3
         #^2*2*!PI^2*2.4e-9*k*hub^3
-        return(k, delta)
+        return(k, Pk)
 
 """ Get the neutrino power from CAMB"""
 def get_nu_power(matpow_filename):
@@ -52,7 +54,7 @@ def get_nu_power(matpow_filename):
                 transfer_file=re.sub("_pk","_tk",matpow_filename)
         else:
                 transfer_file=re.sub("_matterpow","_transfer",matpow_filename)
-        
+
         trans=np.loadtxt(transfer_file)
         if using_class:
                 T_nu=trans[1:,5]/3
@@ -61,14 +63,16 @@ def get_nu_power(matpow_filename):
         T_tot=trans[1:,6]
         k=matpow[1:,0]
         Pk=matpow[1:,1]*(T_nu/T_tot)**2
-        delta=Pk*(k/(2*math.pi))**3*4*math.pi
+        #Adjust Fourier convention
+        Pk*=(1./(2*math.pi))**3*4*math.pi
+        delta=Pk*k**3
         #^2*2*!PI^2*2.4e-9*k*hub^3
-        return(k, delta)
+        return(k, Pk)
 
 """ Plot the neutrino power from CAMB"""
-def plot_nu_power(fname):
+def plot_nu_power(fname,ls="-"):
         (kk,delta)=get_nu_power(fname)
-        plt.loglog(kk,delta)
+        plt.loglog(kk,delta,linestyle=ls)
 
 """ Translation of my old IDL script to plot the matter power"""
 def plot_power(matpow_filename,redshift, colour=""):
@@ -77,6 +81,18 @@ def plot_power(matpow_filename,redshift, colour=""):
         plt.ylabel(r'$\Delta$ (k)')
         plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum at z="+str(redshift))
+        if colour == "":
+            plt.loglog(k, delta, linestyle="--")
+        else:
+            plt.loglog(k, delta, linestyle="--",color=colour)
+        return(k, delta)
+
+""" Translation of my old IDL script to plot the matter power"""
+def plot_power(matpow_filename,colour=""):
+        (k,delta)=get_power(matpow_filename)
+        #^2*2*!PI^2*2.4e-9*k*hub^3
+        plt.ylabel(r'$\Delta$ (k)')
+        plt.xlabel("k /(h Mpc-1)")
         if colour == "":
             plt.loglog(k, delta, linestyle="--")
         else:
@@ -98,7 +114,7 @@ def load_genpk(path,box, o_nu = 0):
 #                 raise Exception
         scale=1.0/box
         #Adjust Fourier convention.
-        simk=matpow[1:,0]*scale*2.0*math.pi
+        simk=matpow[1:,0]*scale
         Pk=matpow[1:,1]/scale**3
         return (simk,Pk)
 
@@ -153,15 +169,16 @@ def plot_rel_folded_power(fname1,fname2,colour="black", ls="-"):
         plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
 
-def plot_folded_power(fname1):
+def plot_folded_power(fname1,ls="-"):
         (kk,pk)=get_folded_power(fname1)
-        plt.loglog(kk,pk)
+        plt.loglog(kk,pk,linestyle=ls)
 
 def get_folded_power(fname1):
         (kk_a1,pk_a1,kk_b1,pk_b1)=loadfolded(fname1)
         ind = np.where(kk_a1 > kk_b1[-1])
         kk_aa1 = np.ravel(kk_a1[ind])
-        pk_aa = np.ravel(pk_a1[ind])
+        pk_aa = np.ravel(pk_a1[ind])/kk_a1[ind]**3
+        pk_b1 = pk_b1/kk_b1**3
         return (np.concatenate([kk_b1,kk_aa1]), np.concatenate([pk_b1, pk_aa]))
 
 def calc_norm(file1, file2):
@@ -175,7 +192,7 @@ def calc_norm(file1, file2):
         mean=np.mean(diff)
         return mean
 
-"""Load the neutrino power spectrum in the format output 
+"""Load the neutrino power spectrum in the format output
 by the internal gadget integrator"""
 def get_nu_folded_power(fname):
         f_in= np.fromfile(fname, sep=' ',count=-1)
@@ -185,14 +202,14 @@ def get_nu_folded_power(fname):
         scale=1000
         pk=data[:,1]
         k=data[:,0]
-        delta=pk*k**3*4*math.pi
+        delta=pk/scale**3*4*math.pi # *k**3*4*math.pi
         return (k*scale, delta)
 
-"""Plot the neutrino power spectrum in the format output 
+"""Plot the neutrino power spectrum in the format output
 by the internal gadget integrator"""
-def plot_nu_folded_power(fname):
+def plot_nu_folded_power(fname,ls="-"):
         (kk,delta)=get_nu_folded_power(fname)
-        plt.loglog(kk,delta)
+        plt.loglog(kk,delta,linestyle=ls)
 
 #This is a cache for files that will not change between reads
 folded_filedata={}
@@ -248,10 +265,10 @@ def GetFoldedPower(adata, bins):
         #Number of modes in a bin
         ModeCount_A = adata[:,4]
         # What is the correction? It seems to be a factor of PowerSpec_Efstathiou...
-        # He divides each mode by P[k] and then after summing 
-        # multiplies the whole thing by P[k] again. 
+        # He divides each mode by P[k] and then after summing
+        # multiplies the whole thing by P[k] again.
         # Is this a correction for bin centroid averaging?
-        #I would normally expect this to be a window function correction, 
+        #I would normally expect this to be a window function correction,
         #but it's too small.
         Delta2Uncorrected_A = adata[:,5]
         ModePowUncorrected_A = adata[:,6]
@@ -282,7 +299,7 @@ def GetFoldedPower(adata, bins):
                         b = np.trunc(np.sum(np.arange(istart,iend)*ModeCount_A[istart:iend])/count)
                         kk = K_A[b]
                         pk *= (ConvFac_A[b]*Specshape_A[b])
-                        #This is a correction from what is done in pm_periodic. 
+                        #This is a correction from what is done in pm_periodic.
                         #I think it is some sort of bin weighted average.
                         #In pm_periodic he divides each mode by Specshape_A(k_mode)
                         #, and then sums them. Here he then multiplies by Specshape_A(k_bin)
