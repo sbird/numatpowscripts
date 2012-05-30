@@ -194,7 +194,10 @@ class neutrino_power:
             for d in dirs:
                 (kk,relpk,disp)=get_pk_with_seeds(d,zerof)
                 #plot linear theory curve from the simulation directory
-                plot_rel_power(path.join(find_zero(d),"ics"+halosuf+str(zz)+".dat"),path.join(d,"ics"+halosuf+str(zz)+".dat"),colour="black", ls='--')
+                try:
+                    plot_rel_power(path.join(find_zero(d),"ics"+halosuf+str(zz)+".dat"),path.join(d,"ics"+halosuf+str(zz)+".dat"),colour="black", ls='--')
+                except IOError:
+                    print "Could not find linear curve for ",d
                 if np.size(relpk) == 0:
                     continue
                 if maxks != []:
