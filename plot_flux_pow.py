@@ -64,3 +64,29 @@ def plot_rel_flux_power(flux1,flux2,box,zz,om,H0, ls="-"):
         plt.xlim(k[0],k[-1])
         return
 
+def get_flux_power_mpc(flux,box):
+        """Get the flux power from the output of the flux extractor"""
+        flux_power=np.loadtxt(flux)
+        bins=np.shape(flux_power)[0]
+        #Units:
+        #We need to divide by the box to get it into h/Mpc units
+        #Adjust Fourier convention.
+        k=flux_power[1:,0]*2.0*math.pi/box
+        PF=flux_power[1:,1]*box
+        return (k,PF)
+
+def get_rel_flux_power_mpc(flux1, flux2,box):
+        """Get the relative flux power"""
+        (k1, PF1) = get_flux_power_mpc(flux1,box)
+        (k2, PF2) = get_flux_power_mpc(flux2,box)
+        return (k2, PF2/PF1)
+
+def plot_rel_flux_power_mpc(flux1,flux2,box, ls="-",color="black"):
+        """Plot the flux power from the output of the flux extractor"""
+        (k, rPF) = get_rel_flux_power_mpc(flux1,flux2, box)
+        #Adjust Fourier convention.
+        plt.xlabel(r"$k$ (h/Mpc)")
+        plt.ylabel(r"$\Delta P_\mathrm{F} / P_\mathrm{F}$ (%)")
+        plt.semilogx(k, 100*(rPF-1), linestyle=ls,color=color)
+        return
+

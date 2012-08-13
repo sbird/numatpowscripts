@@ -117,7 +117,8 @@ def get_single_file_power(d, zerof):
     zerodir=find_zero(d)
     if np.size(f2) != 0:
 #         print "file: "+f2[0]
-        return get_rel_folded_power(path.join(zerodir,zerof),f2[0])
+        (k,pk)= get_rel_folded_power(path.join(zerodir,zerof),f2[0])
+        return (k,pk)
     else:
         raise ValueError,"Could not find: "+path.join(d,zerof)
 
@@ -138,7 +139,7 @@ class neutrino_power:
         self.dirs = [ d for d in self.dirs if not re.search("\d+nu0z\d+",d) ]
         self.dirs = [ d for d in self.dirs if not re.search("\d+z\d+seed\d*",d) ]
 
-    def plot_halofit(self, halosuf, zz,m_nu, halofit=True):
+    def plot_halofit(self, halosuf, zz,m_nu, halofit=False):
         if halofit:
             halo=path.join(self.matpowdir,"nu0"+halosuf+str(zz)+".dat")
             if path.exists(halo):
@@ -158,7 +159,7 @@ class neutrino_power:
             else:
                 print "Could not find "+halo
 
-    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None, halofit=True):
+    def plot_directory(self, dirs, redshifts=None, save=False, maxks=[], coloursin=None, lssin=None, halofit=False):
         if np.size(dirs) == 1:
             dirs = [dirs,]
         (m_nu, halosuf) = parse_dirname(dirs[0])
@@ -191,13 +192,13 @@ class neutrino_power:
                 colours=coloursin
             colours.reverse()
             maxks=list(maxks)
+            try:
+                plot_rel_power(path.join(find_zero(dirs[0]),"ics"+halosuf+str(zz)+".dat"),path.join(dirs[0],"ics"+halosuf+str(zz)+".dat"),colour="black", ls='--')
+            except IOError:
+                print "Could not find linear curve for ",dirs[0]
             for d in dirs:
                 (kk,relpk,disp)=get_pk_with_seeds(d,zerof)
                 #plot linear theory curve from the simulation directory
-                try:
-                    plot_rel_power(path.join(find_zero(d),"ics"+halosuf+str(zz)+".dat"),path.join(d,"ics"+halosuf+str(zz)+".dat"),colour="black", ls='--')
-                except IOError:
-                    print "Could not find linear curve for ",d
                 if np.size(relpk) == 0:
                     continue
                 if maxks != []:

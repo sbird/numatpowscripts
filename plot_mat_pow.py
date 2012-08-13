@@ -70,9 +70,13 @@ def get_nu_power(matpow_filename):
         return(k, Pk)
 
 """ Plot the neutrino power from CAMB"""
-def plot_nu_power(fname,ls="-"):
+def plot_nu_power(fname,ls="-",color=None):
         (kk,delta)=get_nu_power(fname)
-        plt.loglog(kk,delta,linestyle=ls)
+        if color==None:
+            plt.loglog(kk,delta,linestyle=ls)
+        else:
+            plt.loglog(kk,delta,linestyle=ls,color=color)
+
 
 """ Translation of my old IDL script to plot the matter power"""
 def plot_power(matpow_filename,redshift, colour=""):
@@ -132,10 +136,18 @@ def plot_genpk_power(matpow1,matpow2, box,o_nu = 0, colour="blue"):
 """ Translation of my old IDL script to plot the matter power"""
 def plot_rel_power(matpow1,matpow2, colour="blue", ls="--"):
         (k, Pk) = get_rel_power(matpow1, matpow2)
-        plt.ylabel("P(k) /(h-3 Mpc3)")
+        plt.ylabel(r'$\delta$ P(k)')
         plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
         plt.semilogx(k, Pk, linestyle=ls, color=colour)
+
+""" Translation of my old IDL script to plot the matter power"""
+def plot_rel_power_m1(matpow1,matpow2, colour="blue", ls="--"):
+        (k, Pk) = get_rel_power(matpow1, matpow2)
+        plt.ylabel(r'$\delta$ P(k)')
+        plt.xlabel("k /(h Mpc-1)")
+        plt.title("Power spectrum change")
+        plt.semilogx(k, 100*(Pk-1), linestyle=ls, color=colour)
 
 def get_rel_power(matpow1,matpow2):
         mk1=np.loadtxt(matpow1)
@@ -161,6 +173,13 @@ def get_rel_folded_power(fname1, fname2):
 def get_diff_folded_power(kk_1, relpk_1, kk_2, relpk_2):
         relpk_a=rebin(relpk_2,kk_2,kk_1)/relpk_1
         return (kk_1, relpk_a)
+
+def plot_rel_folded_power_m1(fname1,fname2,colour="black", ls="-"):
+        (kk,relpk)=get_rel_folded_power(fname1, fname2)
+        plt.semilogx(kk,100*(relpk-1),color=colour, ls=ls)
+        plt.ylabel(r'$\Delta P_\mathrm{t}(k)/ P_\mathrm{t}(k)$ (%)')
+        plt.xlabel("k /(h Mpc-1)")
+#         plt.title("Power spectrum change")
 
 def plot_rel_folded_power(fname1,fname2,colour="black", ls="-"):
         (kk,relpk)=get_rel_folded_power(fname1, fname2)
@@ -207,9 +226,12 @@ def get_nu_folded_power(fname):
 
 """Plot the neutrino power spectrum in the format output
 by the internal gadget integrator"""
-def plot_nu_folded_power(fname,ls="-"):
+def plot_nu_folded_power(fname,ls="-",color=None):
         (kk,delta)=get_nu_folded_power(fname)
-        plt.loglog(kk,delta,linestyle=ls)
+        if color == None:
+            plt.loglog(kk,delta,linestyle=ls)
+        else:
+            plt.loglog(kk,delta,linestyle=ls,color=color)
 
 #This is a cache for files that will not change between reads
 folded_filedata={}
