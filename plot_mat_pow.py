@@ -42,7 +42,7 @@ def get_power(matpow_filename):
         Pk=matpow[1:,1]
         #Adjust Fourier convention
         Pk*=(1./(2*math.pi))**3*4*math.pi
-        delta=Pk*k**3
+        #delta=Pk*k**3
         #^2*2*!PI^2*2.4e-9*k*hub^3
         return(k, Pk)
 
@@ -65,7 +65,7 @@ def get_nu_power(matpow_filename):
         Pk=matpow[1:,1]*(T_nu/T_tot)**2
         #Adjust Fourier convention
         Pk*=(1./(2*math.pi))**3*4*math.pi
-        delta=Pk*k**3
+        #delta=Pk*k**3
         #^2*2*!PI^2*2.4e-9*k*hub^3
         return(k, Pk)
 
@@ -109,21 +109,21 @@ def load_genpk(path,box, o_nu = 0):
         o_m = 0.3
         matpow=np.loadtxt(path)
         path_nu = re.sub("PK-DM-","PK-nu-",path)
-        if glob.glob(path_nu):
+        if o_nu > 0 and glob.glob(path_nu):
                 mp1a = np.loadtxt(path_nu)
                 matpow_t = (mp1a*o_nu +matpow*(o_m - o_nu))/o_m
                 ind = np.where(matpow_t/matpow > 2)
                 matpow_t[ind] = matpow[ind]
                 matpow = matpow_t
 #                 raise Exception
-        scale=1.0/box
+        scale=2*math.pi/box
         #Adjust Fourier convention.
         simk=matpow[1:,0]*scale
-        Pk=matpow[1:,1]/scale**3
+        Pk=matpow[1:,1]/scale**3*4*math.pi
         return (simk,Pk)
 
-""" Plot the matter power as output by gen-pk"""
 def plot_genpk_power(matpow1,matpow2, box,o_nu = 0, colour="blue"):
+        """ Plot the matter power as output by gen-pk"""
         (k, Pk1)=load_genpk(matpow1,box, o_nu)
         (k,Pk2)=load_genpk(matpow2,box, o_nu)
         #^2*2*!PI^2*2.4e-9*k*hub^3
@@ -131,6 +131,16 @@ def plot_genpk_power(matpow1,matpow2, box,o_nu = 0, colour="blue"):
         plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
         plt.semilogx(k, Pk2/Pk1, linestyle="-", color=colour)
+
+def plot_genpk_single_power(matpow1, box,o_nu = 0, ls="-",color=None, label=None):
+        """ Plot the matter power as output by gen-pk"""
+        (k, Pk1) = load_genpk(matpow1,box, o_nu)
+        #^2*2*!PI^2*2.4e-9*k*hub^3
+        plt.semilogx(k, Pk1, linestyle=ls, color=color, label=label)
+        plt.ylabel("P(k) /(h-3 Mpc3)")
+        plt.xlabel("k /(h Mpc-1)")
+        plt.title("Power spectrum change")
+        return (k, Pk1)
 
 
 """ Translation of my old IDL script to plot the matter power"""
@@ -188,9 +198,9 @@ def plot_rel_folded_power(fname1,fname2,colour="black", ls="-"):
         plt.xlabel("k /(h Mpc-1)")
         plt.title("Power spectrum change")
 
-def plot_folded_power(fname1,ls="-"):
+def plot_folded_power(fname1,ls="-", color=None, label=None):
         (kk,pk)=get_folded_power(fname1)
-        plt.loglog(kk,pk,linestyle=ls)
+        plt.loglog(kk,pk,linestyle=ls, color=color, label=label)
 
 def get_folded_power(fname1):
         (kk_a1,pk_a1,kk_b1,pk_b1)=loadfolded(fname1)
@@ -211,9 +221,9 @@ def calc_norm(file1, file2):
         mean=np.mean(diff)
         return mean
 
-"""Load the neutrino power spectrum in the format output
-by the internal gadget integrator"""
 def get_nu_folded_power(fname):
+        """Load the neutrino power spectrum in the format output
+        by the internal gadget integrator"""
         f_in= np.fromfile(fname, sep=' ',count=-1)
         time=f_in[0]
         bins=f_in[1]
@@ -226,18 +236,18 @@ def get_nu_folded_power(fname):
 
 """Plot the neutrino power spectrum in the format output
 by the internal gadget integrator"""
-def plot_nu_folded_power(fname,ls="-",color=None):
+def plot_nu_folded_power(fname,ls="-",color=None, label=None):
         (kk,delta)=get_nu_folded_power(fname)
         if color == None:
-            plt.loglog(kk,delta,linestyle=ls)
+            plt.loglog(kk,delta,linestyle=ls, label=label)
         else:
-            plt.loglog(kk,delta,linestyle=ls,color=color)
+            plt.loglog(kk,delta,linestyle=ls,color=color, label=label)
 
 #This is a cache for files that will not change between reads
 folded_filedata={}
 
-"""Load the folded power spectrum file"""
 def loadfolded(fname):
+        """Load the folded power spectrum file"""
         if fname in folded_filedata and os.path.getmtime(fname) <= folded_filedata[fname][0]:
                 return folded_filedata[fname][1]
         f_in= np.fromfile(fname, sep=' ',count=-1)
@@ -273,8 +283,8 @@ def loadfolded(fname):
 
         return (scale*kk_a, pk_a, scale*kk_b, pk_b)
 
-"""Returns the dimensionless Delta parameter"""
 def GetFoldedPower(adata, bins):
+        """Returns the dimensionless Delta parameter"""
         #Set up variables
         # k
         K_A = adata[:,0]
@@ -300,8 +310,8 @@ def GetFoldedPower(adata, bins):
         SumPower_A =  adata[:,8]
         # This is a volume conversion factor# 4 M_PI : [k/[2M_PI:Box]]::3
         ConvFac_A =  adata[:,9]
-        MinModeCount = 20
-        TargetBins = 80
+        MinModeCount = 30
+        TargetBins = 200
         if(np.max(K_A) == 0 or np.min(K_A) ==0):
                 raise Exception
         logK_A=np.log10(K_A)
