@@ -8,9 +8,10 @@ import halofit as halofit_module
 from plot_mat_pow import *
 import matplotlib.pyplot as plt
 
+
 """Find a linear CAMB power spectrum, given a simulation.
 Written for the python halofit implementation"""
-def find_linpk(simpk,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/"):
+def find_linpk(simpk,pkdir=path.expanduser("~/codes/cosmomc-src/cosmomc/camb/out/")):
     zz=get_redshift(simpk)
     if zz >= 1 or zz <0.001:
         zz=int(zz)

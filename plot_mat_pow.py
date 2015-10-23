@@ -118,8 +118,8 @@ def load_genpk(path,box, o_nu = 0):
 #                 raise Exception
         scale=2*math.pi/box
         #Adjust Fourier convention.
-        simk=matpow[1:,0]*scale
-        Pk=matpow[1:,1]/scale**3*4*math.pi
+        simk=matpow[:,0]*scale
+        Pk=matpow[:,1]/scale**3*4*math.pi
         return (simk,Pk)
 
 def plot_genpk_power(matpow1,matpow2, box,o_nu = 0, colour="blue"):
@@ -208,6 +208,7 @@ def get_folded_power(fname1):
         kk_aa1 = np.ravel(kk_a1[ind])
         pk_aa = np.ravel(pk_a1[ind])/kk_a1[ind]**3
         pk_b1 = pk_b1/kk_b1**3
+        return (kk_b1, pk_b1)
         return (np.concatenate([kk_b1,kk_aa1]), np.concatenate([pk_b1, pk_aa]))
 
 def calc_norm(file1, file2):
@@ -254,7 +255,7 @@ def loadfolded(fname):
         #Load header
         scale=1000
         time=f_in[0]
-        bins_a=f_in[1]
+        bins_a=int(f_in[1])
         mass_a=f_in[2]
         npart=f_in[3]
         #Read large scale power spectrum data
@@ -262,7 +263,7 @@ def loadfolded(fname):
         #Read second header
         b_off=10*bins_a+4
         time=f_in[b_off]
-        bins_b=f_in[b_off+1]
+        bins_b=int(f_in[b_off+1])
         mass_b=f_in[b_off+2]
         npart=f_in[b_off+3]
         #Read small-scale data
@@ -306,11 +307,11 @@ def GetFoldedPower(adata, bins):
         ModePowUncorrected_A = adata[:,6]
         #This is the Efstathiou power spectrum
         Specshape_A =  adata[:,7]
-        #Total power, without dividing by the number of modes
+        #Total power, without dividing by the number of modes: So SumPower_A / ModeCount_A == ModePow_A
         SumPower_A =  adata[:,8]
         # This is a volume conversion factor# 4 M_PI : [k/[2M_PI:Box]]::3
         ConvFac_A =  adata[:,9]
-        MinModeCount = 30
+        MinModeCount = 50
         TargetBins = 200
         if(np.max(K_A) == 0 or np.min(K_A) ==0):
                 raise Exception
@@ -327,22 +328,21 @@ def GetFoldedPower(adata, bins):
                 count+=ModeCount_A[iend]
                 iend+=1
                 if count >= MinModeCount and logK_A[iend-1] >= targetlogK:
-                        pk = np.sum(SumPower_A[istart:iend])/count
-                        b = np.trunc(np.sum(np.arange(istart,iend)*ModeCount_A[istart:iend])/count)
-                        kk = K_A[b]
-                        pk *= (ConvFac_A[b]*Specshape_A[b])
+                        pk = np.sum(ModeCount_A[istart:iend]*ModePowUncorrected_A[istart:iend]*ConvFac_A[istart:iend])/count
+                        kk = np.sum(ModeCount_A[istart:iend]*K_A[istart:iend])/count
+                        #Earlier versions did: (ConvFac_A[b]*Specshape_A[b])
                         #This is a correction from what is done in pm_periodic.
                         #I think it is some sort of bin weighted average.
                         #In pm_periodic he divides each mode by Specshape_A(k_mode)
-                        #, and then sums them. Here he then multiplies by Specshape_A(k_bin)
+                        #, and then sums them. So we can use the Corrected powers and multiply by Specshape,
+                        #or we can just use the uncorrected versions. They give the same answer.
                         k_list_A.append(kk)
                         Pk_list.append(pk)
 #                         count_list_A.append(count)
                         istart=iend
                         targetlogK=logK_A[istart]+MinDlogK
                         count=0
-                        if pk < 0:
-                                raise Exception
+                        assert pk >= 0
         return (np.array(k_list_A), np.array(Pk_list))
 
 

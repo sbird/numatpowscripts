@@ -14,8 +14,8 @@ import re
 import glob
 from save_figure import save_figure
 
-"""Just rebins the data"""
 def rebin(data, xaxis,newx):
+        """Just rebins the data"""
         eps = 2e-7
 #         if newx[0] < xaxis[0]-eps:
 #                 raise ValueError("A value in newx is beyond the interpolation range")
@@ -29,7 +29,6 @@ def Hubble(zz,om,H0):
 def get_flux_power(flux,box,zz,om,H0):
         """Get the flux power from the output of the flux extractor"""
         flux_power=np.loadtxt(flux)
-        bins=np.shape(flux_power)[0]
         #Units:
         #We need to divide by the box to get it into 1/Mpc units
         #and then multiply by the hubble parameter to be in 1/(km/s)
@@ -67,7 +66,6 @@ def plot_rel_flux_power(flux1,flux2,box,zz,om,H0, ls="-"):
 def get_flux_power_mpc(flux,box):
         """Get the flux power from the output of the flux extractor"""
         flux_power=np.loadtxt(flux)
-        bins=np.shape(flux_power)[0]
         #Units:
         #We need to divide by the box to get it into h/Mpc units
         #Adjust Fourier convention.
