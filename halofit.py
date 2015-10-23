@@ -1,10 +1,10 @@
 #!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#! The `halofit' code models the nonlinear evolution of cold matter 
-#! cosmological power spectra. The full details of the way in which 
-#! this is done are presented in Smith et al. (2002), MNRAS, ?, ?. 
+#! The `halofit' code models the nonlinear evolution of cold matter
+#! cosmological power spectra. The full details of the way in which
+#! this is done are presented in Smith et al. (2002), MNRAS, ?, ?.
 #!
-#! The code `halofit' was written by R. E. Smith & J. A. Peacock. 
-#! See http://www.astro.upenn.edu/~res, 
+#! The code `halofit' was written by R. E. Smith & J. A. Peacock.
+#! See http://www.astro.upenn.edu/~res,
 #! Last edited 8/5/2002.
 #
 #! Only tested for plain LCDM models with power law initial power spectra
@@ -34,21 +34,22 @@ class halofit:
         self.logkmax=np.log(self.k[-1])
         self.logkmin=np.log(self.k[0])
         a = 1./(1+zz)
-        self.om_m = self.omega_m(a, omm0, omv0)  
+        self.om_m = self.omega_m(a, omm0, omv0)
         self.om_v = self.omega_v(a, omm0, omv0)
         # Remember => plin = k^3 * P(k) * constant
-        # constant = 4*pi*V/(2*pi)^3 
+        # constant = 4*pi*V/(2*pi)^3
         self.Delta=np.empty((1,np.size(self.k)))
         self.Delta[0] = self.k**3*mk1[1:,1]*self.anorm
         self.ksig = self._ksig()
         self.y=self.k/self.ksig
+        print self.ksig
 
     """Find omega_m at a given expansion factor"""
     def omega_m(self, aa,om_m0,om_v0):
         omega_t=1.0+(om_m0+om_v0-1.0)/(1-om_m0-om_v0+om_v0*aa**2.0+om_m0/aa)
         omega_m=omega_t*om_m0/(om_m0+om_v0*aa**(3.0))
         return omega_m
-    
+
     def omega_v(self, aa,om_m0,om_v0):
         omega_t=1.0+(om_m0+om_v0-1.0)/(1-om_m0-om_v0+om_v0*aa**2.0+om_m0/aa)
         omega_v=omega_t*om_v0/(om_m0*aa**(-3)+om_v0)
@@ -69,7 +70,7 @@ class halofit:
     def sigdiff(self,logR,d=0):
         s2=self.sigma2(logR,d)
         return np.sqrt(s2)-1
-    
+
     def _ksig(self,d=0):
         xlogr1=-7
         xlogr2=7
@@ -79,7 +80,7 @@ class halofit:
         #Find non-linear scale k_sigma
         k_sig = 1./np.exp(brentq(self.sigdiff,xlogr1, xlogr2,args=(d,)))
         return k_sig
-    
+
     def _neff(self,ksig,d=0):
         logR=np.log(1./ksig)
         delta = logR*0.01 #NR 5.7; cbrt(1e-6)
@@ -91,18 +92,18 @@ class halofit:
         return -(np.log(self.sigma2(logR+2*delta,d))-2*np.log(self.sigma2(logR,d))+np.log(self.sigma2(logR-2*delta,d)))/(2*delta)**2
 
     """BR09 put neutrinos into the matter as well
-       calculate nonlinear wavenumber (rknl), effective spectral index (rneff) and 
-       curvature (rncur) of the power spectrum at the desired redshift, using method 
+       calculate nonlinear wavenumber (rknl), effective spectral index (rneff) and
+       curvature (rncur) of the power spectrum at the desired redshift, using method
        described in Smith et al (2002).
        calculate nonlinear power according to halofit: pnl = pq + ph,
-       where pq represents the quasi-linear (halo-halo) power and 
+       where pq represents the quasi-linear (halo-halo) power and
        where ph is represents the self-correlation halo term."""
     def do_nonlin(self,par=[0,]):
         neff=self._neff(self.ksig)
         curv=self.curv(self.ksig)
-        ph=self.halofit(neff,curv,self.y,par)  
+        ph=self.halofit(neff,curv,self.y,par)
         pq=self.pq(self.Delta[0],self.y,neff,curv,par)
-        # halo fitting formula 
+        # halo fitting formula
         return ph+pq
 
     def pq(self,delta,y,rn,rncur,par):
@@ -113,7 +114,7 @@ class halofit:
         pq=delta*((delta+1)**beta/(delta*alpha+1))*np.exp(-y/4.0-y**2/8.0)
         return pq
 
-    """halo model nonlinear fitting formula as described in 
+    """halo model nonlinear fitting formula as described in
     Appendix C of Smith et al. (2002)"""
     def halofit(self,rn,rncur,y,par):
         extragam=par[0]+par[1]*rn+par[2]*rncur
@@ -126,18 +127,18 @@ class halofit:
         xmu=10**(-3.54419+0.19086*rn)
         xnu=10**(0.95897+1.2857*rn)
 
-        if abs(1-self.om_m) > 0.01: 
+        if abs(1-self.om_m) > 0.01:
             f1a=self.om_m**(-0.0732)
             f2a=self.om_m**(-0.1423)
             f3a=self.om_m**(0.0725)
             f1b=self.om_m**(-0.0307)
             f2b=self.om_m**(-0.0585)
-            f3b=self.om_m**(0.0743)       
-            frac=self.om_v/(1.-self.om_m) 
+            f3b=self.om_m**(0.0743)
+            frac=self.om_v/(1.-self.om_m)
             f1=frac*f1b + (1-frac)*f1a
             f2=frac*f2b + (1-frac)*f2a
             f3=frac*f3b + (1-frac)*f3a
-        else:       
+        else:
             f1=1.0
             f2=1.
             f3=1.
@@ -165,12 +166,12 @@ class relhalofit(halofit):
         m=re.search(r'nu([\d.]+)',pkfile)
         self.fnu=13.4*float(m.group(1))/omm0/600.
         self.a = 1./(1+zz)
-        self.om_m = self.omega_m(self.a, omm0, omv0)  
+        self.om_m = self.omega_m(self.a, omm0, omv0)
         self.om_m_3 = self.omega_m(self.a, 0.3,0.7)
         self.omm0=omm0
         self.om_v = self.omega_v(self.a, omm0, omv0)
         # Remember => plin = k^3 * P(k) * constant
-        # constant = 4*pi*V/(2*pi)^3 
+        # constant = 4*pi*V/(2*pi)^3
         self.Delta=np.empty((2,np.size(self.k)))
         self.Delta[0] = self.k**3*mk1[1:,1]*self.anorm
         self.Delta[1] = self.k**3*mk2[1:,1]*self.anorm
@@ -190,8 +191,8 @@ class relhalofit(halofit):
             self.y[i]=self.k/ks
         self._pq[1]=self.pq(self.Delta[1],self.y[1],self.neff[1],0)
         self._ph[1]=self.halofit(self.neff[1],self._curv[1],self.y[1])
-        self._ph[0]=self.halofit(self.neff[0],self._curv[0],self.y[0],self.fnu)  
-    
+        self._ph[0]=self.halofit(self.neff[0],self._curv[0],self.y[0],self.fnu)
+
     def do_nonlin(self,ipar):
         par=np.zeros(8)
         par[0:np.size(ipar)]=ipar
@@ -217,9 +218,9 @@ class relhalofit(halofit):
         return pq
 
     def do_lin(self):
-        # halo fitting formula 
+        # halo fitting formula
         return self.Delta[0]/self.Delta[1]
-    
+
     def ph(self,a,ksig,fnu,rn,par):
         y=self.k
         #1.81624328e+00   5.43828928e-04(1+par[2]*(y/ksig)**0.5)
@@ -227,7 +228,7 @@ class relhalofit(halofit):
         return vnl
 
     def halofit(self,rn,rncur,y,fnu=0,ipar=np.array([])):
-        #Modifications from fitting halofit to the small-scale power   
+        #Modifications from fitting halofit to the small-scale power
         #Fit with rescaling:
 
 #       dd11=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0z99","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99as2.0","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z49om0.4", "/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99h0.75"],maxz=3.1,npar=3, maxk=500,mink=6)
@@ -239,9 +240,9 @@ class relhalofit(halofit):
 #[ 0.31375759 -0.07979239 -0.85801047]
 
         # I have used a high mink because otherwise it was straining to fit the wiggles on large
-        # scales. A very high maxk because otherwise it was straining to fit the jump at 
-        # the nyquist frequency. 
-        # It doesn't fit high redshift well, because that is quasilinear. 
+        # scales. A very high maxk because otherwise it was straining to fit the jump at
+        # the nyquist frequency.
+        # It doesn't fit high redshift well, because that is quasilinear.
 #         par=np.zeros(8)
 #         par[0:np.size(ipar)]=ipar
         extragam = 0.31594165 + -0.0764529*rn + -0.83496406*rncur
@@ -253,18 +254,18 @@ class relhalofit(halofit):
         xmu=10**(-3.54419+0.19086*rn)
         xnu=10**(0.95897+1.2857*rn)
 
-        if abs(1-self.om_m) > 0.01: 
+        if abs(1-self.om_m) > 0.01:
             f1a=self.om_m**(-0.0732)
             f2a=self.om_m**(-0.1423)
             f3a=self.om_m**(0.0725)
             f1b=self.om_m**(-0.0307)
             f2b=self.om_m**(-0.0585)
-            f3b=self.om_m**(0.0743)       
-            frac=self.om_v/(1.-self.om_m) 
+            f3b=self.om_m**(0.0743)
+            frac=self.om_v/(1.-self.om_m)
             f1=frac*f1b + (1-frac)*f1a
             f2=frac*f2b + (1-frac)*f2a
             f3=frac*f3b + (1-frac)*f3a
-        else:       
+        else:
             f1=1.0
             f2=1.
             f3=1.

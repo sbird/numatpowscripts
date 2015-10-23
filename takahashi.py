@@ -227,7 +227,7 @@ class relhalofit(halofit):
     def ph(self,a,ksig,fnu,rn,par):
         y=self.k
         #1.81624328e+00   5.43828928e-04(1+par[2]*(y/ksig)**0.5)
-        vnl=fnu*(par[0]-par[5]*(self.omm0-0.3))
+        vnl=fnu*(par[0]+par[5]*((self.omm0/0.3)**0.55-1))
         return vnl
 
     def halofit(self,rn,rncur,y,fnu=0,ipar=np.array([])):
@@ -311,13 +311,14 @@ class relhalofit(halofit):
 #[  0.69107114  -0.13066274  47.49450963   1.76081586   0.28770219]
 
 
-#dd4=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.3z49om0.25","/home/spb/data/NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=30,mink=0.1)
+#dd4=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.3z49om0.25","/home/spb/data/NU_DM/PART/b150p512nu0.3z49","/home/spb/data/NU_DM/COSMO-CHECK/b150p512nu0.3z49om0.4"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=30,mink=0.1)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.092392
 #         Iterations: 2
 #         Function evaluations: 37
 #12.9598488366
+#Adding the Omega_M = 0.4 simulation gives a very different result. Omega_M = 0.3, 0.4 are
 
 #again because p[1] being negative leads to problems
 #In [12]: dd2=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.6z99","/home/spb/data/NU_DM/PART/b150p512nu0.3z49","/home/spb/data/NU_DM/PART/b150p512nu0.15z24","/home/spb/data/NU_DM/PART/b512p512nu0.6z99","/home/spb/data/NU_DM/PART/b512p512nu0.3z49","/home/spb/data/NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=4, maxk=30,mink=0.1)

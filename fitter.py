@@ -1,5 +1,5 @@
 import numpy as np
-import halofit
+import takahashi as halofit
 import glob
 import os.path as path
 import plot_mat_pow as pmat
@@ -42,7 +42,7 @@ class fitter:
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*pk[ind])
                 self.simpk[s]=(logk,intpk(logk),halofit.halofit(l))
-        
+
         """Function to find squared residuals of power spectra"""
         def halopk(self,par):
             total=0
@@ -66,7 +66,7 @@ class fitter:
                     par=self.best_fit
             halofit=pmat.rebin(halo.do_nonlin(par),halo.k,np.exp(logk))
             plt.semilogx(np.exp(logk),pk/halofit)
-        
+
         def plot_residual_outside(self,file,par=0):
             linpk=neu.find_linpk(file)
             (d,f)=path.split(file)
@@ -134,10 +134,10 @@ class relfit(fitter):
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*relpk[ind])
                 self.simpk[s]=(logk,intpk(logk),halofit.relhalofit(l))
-        
-        
+
+
 class data:
-        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb41/cosmomc-src/cosmomc/camb/out/",maxk=104,maxz=3,npar=4,mink=4, minz=0):
+        def __init__(self,simdir,fitter=fitter,pkdir="/home/spb/codes/cosmomc-src/cosmomc/camb/out/",maxk=104,maxz=3,npar=4,mink=4, minz=0):
             self.pkfiles={} #simpk->linpk
 
             for dir in simdir:
@@ -155,5 +155,5 @@ class data:
             print pars
 
 
-            
+
 
