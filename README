@@ -1,0 +1,13 @@
+This repo contains the data and code for the massive neutrino halofit model
+described in https://arxiv.org/abs/1109.4416
+
+It is very old code and may contain some unusual choices. 
+
+Both the original massive neutrino model is shown (in fitter.py) and the model
+based on Takahashi et al (in takahashi.py). 
+
+Power spectra and parameter files are in the NU_DM directory.
+
+Scripts starting make- make plots for various papers.
+
+Code is in python2 and may or may not run.
