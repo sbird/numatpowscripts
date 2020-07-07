@@ -121,8 +121,9 @@ def get_rel_power(matpow1,matpow2):
     k=mk1[1:,0]
     Pk1=mk1[1:,1]
     Pk2=mk2[1:,1]
+    k2 = mk2[1:,0]
     #^2*2*!PI^2*2.4e-9*k*hub^3
-    return (k, Pk2/Pk1)
+    return (k, rebin(Pk2,k2,k)/Pk1)
 
 def get_rel_folded_power(fname1, fname2):
     """Get the ratio of two matter power spectra from the Gadget estimator"""
@@ -142,6 +143,14 @@ def plot_rel_folded_power(fname1,fname2,colour="black", ls="-"):
     (kk,relpk)=get_rel_folded_power(fname1, fname2)
     plt.semilogx(kk,relpk,color=colour, ls=ls)
     plt.ylabel(r'$\delta$ P(k)')
+    plt.xlabel("k /(h Mpc-1)")
+    plt.title("Power spectrum change")
+
+def plot_rel_folded_power_m1(fname1,fname2,colour="black", ls="-"):
+    """Plot the ratio of two matter power spectra from the Gadget estimator"""
+    (kk,relpk)=get_rel_folded_power(fname1, fname2)
+    plt.semilogx(kk,relpk-1,color=colour, ls=ls)
+    plt.ylabel(r'$\delta$ P(k)-1')
     plt.xlabel("k /(h Mpc-1)")
     plt.title("Power spectrum change")
 
