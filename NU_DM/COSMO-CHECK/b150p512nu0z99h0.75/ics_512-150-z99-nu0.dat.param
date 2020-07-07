@@ -1,0 +1,78 @@
+InitCondFile  	   /home/cosmos/users/spb41/data/NU_DM/KSPACE/b150p512nu0z99h0.75/ics_512-150-z99-nu0.dat
+OutputDir          /home/cosmos/users/spb41/data/NU_DM/KSPACE/b150p512nu0z99h0.75
+SnapshotFileBase   snapshot
+% CPU time -limit
+TimeLimitCPU      32682
+ResubmitOn        0
+ResubmitCommand   my-scriptfile  
+%  Characteristics of run
+TimeBegin           0.01
+TimeMax	            1
+Omega0	              0.3
+OmegaLambda           0.7
+OmegaBaryon           0.0
+HubbleParam           0.75
+BoxSize               150000
+% Output frequency
+OutputListOn		1
+OutputListFilename	/home/cosmos/users/spb41/data/NU_DM/KSPACE/b150p512nu0z99h0.75/times.txt
+TimeBetSnapshot        1.07
+TimeOfFirstSnapshot    0.1
+CpuTimeBetRestartFile     125000.0    ; here in seconds
+TimeBetStatistics         0.05
+NumFilesPerSnapshot       12
+NumFilesWrittenInParallel 1
+InitGasTemp            273
+MinGasTemp             1.0
+SofteningGas       9.765625
+SofteningHalo      9.765625
+SofteningDisk      9.765625
+SofteningBulge     9.765625        
+SofteningStars     9.765625
+SofteningBndry     9.765625
+SofteningGasMaxPhys       9.765625
+SofteningHaloMaxPhys      9.765625
+SofteningDiskMaxPhys      9.765625
+SofteningBulgeMaxPhys     9.765625           
+SofteningStarsMaxPhys     9.765625
+SofteningBndryMaxPhys     9.765625
+
+
+% Code options
+ICFormat                 2
+SnapFormat               2
+ComovingIntegrationOn    1
+TypeOfTimestepCriterion  0
+PeriodicBoundariesOn     1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile         energy.txt
+InfoFile           info.txt
+TimingsFile        timings.txt
+CpuFile            cpu.txt
+RestartFile        restart
+ErrTolIntAccuracy      0.025 
+MaxRMSDisplacementFac  0.2
+CourantFac             0.15     
+MaxSizeTimestep       0.1  %0.03
+MinSizeTimestep       0.0
+% Tree algorithm, force accuracy, domain update frequency
+ErrTolTheta            0.5            
+TypeOfOpeningCriterion 1
+ErrTolForceAcc         0.005
+TreeDomainUpdateFrequency    0.1
+%  Further parameters of SPH
+DesNumNgb              33
+MaxNumNgbDeviation     2
+ArtBulkViscConst       0.8
+% System of units
+UnitLength_in_cm         3.085678e21        ;  1.0 kpc 
+UnitMass_in_g            1.989e43           ;  1.0e10 solar masses 
+UnitVelocity_in_cm_per_s 1e5                ;  1 km/sec 
+GravityConstantInternal  0
+MinGasHsmlFractional 0.25
+% Memory allocation
+BufferSize            100          % in MByte
+
+PartAllocFactor       2
+MaxMemSize              2500

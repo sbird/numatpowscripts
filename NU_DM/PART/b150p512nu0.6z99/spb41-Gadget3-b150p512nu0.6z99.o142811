@@ -1,0 +1,364 @@
+MPI: dplace use detected, MPI_DSM_... environment variables ignored
+
+This is P-Gadget, version 3.0.
+
+Running on 75 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file '/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat.param':
+InitCondFile                       /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat
+OutputDir                          /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       32682
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.01
+TimeMax                            1
+Omega0                             0.3
+OmegaLambda                        0.7
+OmegaBaryon                        0
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        273
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2
+MaxMemSize                         2500
+ErrTolThetaSubfind                 0.5
+DesLinkNgb                         33
+
+
+found 8 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+initialize Ewald correction...
+
+reading Ewald tables from file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+Reading header => 'HEAD' (264 byte)
+
+Allocated 962.56 MByte for particle storage.
+
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.0' on task=0 (contains 33154719 particles.)
+distributing this file to tasks 0-8
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16621767  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16532952  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.1' on task=9 (contains 16445305 particles.)
+distributing this file to tasks 9-17
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8264928  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8180377  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.2' on task=18 (contains 17717238 particles.)
+distributing this file to tasks 18-26
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8715016  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   9002222  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.3' on task=27 (contains 32577534 particles.)
+distributing this file to tasks 27-31
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16542162  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16035372  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.4' on task=32 (contains 15292388 particles.)
+distributing this file to tasks 32-36
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   7851931  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   7440457  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.5' on task=37 (contains 16912261 particles.)
+distributing this file to tasks 37-45
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8433617  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8478644  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.6' on task=46 (contains 34094043 particles.)
+distributing this file to tasks 46-50
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16979009  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  17115034  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.7' on task=51 (contains 17014234 particles.)
+distributing this file to tasks 51-55
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8446560  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8567674  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.8' on task=56 (contains 18222184 particles.)
+distributing this file to tasks 56-64
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8913877  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   9308307  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.9' on task=65 (contains 33713485 particles.)
+distributing this file to tasks 65-69
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16751412  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16962073  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+Not enough space on task=71 (space for 7158278, need at least 7961238)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.10' on task=70 (contains 15922477 particles.)
+distributing this file to tasks 70-71
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8092905  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   7829572  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+Not enough space on task=70 (space for 7158278, need at least 7961239)
+task 70: endrun called with an error level of 173
+
+
+task 71: endrun called with an error level of 173
+
+
+MPI: Global rank 70 is aborting with error code 173.
+     Process ID: 505831, Host: universe, Program: /nfs/scratch/spb41/NU_DM/PART/b150p512nu0.6z99/P-Gadget3
+
+MPI: --------stack traceback-------
+MPI: Attaching to program: /proc/505831/exe, process 505831
+MPI: Try: zypper install -C "debuginfo(build-id)=4e9fa1a2c1141fc0123a142783efd044c40bdaaf"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=3f06bcfc74f9b01780d68e89b8dce403bef9b2e3"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=74ef01bbffa60bc29e6768832b775b13c191a60b"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=f607b21f9a513c99bba9539050c01236d19bf22b"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=c1807b5762068e6c5f4a6a0ed48d9d4469965351"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=d44cbcbbcbdc9ed66abdcd82fa04fb4140bc155e"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=f69d3b06516c61cfab7d00c9ef86c41936dfc017"
+MPI: (no debugging symbols found)...done.
+MPI: [Thread debugging using libthread_db enabled]
+MPI: Try: zypper install -C "debuginfo(build-id)=7bcdd7deb661fbb367edf63273568fc962aefbed"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=7d7940c46e5ea77fb4896ce5dba45bc9299c5e0c"
+MPI: (no debugging symbols found)...done.
+MPI: 0x00002aff9b8aaa55 in waitpid () from /lib64/libc.so.6
+MPI: (gdb) #0  0x00002aff9b8aaa55 in waitpid () from /lib64/libc.so.6
+MPI: #1  0x00002aff9a308a74 in mpi_sgi_system (command=<optimized out>) at sig.c:89
+MPI: #2  MPI_SGI_stacktraceback (header=<optimized out>) at sig.c:272
+MPI: #3  0x00002aff9a29467b in print_traceback (ecode=173) at abort.c:168
+MPI: #4  0x00002aff9a294939 in PMPI_Abort (comm=<optimized out>, errorcode=173) at abort.c:59
+MPI: #5  0x000000000043d5d8 in endrun (ierr=513354) at endrun.c:31
+MPI: warning: Range for type (null) has invalid bounds 0..-13
+MPI: warning: Range for type (null) has invalid bounds 0..-13
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #6  0x00000000004489e5 in read_file (fname=0x7d54a <Address 0x7d54a out of bounds>, readTask=-386386068, lastTask=0) at read_ic.c:1527
+MPI: #7  0x0000000000447e17 in read_ic (fname=0x7d54a <Address 0x7d54a out of bounds>) at read_ic.c:148
+MPI: warning: Range for type (null) has invalid bounds 0..-25
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #8  0x00000000004418aa in init () at init.c:120
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-113
+MPI: warning: Range for type (null) has invalid bounds 0..-85
+MPI: warning: Range for type (null) has invalid bounds 0..-85
+MPI: warning: Range for type (null) has invalid bounds 0..-85
+MPI: #9  0x000000000043a540 in begrun () at begrun.c:206
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #10 0x000000000043310a in main (argc=4, argv=0x7fffe8f87d68) at main.c:100
+MPI: (gdb) A debugging session is active.
+MPI: 
+MPI: 	Inferior 1 [process 505831] will be detached.
+MPI: 
+MPI: Quit anyway? (y or n) [answered Y; input not from terminal]
+MPI: Detaching from program: /proc/505831/exe, process 505831
+
+MPI: -----stack traceback ends-----
+MPI: MPI_COMM_WORLD rank 70 has terminated without calling MPI_Finalize()
+MPI: aborting job

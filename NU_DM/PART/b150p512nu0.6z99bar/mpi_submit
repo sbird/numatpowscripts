@@ -1,0 +1,21 @@
+#!/bin/bash 
+#PBS -N spb41-Gadget3-b150p512nu0.6z99bar
+#PBS -l nodes=20:ppn=12,mem=720000mb,walltime=1:30:00
+#PBS -m bae
+#PBS -q westmere
+#! Full path to application executable: 
+. /etc/profile.d/modules.sh    # Leave this line
+module purge                   # Removes all modules loaded by ~/.bashrc
+module load default-impi
+module load nehalem/fftw2/intel/float/2.1.5
+module load gsl
+export OMP_NUM_THREADS=1
+cd /home/spb41/scratch/NU_DM/PART/b150p512nu0.6z99bar
+JOBID=`echo \$PBS_JOBID | sed -e "s/\..*$//"`
+echo -e "JobID: $JOBID\n======"
+echo "Time: `date`"
+echo "Running on master node: `hostname`"
+echo "Current directory: `pwd`"
+echo -e '\nnodes=20, ppn=12'
+echo -e '\nExecuting command:\n==================\nmpirun -tune -ppn 12 -np 240 /home/spb41/scratch/NU_DM/PART/b150p512nu0.6z99bar/P-Gadget3 /home/spb41/scratch/NU_DM/PART/b150p512nu0.6z99bar/ics_512-150-z99-nu0.013.dat.param\n'
+mpirun -tune -ppn 12 -np 240 /home/spb41/scratch/NU_DM/PART/b150p512nu0.6z99bar/P-Gadget3 /home/spb41/scratch/NU_DM/PART/b150p512nu0.6z99bar/ics_512-150-z99-nu0.013.dat.param 1

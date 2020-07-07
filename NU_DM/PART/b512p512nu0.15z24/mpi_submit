@@ -1,0 +1,19 @@
+#!/bin/bash 
+#PBS -N spb41-Gadget3-b512p512nu0.15z24
+#PBS -l ncpus=144,mem=360000mb,walltime=6:00:00
+#PBS -j oe
+#PBS -m bae
+#PBS -V
+# Get the number of allocated CPUs
+#(It may differ from what you have requested!)
+NP=$(wc -l $PBS_NODEFILE |cut -d" " -f1)
+# some defaults
+export OMP_NUM_THREADS=1
+export MPI_SHARED_NEIGHBORHOOD=host
+# MPI can improve the bandwidth of large messages
+# if MPI_GRU_CBS  is set to 0
+export MPI_GRU_CBS=0
+#
+cd $PBS_O_WORKDIR
+mpirun -np $NP dplace -s1 /home/cosmos/users/spb41/data/NU_DM/PART/b512p512nu0.15z24/P-Gadget3 /home/cosmos/users/spb41/data/NU_DM/PART/b512p512nu0.15z24/ics_512-512-z24-nu0.00325.dat.param
+

@@ -1,0 +1,4 @@
+MPI: universe: 0x1d8100004e67bd22: /bin/sh: /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/P-Gadget3: Permission denied
+MPI: universe: 0x1d8100004e67bd22: /bin/sh: line 0: exec: /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/P-Gadget3: cannot execute: Permission denied
+MPI: could not run executable (case #4)
+/opt/torque/default/home/mom_priv/jobs/142863.universe.ib.private.damtp.cam.ac.uk.SC: line 24: 236508 Killed                  mpirun -np $NP /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/P-Gadget3 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat.param 3 3

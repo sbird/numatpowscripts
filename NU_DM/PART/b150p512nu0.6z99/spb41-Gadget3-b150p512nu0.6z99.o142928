@@ -1,0 +1,1959 @@
+
+This is P-Gadget, version 3.0.
+
+Running on 48 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file '/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat.param':
+InitCondFile                       /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat
+OutputDir                          /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       32682
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.01
+TimeMax                            1
+Omega0                             0.3
+OmegaLambda                        0.7
+OmegaBaryon                        0
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        273
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2
+MaxMemSize                         2500
+ErrTolThetaSubfind                 0.45
+DesLinkNgb                         20
+
+
+found 8 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+initialize Ewald correction...
+
+reading Ewald tables from file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+Reading header => 'HEAD' (264 byte)
+
+Allocated 1504 MByte for particle storage.
+
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.0' on task=0 (contains 31635421 particles.)
+distributing this file to tasks 0-5
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  15957532  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  15677889  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.1' on task=6 (contains 16390405 particles.)
+distributing this file to tasks 6-8
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8118635  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8271770  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.2' on task=9 (contains 16998929 particles.)
+distributing this file to tasks 9-11
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8363327  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8635602  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.3' on task=12 (contains 32404598 particles.)
+distributing this file to tasks 12-17
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16491200  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  15913398  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.4' on task=18 (contains 14278442 particles.)
+distributing this file to tasks 18-20
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   7403660  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   6874782  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.5' on task=21 (contains 16138912 particles.)
+distributing this file to tasks 21-23
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8114453  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8024459  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.6' on task=24 (contains 34383920 particles.)
+distributing this file to tasks 24-29
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  17127909  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  17256011  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.7' on task=30 (contains 17634805 particles.)
+distributing this file to tasks 30-32
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8790902  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8843903  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.8' on task=33 (contains 22125478 particles.)
+distributing this file to tasks 33-35
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  10715332  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  11410146  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.9' on task=36 (contains 33153839 particles.)
+distributing this file to tasks 36-41
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16391197  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16762642  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.10' on task=42 (contains 13670308 particles.)
+distributing this file to tasks 42-44
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   7083735  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   6586573  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_004/snapshot_004.11' on task=45 (contains 19620399 particles.)
+distributing this file to tasks 45-47
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   9659846  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   9960553  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+reading done.
+Total number of particles :  0268435456
+
+sum1=0        0 sum2=0268435456
+Testing ID uniqueness...
+success.  took=25.2733 sec
+domain decomposition... (presently allocated=1504 MB)
+Allocated 4.43773 MByte for top-level domain structure
+use of 90.4563 MB of temporary storage for domain decomposition... (presently allocated=1598.9 MB)
+
+At 'DOMAIN', domain_Decomposition()/domain.c/225: Largest Allocation = 1598.9 Mbyte (on task=0), Smallest = 1598.9 Mbyte, Average = 1598.9 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   0    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   0    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   0    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   0    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   0    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   0    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   0    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   0    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   0    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   0   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   0   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   0   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   0   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   0   14 0          TopNodes      4.4374    1508.4389  domain_allocate()/domain.c/361
+   0   15 0        domain_key     85.3333    1593.7723  domain_Decompos()/domain.c/159
+   0   16 0              toGo      0.0002    1593.7724  domain_Decompos()/domain.c/162
+   0   17 0           toGoSph      0.0002    1593.7726  domain_Decompos()/domain.c/164
+   0   18 0             toGet      0.0002    1593.7728  domain_Decompos()/domain.c/166
+   0   19 0          toGetSph      0.0002    1593.7730  domain_Decompos()/domain.c/168
+   0   20 0      list_NumPart      0.0002    1593.7732  domain_Decompos()/domain.c/170
+   0   21 0        list_N_gas      0.0002    1593.7734  domain_Decompos()/domain.c/172
+   0   22 0     list_cadj_cpu      0.0004    1593.7737  domain_Decompos()/domain.c/174
+   0   23 0    list_cadj_cost      0.0004    1593.7741  domain_Decompos()/domain.c/176
+   0   24 0         list_load      0.0002    1593.7743  domain_Decompos()/domain.c/178
+   0   25 0      list_loadsph      0.0002    1593.7745  domain_Decompos()/domain.c/180
+   0   26 0         list_work      0.0004    1593.7748  domain_Decompos()/domain.c/182
+   0   27 0     list_speedfac      0.0004    1593.7752  domain_Decompos()/domain.c/184
+   0   28 0        domainWork      0.3413    1594.1165  domain_Decompos()/domain.c/186
+   0   29 0       domainCount      0.3413    1594.4579  domain_Decompos()/domain.c/188
+   0   30 0    domainCountSph      0.3413    1594.7992  domain_Decompos()/domain.c/190
+   0   31 0          topNodes      4.0960    1598.8952  domain_Decompos()/domain.c/206
+----------------------------------------------------------------------------------------
+Before=585
+After=585
+NTopleaves= 512  NTopnodes=585 (space for 89479)
+work-load balance=1.07718   memory-balance=1.07718
+iter=0 exchange of 0139332292 particles
+domain decomposition done. (took 10.9406 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 4.06924 MByte in top-level domain structure
+
+Allocated 802.189 MByte for BH-tree, and 0.00195312 Mbyte for top-leaves.  (presently allocted 2306.22 MB)
+
+sum1=0268435456 sum2=0268435456
+Begin Ngb-tree construction.
+Ngb-Tree contruction finished 
+
+Begin to compute FoF group catalogues...  (presently allocated=2306.22 MB)
+domain decomposition... (presently allocated=1504 MB)
+Allocated 4.43773 MByte for top-level domain structure
+use of 90.4563 MB of temporary storage for domain decomposition... (presently allocated=1598.9 MB)
+Before=585
+After=585
+NTopleaves= 512  NTopnodes=585 (space for 89479)
+work-load balance=1.07718   memory-balance=1.07718
+iter=0 exchange of 0000000000 particles
+domain decomposition done. (took 3.46631 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 4.06924 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+
+Comoving linking length: 57.7349    (presently allocated=1504.03 MB)
+Tree construction.
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   0    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   0    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   0    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   0    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   0    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   0    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   0    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   0    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   0    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   0   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   0   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   0   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   0   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   0   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   0   15 0         FOF_PList    134.1833    1638.2139  fof_fof()/fof.c/201
+   0   16 0               Len     44.7278    1682.9417  fof_fof()/fof.c/207
+   0   17 0              Next     44.7278    1727.6695  fof_fof()/fof.c/208
+   0   18 0              Tail     44.7278    1772.3973  fof_fof()/fof.c/209
+   0   19 0   DomainNodeIndex      0.0020    1772.3992  force_treealloc()/forcetree.c/4527
+   0   20 0        Nodes_base    388.2957    2160.6949  force_treealloc()/forcetree.c/4530
+   0   21 0     Extnodes_base    328.5579    2489.2527  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=0: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=10.7473 MB).
+task 0: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   1    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   1    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   1    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   1    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   1    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   1    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   1    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   1    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   1    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   1    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   1   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   1   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   1   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   1   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   1   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   1   15 0         FOF_PList    130.6691    1634.6997  fof_fof()/fof.c/201
+   1   16 0               Len     43.5564    1678.2560  fof_fof()/fof.c/207
+   1   17 0              Next     43.5564    1721.8124  fof_fof()/fof.c/208
+   1   18 0              Tail     43.5564    1765.3688  fof_fof()/fof.c/209
+   1   19 0   DomainNodeIndex      0.0020    1765.3707  force_treealloc()/forcetree.c/4527
+   1   20 0        Nodes_base    388.2957    2153.6664  force_treealloc()/forcetree.c/4530
+   1   21 0     Extnodes_base    328.5579    2482.2242  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=1: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=17.7758 MB).
+task 1: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   2    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   2    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   2    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   2    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   2    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   2    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   2    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   2    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   2    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   2    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   2   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   2   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   2   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   2   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   2   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   2   15 0         FOF_PList    129.6955    1633.7261  fof_fof()/fof.c/201
+   2   16 0               Len     43.2318    1676.9579  fof_fof()/fof.c/207
+   2   17 0              Next     43.2318    1720.1898  fof_fof()/fof.c/208
+   2   18 0              Tail     43.2318    1763.4216  fof_fof()/fof.c/209
+   2   19 0   DomainNodeIndex      0.0020    1763.4236  force_treealloc()/forcetree.c/4527
+   2   20 0        Nodes_base    388.2957    2151.7192  force_treealloc()/forcetree.c/4530
+   2   21 0     Extnodes_base    328.5579    2480.2771  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=2: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=19.7229 MB).
+task 2: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   3    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   3    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   3    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   3    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   3    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   3    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   3    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   3    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   3    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   3    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   3   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   3   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   3   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   3   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   3   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   3   15 0         FOF_PList    126.3896    1630.4201  fof_fof()/fof.c/201
+   3   16 0               Len     42.1299    1672.5500  fof_fof()/fof.c/207
+   3   17 0              Next     42.1299    1714.6798  fof_fof()/fof.c/208
+   3   18 0              Tail     42.1299    1756.8097  fof_fof()/fof.c/209
+   3   19 0   DomainNodeIndex      0.0020    1756.8116  force_treealloc()/forcetree.c/4527
+   3   20 0        Nodes_base    388.2957    2145.1073  force_treealloc()/forcetree.c/4530
+   3   21 0     Extnodes_base    328.5579    2473.6652  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=3: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=26.3348 MB).
+task 3: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   4    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   4    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   4    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   4    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   4    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   4    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   4    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   4    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   4    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   4    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   4   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   4   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   4   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   4   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   4   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   4   15 0         FOF_PList    126.2327    1630.2633  fof_fof()/fof.c/201
+   4   16 0               Len     42.0776    1672.3409  fof_fof()/fof.c/207
+   4   17 0              Next     42.0776    1714.4185  fof_fof()/fof.c/208
+   4   18 0              Tail     42.0776    1756.4961  fof_fof()/fof.c/209
+   4   19 0   DomainNodeIndex      0.0020    1756.4980  force_treealloc()/forcetree.c/4527
+   4   20 0        Nodes_base    388.2957    2144.7937  force_treealloc()/forcetree.c/4530
+   4   21 0     Extnodes_base    328.5579    2473.3515  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=4: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=26.6485 MB).
+task 4: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   5    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   5    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   5    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   5    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   5    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   5    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   5    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   5    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   5    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   5    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   5   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   5   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   5   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   5   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   5   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   5   15 0         FOF_PList    131.1927    1635.2233  fof_fof()/fof.c/201
+   5   16 0               Len     43.7309    1678.9542  fof_fof()/fof.c/207
+   5   17 0              Next     43.7309    1722.6851  fof_fof()/fof.c/208
+   5   18 0              Tail     43.7309    1766.4160  fof_fof()/fof.c/209
+   5   19 0   DomainNodeIndex      0.0020    1766.4180  force_treealloc()/forcetree.c/4527
+   5   20 0        Nodes_base    388.2957    2154.7136  force_treealloc()/forcetree.c/4530
+   5   21 0     Extnodes_base    328.5579    2483.2715  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=5: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=16.7285 MB).
+task 5: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   6    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   6    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   6    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   6    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   6    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   6    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   6    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   6    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   6    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   6    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   6   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   6   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   6   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   6   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   6   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   6   15 0         FOF_PList    125.4350    1629.4656  fof_fof()/fof.c/201
+   6   16 0               Len     41.8117    1671.2773  fof_fof()/fof.c/207
+   6   17 0              Next     41.8117    1713.0890  fof_fof()/fof.c/208
+   6   18 0              Tail     41.8117    1754.9006  fof_fof()/fof.c/209
+   6   19 0   DomainNodeIndex      0.0020    1754.9026  force_treealloc()/forcetree.c/4527
+   6   20 0        Nodes_base    388.2957    2143.1982  force_treealloc()/forcetree.c/4530
+   6   21 0     Extnodes_base    328.5579    2471.7561  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=6: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=28.2439 MB).
+task 6: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   7    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   7    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   7    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   7    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   7    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   7    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   7    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   7    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   7    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   7    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   7   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   7   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   7   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   7   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   7   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   7   15 0         FOF_PList    130.3007    1634.3312  fof_fof()/fof.c/201
+   7   16 0               Len     43.4336    1677.7648  fof_fof()/fof.c/207
+   7   17 0              Next     43.4336    1721.1984  fof_fof()/fof.c/208
+   7   18 0              Tail     43.4336    1764.6319  fof_fof()/fof.c/209
+   7   19 0   DomainNodeIndex      0.0020    1764.6339  force_treealloc()/forcetree.c/4527
+   7   20 0        Nodes_base    388.2957    2152.9295  force_treealloc()/forcetree.c/4530
+   7   21 0     Extnodes_base    328.5579    2481.4874  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=7: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=18.5126 MB).
+task 7: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   8    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   8    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   8    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   8    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   8    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   8    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   8    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   8    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   8    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   8    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   8   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   8   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   8   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   8   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   8   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   8   15 0         FOF_PList    128.1904    1632.2210  fof_fof()/fof.c/201
+   8   16 0               Len     42.7301    1674.9511  fof_fof()/fof.c/207
+   8   17 0              Next     42.7301    1717.6812  fof_fof()/fof.c/208
+   8   18 0              Tail     42.7301    1760.4113  fof_fof()/fof.c/209
+   8   19 0   DomainNodeIndex      0.0020    1760.4133  force_treealloc()/forcetree.c/4527
+   8   20 0        Nodes_base    388.2957    2148.7089  force_treealloc()/forcetree.c/4530
+   8   21 0     Extnodes_base    328.5579    2477.2668  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=8: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=22.7332 MB).
+task 8: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   9    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   9    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+   9    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+   9    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+   9    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+   9    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+   9    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+   9    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+   9    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+   9    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+   9   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+   9   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+   9   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+   9   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+   9   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+   9   15 0         FOF_PList    124.8050    1628.8355  fof_fof()/fof.c/201
+   9   16 0               Len     41.6017    1670.4372  fof_fof()/fof.c/207
+   9   17 0              Next     41.6017    1712.0388  fof_fof()/fof.c/208
+   9   18 0              Tail     41.6017    1753.6405  fof_fof()/fof.c/209
+   9   19 0   DomainNodeIndex      0.0020    1753.6425  force_treealloc()/forcetree.c/4527
+   9   20 0        Nodes_base    388.2957    2141.9381  force_treealloc()/forcetree.c/4530
+   9   21 0     Extnodes_base    328.5579    2470.4960  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=9: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=29.504 MB).
+task 9: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  10    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  10    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  10    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  10    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  10    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  10    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  10    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  10    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  10    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  10    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  10   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  10   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  10   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  10   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  10   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  10   15 0         FOF_PList    125.8803    1629.9109  fof_fof()/fof.c/201
+  10   16 0               Len     41.9601    1671.8710  fof_fof()/fof.c/207
+  10   17 0              Next     41.9601    1713.8311  fof_fof()/fof.c/208
+  10   18 0              Tail     41.9601    1755.7912  fof_fof()/fof.c/209
+  10   19 0   DomainNodeIndex      0.0020    1755.7932  force_treealloc()/forcetree.c/4527
+  10   20 0        Nodes_base    388.2957    2144.0888  force_treealloc()/forcetree.c/4530
+  10   21 0     Extnodes_base    328.5579    2472.6467  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=10: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=27.3533 MB).
+task 10: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  11    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  11    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  11    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  11    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  11    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  11    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  11    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  11    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  11    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  11    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  11   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  11   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  11   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  11   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  11   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  11   15 0         FOF_PList    128.8439    1632.8744  fof_fof()/fof.c/201
+  11   16 0               Len     42.9480    1675.8224  fof_fof()/fof.c/207
+  11   17 0              Next     42.9480    1718.7703  fof_fof()/fof.c/208
+  11   18 0              Tail     42.9480    1761.7183  fof_fof()/fof.c/209
+  11   19 0   DomainNodeIndex      0.0020    1761.7202  force_treealloc()/forcetree.c/4527
+  11   20 0        Nodes_base    388.2957    2150.0159  force_treealloc()/forcetree.c/4530
+  11   21 0     Extnodes_base    328.5579    2478.5738  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=11: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=21.4262 MB).
+task 11: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  12    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  12    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  12    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  12    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  12    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  12    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  12    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  12    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  12    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  12    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  12   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  12   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  12   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  12   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  12   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  12   15 0         FOF_PList    124.5579    1628.5885  fof_fof()/fof.c/201
+  12   16 0               Len     41.5193    1670.1078  fof_fof()/fof.c/207
+  12   17 0              Next     41.5193    1711.6271  fof_fof()/fof.c/208
+  12   18 0              Tail     41.5193    1753.1464  fof_fof()/fof.c/209
+  12   19 0   DomainNodeIndex      0.0020    1753.1483  force_treealloc()/forcetree.c/4527
+  12   20 0        Nodes_base    388.2957    2141.4440  force_treealloc()/forcetree.c/4530
+  12   21 0     Extnodes_base    328.5579    2470.0019  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=12: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=29.9981 MB).
+task 12: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  13    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  13    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  13    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  13    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  13    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  13    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  13    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  13    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  13    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  13    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  13   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  13   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  13   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  13   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  13   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  13   15 0         FOF_PList    132.4189    1636.4495  fof_fof()/fof.c/201
+  13   16 0               Len     44.1396    1680.5892  fof_fof()/fof.c/207
+  13   17 0              Next     44.1396    1724.7288  fof_fof()/fof.c/208
+  13   18 0              Tail     44.1396    1768.8685  fof_fof()/fof.c/209
+  13   19 0   DomainNodeIndex      0.0020    1768.8704  force_treealloc()/forcetree.c/4527
+  13   20 0        Nodes_base    388.2957    2157.1661  force_treealloc()/forcetree.c/4530
+  13   21 0     Extnodes_base    328.5579    2485.7239  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=13: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=14.2761 MB).
+task 13: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  14    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  14    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  14    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  14    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  14    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  14    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  14    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  14    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  14    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  14    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  14   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  14   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  14   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  14   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  14   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  14   15 0         FOF_PList    126.8183    1630.8489  fof_fof()/fof.c/201
+  14   16 0               Len     42.2728    1673.1217  fof_fof()/fof.c/207
+  14   17 0              Next     42.2728    1715.3945  fof_fof()/fof.c/208
+  14   18 0              Tail     42.2728    1757.6673  fof_fof()/fof.c/209
+  14   19 0   DomainNodeIndex      0.0020    1757.6692  force_treealloc()/forcetree.c/4527
+  14   20 0        Nodes_base    388.2957    2145.9649  force_treealloc()/forcetree.c/4530
+  14   21 0     Extnodes_base    328.5579    2474.5227  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=14: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=25.4773 MB).
+task 14: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  15    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  15    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  15    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  15    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  15    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  15    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  15    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  15    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  15    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  15    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  15   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  15   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  15   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  15   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  15   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  15   15 0         FOF_PList    126.8424    1630.8730  fof_fof()/fof.c/201
+  15   16 0               Len     42.2808    1673.1538  fof_fof()/fof.c/207
+  15   17 0              Next     42.2808    1715.4346  fof_fof()/fof.c/208
+  15   18 0              Tail     42.2808    1757.7154  fof_fof()/fof.c/209
+  15   19 0   DomainNodeIndex      0.0020    1757.7173  force_treealloc()/forcetree.c/4527
+  15   20 0        Nodes_base    388.2957    2146.0130  force_treealloc()/forcetree.c/4530
+  15   21 0     Extnodes_base    328.5579    2474.5708  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=15: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=25.4292 MB).
+task 15: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  16    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  16    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  16    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  16    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  16    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  16    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  16    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  16    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  16    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  16    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  16   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  16   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  16   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  16   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  16   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  16   15 0         FOF_PList    132.4953    1636.5258  fof_fof()/fof.c/201
+  16   16 0               Len     44.1651    1680.6909  fof_fof()/fof.c/207
+  16   17 0              Next     44.1651    1724.8560  fof_fof()/fof.c/208
+  16   18 0              Tail     44.1651    1769.0211  fof_fof()/fof.c/209
+  16   19 0   DomainNodeIndex      0.0020    1769.0230  force_treealloc()/forcetree.c/4527
+  16   20 0        Nodes_base    388.2957    2157.3187  force_treealloc()/forcetree.c/4530
+  16   21 0     Extnodes_base    328.5579    2485.8766  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=16: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=14.1234 MB).
+task 16: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  17    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  17    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  17    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  17    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  17    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  17    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  17    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  17    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  17    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  17    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  17   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  17   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  17   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  17   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  17   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  17   15 0         FOF_PList    125.1106    1629.1412  fof_fof()/fof.c/201
+  17   16 0               Len     41.7035    1670.8447  fof_fof()/fof.c/207
+  17   17 0              Next     41.7035    1712.5483  fof_fof()/fof.c/208
+  17   18 0              Tail     41.7035    1754.2518  fof_fof()/fof.c/209
+  17   19 0   DomainNodeIndex      0.0020    1754.2538  force_treealloc()/forcetree.c/4527
+  17   20 0        Nodes_base    388.2957    2142.5494  force_treealloc()/forcetree.c/4530
+  17   21 0     Extnodes_base    328.5579    2471.1073  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=17: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=28.8927 MB).
+task 17: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  18    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  18    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  18    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  18    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  18    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  18    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  18    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  18    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  18    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  18    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  18   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  18   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  18   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  18   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  18   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  18   15 0         FOF_PList    128.0040    1632.0346  fof_fof()/fof.c/201
+  18   16 0               Len     42.6680    1674.7026  fof_fof()/fof.c/207
+  18   17 0              Next     42.6680    1717.3706  fof_fof()/fof.c/208
+  18   18 0              Tail     42.6680    1760.0386  fof_fof()/fof.c/209
+  18   19 0   DomainNodeIndex      0.0020    1760.0406  force_treealloc()/forcetree.c/4527
+  18   20 0        Nodes_base    388.2957    2148.3362  force_treealloc()/forcetree.c/4530
+  18   21 0     Extnodes_base    328.5579    2476.8941  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=18: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=23.1059 MB).
+task 18: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  19    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  19    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  19    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  19    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  19    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  19    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  19    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  19    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  19    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  19    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  19   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  19   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  19   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  19   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  19   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  19   15 0         FOF_PList    134.2221    1638.2527  fof_fof()/fof.c/201
+  19   16 0               Len     44.7407    1682.9934  fof_fof()/fof.c/207
+  19   17 0              Next     44.7407    1727.7342  fof_fof()/fof.c/208
+  19   18 0              Tail     44.7407    1772.4749  fof_fof()/fof.c/209
+  19   19 0   DomainNodeIndex      0.0020    1772.4768  force_treealloc()/forcetree.c/4527
+  19   20 0        Nodes_base    388.2957    2160.7725  force_treealloc()/forcetree.c/4530
+  19   21 0     Extnodes_base    328.5579    2489.3303  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=19: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=10.6697 MB).
+task 19: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  20    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  20    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  20    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  20    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  20    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  20    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  20    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  20    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  20    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  20    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  20   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  20   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  20   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  20   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  20   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  20   15 0         FOF_PList    124.4710    1628.5016  fof_fof()/fof.c/201
+  20   16 0               Len     41.4903    1669.9919  fof_fof()/fof.c/207
+  20   17 0              Next     41.4903    1711.4822  fof_fof()/fof.c/208
+  20   18 0              Tail     41.4903    1752.9726  fof_fof()/fof.c/209
+  20   19 0   DomainNodeIndex      0.0020    1752.9745  force_treealloc()/forcetree.c/4527
+  20   20 0        Nodes_base    388.2957    2141.2702  force_treealloc()/forcetree.c/4530
+  20   21 0     Extnodes_base    328.5579    2469.8280  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=20: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=30.172 MB).
+task 20: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  21    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  21    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  21    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  21    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  21    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  21    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  21    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  21    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  21    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  21    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  21   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  21   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  21   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  21   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  21   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  21   15 0         FOF_PList    121.0958    1625.1264  fof_fof()/fof.c/201
+  21   16 0               Len     40.3653    1665.4916  fof_fof()/fof.c/207
+  21   17 0              Next     40.3653    1705.8569  fof_fof()/fof.c/208
+  21   18 0              Tail     40.3653    1746.2222  fof_fof()/fof.c/209
+  21   19 0   DomainNodeIndex      0.0020    1746.2241  force_treealloc()/forcetree.c/4527
+  21   20 0        Nodes_base    388.2957    2134.5198  force_treealloc()/forcetree.c/4530
+  21   21 0     Extnodes_base    328.5579    2463.0776  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=21: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=36.9224 MB).
+task 21: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  22    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  22    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  22    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  22    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  22    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  22    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  22    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  22    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  22    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  22    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  22   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  22   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  22   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  22   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  22   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  22   15 0         FOF_PList    130.3272    1634.3577  fof_fof()/fof.c/201
+  22   16 0               Len     43.4424    1677.8001  fof_fof()/fof.c/207
+  22   17 0              Next     43.4424    1721.2425  fof_fof()/fof.c/208
+  22   18 0              Tail     43.4424    1764.6849  fof_fof()/fof.c/209
+  22   19 0   DomainNodeIndex      0.0020    1764.6869  force_treealloc()/forcetree.c/4527
+  22   20 0        Nodes_base    388.2957    2152.9825  force_treealloc()/forcetree.c/4530
+  22   21 0     Extnodes_base    328.5579    2481.5404  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=22: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=18.4596 MB).
+task 22: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  23    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  23    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  23    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  23    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  23    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  23    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  23    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  23    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  23    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  23    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  23   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  23   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  23   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  23   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  23   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  23   15 0         FOF_PList    125.1505    1629.1810  fof_fof()/fof.c/201
+  23   16 0               Len     41.7168    1670.8979  fof_fof()/fof.c/207
+  23   17 0              Next     41.7168    1712.6147  fof_fof()/fof.c/208
+  23   18 0              Tail     41.7168    1754.3315  fof_fof()/fof.c/209
+  23   19 0   DomainNodeIndex      0.0020    1754.3335  force_treealloc()/forcetree.c/4527
+  23   20 0        Nodes_base    388.2957    2142.6291  force_treealloc()/forcetree.c/4530
+  23   21 0     Extnodes_base    328.5579    2471.1870  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=23: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=28.813 MB).
+task 23: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  24    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  24    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  24    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  24    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  24    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  24    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  24    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  24    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  24    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  24    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  24   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  24   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  24   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  24   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  24   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  24   15 0         FOF_PList    128.2080    1632.2386  fof_fof()/fof.c/201
+  24   16 0               Len     42.7360    1674.9746  fof_fof()/fof.c/207
+  24   17 0              Next     42.7360    1717.7106  fof_fof()/fof.c/208
+  24   18 0              Tail     42.7360    1760.4466  fof_fof()/fof.c/209
+  24   19 0   DomainNodeIndex      0.0020    1760.4485  force_treealloc()/forcetree.c/4527
+  24   20 0        Nodes_base    388.2957    2148.7442  force_treealloc()/forcetree.c/4530
+  24   21 0     Extnodes_base    328.5579    2477.3020  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=24: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=22.698 MB).
+task 24: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  25    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  25    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  25    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  25    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  25    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  25    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  25    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  25    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  25    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  25    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  25   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  25   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  25   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  25   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  25   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  25   15 0         FOF_PList    135.0064    1639.0370  fof_fof()/fof.c/201
+  25   16 0               Len     45.0021    1684.0392  fof_fof()/fof.c/207
+  25   17 0              Next     45.0021    1729.0413  fof_fof()/fof.c/208
+  25   18 0              Tail     45.0021    1774.0434  fof_fof()/fof.c/209
+  25   19 0   DomainNodeIndex      0.0020    1774.0454  force_treealloc()/forcetree.c/4527
+  25   20 0        Nodes_base    388.2957    2162.3410  force_treealloc()/forcetree.c/4530
+  25   21 0     Extnodes_base    328.5579    2490.8989  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=25: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=9.10109 MB).
+task 25: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  26    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  26    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  26    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  26    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  26    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  26    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  26    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  26    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  26    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  26    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  26   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  26   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  26   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  26   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  26   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  26   15 0         FOF_PList    127.9916    1632.0221  fof_fof()/fof.c/201
+  26   16 0               Len     42.6639    1674.6860  fof_fof()/fof.c/207
+  26   17 0              Next     42.6639    1717.3499  fof_fof()/fof.c/208
+  26   18 0              Tail     42.6639    1760.0137  fof_fof()/fof.c/209
+  26   19 0   DomainNodeIndex      0.0020    1760.0157  force_treealloc()/forcetree.c/4527
+  26   20 0        Nodes_base    388.2957    2148.3113  force_treealloc()/forcetree.c/4530
+  26   21 0     Extnodes_base    328.5579    2476.8692  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=26: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=23.1308 MB).
+task 26: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  27    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  27    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  27    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  27    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  27    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  27    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  27    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  27    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  27    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  27    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  27   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  27   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  27   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  27   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  27   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  27   15 0         FOF_PList    124.3897    1628.4203  fof_fof()/fof.c/201
+  27   16 0               Len     41.4632    1669.8835  fof_fof()/fof.c/207
+  27   17 0              Next     41.4632    1711.3467  fof_fof()/fof.c/208
+  27   18 0              Tail     41.4632    1752.8100  fof_fof()/fof.c/209
+  27   19 0   DomainNodeIndex      0.0020    1752.8119  force_treealloc()/forcetree.c/4527
+  27   20 0        Nodes_base    388.2957    2141.1076  force_treealloc()/forcetree.c/4530
+  27   21 0     Extnodes_base    328.5579    2469.6655  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=27: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=30.3345 MB).
+task 27: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  28    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  28    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  28    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  28    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  28    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  28    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  28    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  28    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  28    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  28    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  28   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  28   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  28   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  28   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  28   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  28   15 0         FOF_PList    124.4059    1628.4365  fof_fof()/fof.c/201
+  28   16 0               Len     41.4686    1669.9052  fof_fof()/fof.c/207
+  28   17 0              Next     41.4686    1711.3738  fof_fof()/fof.c/208
+  28   18 0              Tail     41.4686    1752.8424  fof_fof()/fof.c/209
+  28   19 0   DomainNodeIndex      0.0020    1752.8444  force_treealloc()/forcetree.c/4527
+  28   20 0        Nodes_base    388.2957    2141.1400  force_treealloc()/forcetree.c/4530
+  28   21 0     Extnodes_base    328.5579    2469.6979  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=28: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=30.3021 MB).
+task 28: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  29    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  29    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  29    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  29    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  29    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  29    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  29    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  29    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  29    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  29    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  29   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  29   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  29   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  29   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  29   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  29   15 0         FOF_PList    130.0384    1634.0690  fof_fof()/fof.c/201
+  29   16 0               Len     43.3461    1677.4151  fof_fof()/fof.c/207
+  29   17 0              Next     43.3461    1720.7612  fof_fof()/fof.c/208
+  29   18 0              Tail     43.3461    1764.1074  fof_fof()/fof.c/209
+  29   19 0   DomainNodeIndex      0.0020    1764.1093  force_treealloc()/forcetree.c/4527
+  29   20 0        Nodes_base    388.2957    2152.4050  force_treealloc()/forcetree.c/4530
+  29   21 0     Extnodes_base    328.5579    2480.9628  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=29: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=19.0372 MB).
+task 29: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  30    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  30    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  30    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  30    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  30    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  30    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  30    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  30    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  30    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  30    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  30   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  30   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  30   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  30   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  30   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  30   15 0         FOF_PList    126.4251    1630.4557  fof_fof()/fof.c/201
+  30   16 0               Len     42.1417    1672.5974  fof_fof()/fof.c/207
+  30   17 0              Next     42.1417    1714.7390  fof_fof()/fof.c/208
+  30   18 0              Tail     42.1417    1756.8807  fof_fof()/fof.c/209
+  30   19 0   DomainNodeIndex      0.0020    1756.8827  force_treealloc()/forcetree.c/4527
+  30   20 0        Nodes_base    388.2957    2145.1783  force_treealloc()/forcetree.c/4530
+  30   21 0     Extnodes_base    328.5579    2473.7362  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=30: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=26.2638 MB).
+task 30: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  31    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  31    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  31    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  31    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  31    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  31    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  31    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  31    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  31    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  31    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  31   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  31   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  31   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  31   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  31   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  31   15 0         FOF_PList    132.4729    1636.5035  fof_fof()/fof.c/201
+  31   16 0               Len     44.1576    1680.6612  fof_fof()/fof.c/207
+  31   17 0              Next     44.1576    1724.8188  fof_fof()/fof.c/208
+  31   18 0              Tail     44.1576    1768.9765  fof_fof()/fof.c/209
+  31   19 0   DomainNodeIndex      0.0020    1768.9784  force_treealloc()/forcetree.c/4527
+  31   20 0        Nodes_base    388.2957    2157.2741  force_treealloc()/forcetree.c/4530
+  31   21 0     Extnodes_base    328.5579    2485.8319  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=31: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=14.1681 MB).
+task 31: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  32    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  32    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  32    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  32    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  32    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  32    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  32    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  32    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  32    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  32    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  32   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  32   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  32   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  32   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  32   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  32   15 0         FOF_PList    126.5710    1630.6016  fof_fof()/fof.c/201
+  32   16 0               Len     42.1903    1672.7920  fof_fof()/fof.c/207
+  32   17 0              Next     42.1903    1714.9823  fof_fof()/fof.c/208
+  32   18 0              Tail     42.1903    1757.1727  fof_fof()/fof.c/209
+  32   19 0   DomainNodeIndex      0.0020    1757.1746  force_treealloc()/forcetree.c/4527
+  32   20 0        Nodes_base    388.2957    2145.4703  force_treealloc()/forcetree.c/4530
+  32   21 0     Extnodes_base    328.5579    2474.0281  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=32: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=25.9719 MB).
+task 32: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  33    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  33    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  33    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  33    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  33    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  33    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  33    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  33    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  33    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  33    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  33   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  33   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  33   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  33   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  33   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  33   15 0         FOF_PList    126.1009    1630.1315  fof_fof()/fof.c/201
+  33   16 0               Len     42.0336    1672.1652  fof_fof()/fof.c/207
+  33   17 0              Next     42.0336    1714.1988  fof_fof()/fof.c/208
+  33   18 0              Tail     42.0336    1756.2325  fof_fof()/fof.c/209
+  33   19 0   DomainNodeIndex      0.0020    1756.2344  force_treealloc()/forcetree.c/4527
+  33   20 0        Nodes_base    388.2957    2144.5301  force_treealloc()/forcetree.c/4530
+  33   21 0     Extnodes_base    328.5579    2473.0879  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=33: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=26.9121 MB).
+task 33: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  34    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  34    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  34    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  34    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  34    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  34    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  34    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  34    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  34    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  34    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  34   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  34   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  34   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  34   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  34   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  34   15 0         FOF_PList    130.9658    1634.9964  fof_fof()/fof.c/201
+  34   16 0               Len     43.6553    1678.6516  fof_fof()/fof.c/207
+  34   17 0              Next     43.6553    1722.3069  fof_fof()/fof.c/208
+  34   18 0              Tail     43.6553    1765.9621  fof_fof()/fof.c/209
+  34   19 0   DomainNodeIndex      0.0020    1765.9641  force_treealloc()/forcetree.c/4527
+  34   20 0        Nodes_base    388.2957    2154.2597  force_treealloc()/forcetree.c/4530
+  34   21 0     Extnodes_base    328.5579    2482.8176  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=34: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=17.1824 MB).
+task 34: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  35    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  35    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  35    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  35    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  35    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  35    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  35    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  35    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  35    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  35    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  35   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  35   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  35   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  35   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  35   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  35   15 0         FOF_PList    124.4664    1628.4969  fof_fof()/fof.c/201
+  35   16 0               Len     41.4888    1669.9857  fof_fof()/fof.c/207
+  35   17 0              Next     41.4888    1711.4745  fof_fof()/fof.c/208
+  35   18 0              Tail     41.4888    1752.9633  fof_fof()/fof.c/209
+  35   19 0   DomainNodeIndex      0.0020    1752.9652  force_treealloc()/forcetree.c/4527
+  35   20 0        Nodes_base    388.2957    2141.2609  force_treealloc()/forcetree.c/4530
+  35   21 0     Extnodes_base    328.5579    2469.8188  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=35: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=30.1812 MB).
+task 35: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  36    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  36    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  36    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  36    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  36    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  36    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  36    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  36    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  36    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  36    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  36   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  36   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  36   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  36   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  36   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  36   15 0         FOF_PList    137.8789    1641.9095  fof_fof()/fof.c/201
+  36   16 0               Len     45.9596    1687.8692  fof_fof()/fof.c/207
+  36   17 0              Next     45.9596    1733.8288  fof_fof()/fof.c/208
+  36   18 0              Tail     45.9596    1779.7885  fof_fof()/fof.c/209
+  36   19 0   DomainNodeIndex      0.0020    1779.7904  force_treealloc()/forcetree.c/4527
+  36   20 0        Nodes_base    388.2957    2168.0861  force_treealloc()/forcetree.c/4530
+  36   21 0     Extnodes_base    328.5579    2496.6439  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=36: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=3.35606 MB).
+task 36: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  37    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  37    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  37    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  37    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  37    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  37    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  37    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  37    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  37    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  37    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  37   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  37   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  37   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  37   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  37   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  37   15 0         FOF_PList    125.0906    1629.1212  fof_fof()/fof.c/201
+  37   16 0               Len     41.6969    1670.8181  fof_fof()/fof.c/207
+  37   17 0              Next     41.6969    1712.5150  fof_fof()/fof.c/208
+  37   18 0              Tail     41.6969    1754.2118  fof_fof()/fof.c/209
+  37   19 0   DomainNodeIndex      0.0020    1754.2138  force_treealloc()/forcetree.c/4527
+  37   20 0        Nodes_base    388.2957    2142.5094  force_treealloc()/forcetree.c/4530
+  37   21 0     Extnodes_base    328.5579    2471.0673  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=37: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=28.9327 MB).
+task 37: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  38    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  38    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  38    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  38    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  38    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  38    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  38    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  38    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  38    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  38    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  38   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  38   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  38   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  38   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  38   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  38   15 0         FOF_PList    122.5068    1626.5373  fof_fof()/fof.c/201
+  38   16 0               Len     40.8356    1667.3729  fof_fof()/fof.c/207
+  38   17 0              Next     40.8356    1708.2085  fof_fof()/fof.c/208
+  38   18 0              Tail     40.8356    1749.0441  fof_fof()/fof.c/209
+  38   19 0   DomainNodeIndex      0.0020    1749.0461  force_treealloc()/forcetree.c/4527
+  38   20 0        Nodes_base    388.2957    2137.3417  force_treealloc()/forcetree.c/4530
+  38   21 0     Extnodes_base    328.5579    2465.8996  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=38: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=34.1004 MB).
+task 38: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  39    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  39    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  39    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  39    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  39    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  39    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  39    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  39    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  39    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  39    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  39   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  39   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  39   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  39   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  39   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  39   15 0         FOF_PList    127.3707    1631.4013  fof_fof()/fof.c/201
+  39   16 0               Len     42.4569    1673.8582  fof_fof()/fof.c/207
+  39   17 0              Next     42.4569    1716.3150  fof_fof()/fof.c/208
+  39   18 0              Tail     42.4569    1758.7719  fof_fof()/fof.c/209
+  39   19 0   DomainNodeIndex      0.0020    1758.7739  force_treealloc()/forcetree.c/4527
+  39   20 0        Nodes_base    388.2957    2147.0695  force_treealloc()/forcetree.c/4530
+  39   21 0     Extnodes_base    328.5579    2475.6274  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=39: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=24.3726 MB).
+task 39: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  40    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  40    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  40    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  40    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  40    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  40    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  40    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  40    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  40    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  40    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  40   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  40   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  40   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  40   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  40   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  40   15 0         FOF_PList    127.2944    1631.3250  fof_fof()/fof.c/201
+  40   16 0               Len     42.4315    1673.7565  fof_fof()/fof.c/207
+  40   17 0              Next     42.4315    1716.1880  fof_fof()/fof.c/208
+  40   18 0              Tail     42.4315    1758.6195  fof_fof()/fof.c/209
+  40   19 0   DomainNodeIndex      0.0020    1758.6214  force_treealloc()/forcetree.c/4527
+  40   20 0        Nodes_base    388.2957    2146.9171  force_treealloc()/forcetree.c/4530
+  40   21 0     Extnodes_base    328.5579    2475.4749  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=40: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=24.5251 MB).
+task 40: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  41    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  41    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  41    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  41    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  41    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  41    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  41    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  41    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  41    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  41    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  41   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  41   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  41   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  41   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  41   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  41   15 0         FOF_PList    131.5060    1635.5366  fof_fof()/fof.c/201
+  41   16 0               Len     43.8353    1679.3719  fof_fof()/fof.c/207
+  41   17 0              Next     43.8353    1723.2073  fof_fof()/fof.c/208
+  41   18 0              Tail     43.8353    1767.0426  fof_fof()/fof.c/209
+  41   19 0   DomainNodeIndex      0.0020    1767.0446  force_treealloc()/forcetree.c/4527
+  41   20 0        Nodes_base    388.2957    2155.3402  force_treealloc()/forcetree.c/4530
+  41   21 0     Extnodes_base    328.5579    2483.8981  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=41: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=16.1019 MB).
+task 41: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  43    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  43    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  43    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  43    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  43    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  43    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  43    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  43    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  43    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  43    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  43   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  43   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  43   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  43   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  43   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  43   15 0         FOF_PList    120.4421    1624.4727  fof_fof()/fof.c/201
+  43   16 0               Len     40.1474    1664.6201  fof_fof()/fof.c/207
+  43   17 0              Next     40.1474    1704.7675  fof_fof()/fof.c/208
+  43   18 0              Tail     40.1474    1744.9148  fof_fof()/fof.c/209
+  43   19 0   DomainNodeIndex      0.0020    1744.9168  force_treealloc()/forcetree.c/4527
+  43   20 0        Nodes_base    388.2957    2133.2124  force_treealloc()/forcetree.c/4530
+  43   21 0     Extnodes_base    328.5579    2461.7703  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=43: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=38.2297 MB).
+task 43: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  44    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  44    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  44    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  44    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  44    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  44    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  44    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  44    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  44    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  44    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  44   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  44   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  44   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  44   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  44   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  44   15 0         FOF_PList    137.8214    1641.8520  fof_fof()/fof.c/201
+  44   16 0               Len     45.9405    1687.7924  fof_fof()/fof.c/207
+  44   17 0              Next     45.9405    1733.7329  fof_fof()/fof.c/208
+  44   18 0              Tail     45.9405    1779.6733  fof_fof()/fof.c/209
+  44   19 0   DomainNodeIndex      0.0020    1779.6753  force_treealloc()/forcetree.c/4527
+  44   20 0        Nodes_base    388.2957    2167.9709  force_treealloc()/forcetree.c/4530
+  44   21 0     Extnodes_base    328.5579    2496.5288  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=44: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=3.47119 MB).
+task 44: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  45    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  45    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  45    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  45    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  45    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  45    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  45    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  45    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  45    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  45    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  45   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  45   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  45   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  45   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  45   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  45   15 0         FOF_PList    119.9538    1623.9843  fof_fof()/fof.c/201
+  45   16 0               Len     39.9846    1663.9689  fof_fof()/fof.c/207
+  45   17 0              Next     39.9846    1703.9535  fof_fof()/fof.c/208
+  45   18 0              Tail     39.9846    1743.9381  fof_fof()/fof.c/209
+  45   19 0   DomainNodeIndex      0.0020    1743.9401  force_treealloc()/forcetree.c/4527
+  45   20 0        Nodes_base    388.2957    2132.2357  force_treealloc()/forcetree.c/4530
+  45   21 0     Extnodes_base    328.5579    2460.7936  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=45: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=39.2064 MB).
+task 45: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  46    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  46    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  46    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  46    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  46    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  46    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  46    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  46    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  46    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  46    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  46   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  46   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  46   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  46   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  46   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  46   15 0         FOF_PList    133.7638    1637.7943  fof_fof()/fof.c/201
+  46   16 0               Len     44.5879    1682.3823  fof_fof()/fof.c/207
+  46   17 0              Next     44.5879    1726.9702  fof_fof()/fof.c/208
+  46   18 0              Tail     44.5879    1771.5581  fof_fof()/fof.c/209
+  46   19 0   DomainNodeIndex      0.0020    1771.5601  force_treealloc()/forcetree.c/4527
+  46   20 0        Nodes_base    388.2957    2159.8557  force_treealloc()/forcetree.c/4530
+  46   21 0     Extnodes_base    328.5579    2488.4136  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=46: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=11.5864 MB).
+task 46: endrun called with an error level of 812
+
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  47    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  47    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  47    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  47    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  47    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  47    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  47    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  47    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  47    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  47    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  47   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  47   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  47   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  47   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  47   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  47   15 0         FOF_PList    118.0875    1622.1181  fof_fof()/fof.c/201
+  47   16 0               Len     39.3625    1661.4806  fof_fof()/fof.c/207
+  47   17 0              Next     39.3625    1700.8431  fof_fof()/fof.c/208
+  47   18 0              Tail     39.3625    1740.2056  fof_fof()/fof.c/209
+  47   19 0   DomainNodeIndex      0.0020    1740.2075  force_treealloc()/forcetree.c/4527
+  47   20 0        Nodes_base    388.2957    2128.5032  force_treealloc()/forcetree.c/4530
+  47   21 0     Extnodes_base    328.5579    2457.0610  force_treealloc()/forcetree.c/4538
+  47   22 0          Nextnode     42.6689    2499.7299  force_treealloc()/forcetree.c/4547
+----------------------------------------------------------------------------------------
+
+Task=47: Not enough memory in mymalloc_fullinfo() to allocate 42.6667 MB for variable 'Father' at force_treeallocate()/forcetree.c/line 4554 (FreeBytes=0.270081 MB).
+task 47: endrun called with an error level of 812
+
+
+MPI: Global rank 47 is aborting with error code 812.
+     Process ID: 446086, Host: universe, Program: /nfs/scratch/spb41/NU_DM/PART/b150p512nu0.6z99/P-Gadget3
+
+MPI: --------stack traceback-------
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  42    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+  42    1 0       Exportindex      0.0002       0.0004  allocate_memory()/allocate.c/35
+  42    2 0   Exportnodecount      0.0002       0.0005  allocate_memory()/allocate.c/36
+  42    3 0        Send_count      0.0002       0.0007  allocate_memory()/allocate.c/38
+  42    4 0       Send_offset      0.0002       0.0009  allocate_memory()/allocate.c/39
+  42    5 0        Recv_count      0.0002       0.0011  allocate_memory()/allocate.c/40
+  42    6 0       Recv_offset      0.0002       0.0013  allocate_memory()/allocate.c/41
+  42    7 0     ProcessedFlag     10.6667      10.6680  allocate_memory()/allocate.c/51
+  42    8 0   NextActiveParti     42.6667      53.3346  allocate_memory()/allocate.c/54
+  42    9 0     NextInTimeBin     42.6667      96.0013  allocate_memory()/allocate.c/57
+  42   10 0     PrevInTimeBin     42.6667     138.6679  allocate_memory()/allocate.c/60
+  42   11 0                 P   1365.3333    1504.0012  allocate_memory()/allocate.c/66
+  42   12 0   DomainStartList      0.0002    1504.0014  domain_allocate()/domain.c/355
+  42   13 0     DomainEndList      0.0002    1504.0016  domain_allocate()/domain.c/358
+  42   14 0          TopNodes      0.0290    1504.0306  domain_allocate()/domain.c/361
+  42   15 0         FOF_PList    131.9096    1635.9402  fof_fof()/fof.c/201
+  42   16 0               Len     43.9699    1679.9100  fof_fof()/fof.c/207
+  42   17 0              Next     43.9699    1723.8799  fof_fof()/fof.c/208
+  42   18 0              Tail     43.9699    1767.8498  fof_fof()/fof.c/209
+  42   19 0   DomainNodeIndex      0.0020    1767.8517  force_treealloc()/forcetree.c/4527
+  42   20 0        Nodes_base    388.2957    2156.1474  force_treealloc()/forcetree.c/4530
+  42   21 0     Extnodes_base    328.5579    2484.7052  force_treealloc()/forcetree.c/4538
+----------------------------------------------------------------------------------------
+
+Task=42: Not enough memory in mymalloc_fullinfo() to allocate 42.6689 MB for variable 'Nextnode' at force_treeallocate()/forcetree.c/line 4547 (FreeBytes=15.2948 MB).
+task 42: endrun called with an error level of 812
+
+
+MPI: Attaching to program: /proc/446086/exe, process 446086
+MPI: Try: zypper install -C "debuginfo(build-id)=4e9fa1a2c1141fc0123a142783efd044c40bdaaf"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=3f06bcfc74f9b01780d68e89b8dce403bef9b2e3"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=74ef01bbffa60bc29e6768832b775b13c191a60b"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=f607b21f9a513c99bba9539050c01236d19bf22b"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=c1807b5762068e6c5f4a6a0ed48d9d4469965351"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=d44cbcbbcbdc9ed66abdcd82fa04fb4140bc155e"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=f69d3b06516c61cfab7d00c9ef86c41936dfc017"
+MPI: (no debugging symbols found)...done.
+MPI: [Thread debugging using libthread_db enabled]
+MPI: Try: zypper install -C "debuginfo(build-id)=7bcdd7deb661fbb367edf63273568fc962aefbed"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=7d7940c46e5ea77fb4896ce5dba45bc9299c5e0c"
+MPI: (no debugging symbols found)...done.
+MPI: 0x00002b42fbbdaa55 in waitpid () from /lib64/libc.so.6
+MPI: (gdb) #0  0x00002b42fbbdaa55 in waitpid () from /lib64/libc.so.6
+MPI: #1  0x00002b42fa637a74 in mpi_sgi_system (command=<optimized out>) at sig.c:89
+MPI: #2  MPI_SGI_stacktraceback (header=<optimized out>) at sig.c:272
+MPI: #3  0x00002b42fa5c367b in print_traceback (ecode=812) at abort.c:168
+MPI: #4  0x00002b42fa5c3939 in PMPI_Abort (comm=<optimized out>, errorcode=812) at abort.c:59
+MPI: #5  0x000000000043d5d8 in endrun (ierr=450091) at endrun.c:31
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #6  0x0000000000471e22 in mymalloc_fullinfo (varname=0x6de2b <Address 0x6de2b out of bounds>, n=140736783076268, func=0x0, file=0xffffffffffffffff <Address 0xffffffffffffffff out of bounds>, line=446086) at mymalloc.c:154
+MPI: warning: Range for type (null) has invalid bounds 0..-25
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-25
+MPI: warning: Range for type (null) has invalid bounds 0..-25
+MPI: warning: Range for type (null) has invalid bounds 0..-25
+MPI: #7  0x000000000046318c in force_treeallocate (maxnodes=450091, maxpart=-705279060) at forcetree.c:4554
+MPI: warning: Range for type (null) has invalid bounds 0..-13
+MPI: warning: Range for type (null) has invalid bounds 0..-13
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #8  0x0000000000407078 in fof_fof (num=450091) at fof.c:216
+MPI: warning: Range for type (null) has invalid bounds 0..-25
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #9  0x00000000004424c4 in init () at init.c:1059
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-57
+MPI: warning: Range for type (null) has invalid bounds 0..-113
+MPI: warning: Range for type (null) has invalid bounds 0..-85
+MPI: warning: Range for type (null) has invalid bounds 0..-85
+MPI: warning: Range for type (null) has invalid bounds 0..-85
+MPI: #10 0x000000000043a540 in begrun () at begrun.c:206
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: warning: Range for type (null) has invalid bounds 0..-81
+MPI: #11 0x000000000043310a in main (argc=4, argv=0x7fffd5f68c28) at main.c:100
+MPI: (gdb) A debugging session is active.
+MPI: 
+MPI: 	Inferior 1 [process 446086] will be detached.
+MPI: 
+MPI: Quit anyway? (y or n) [answered Y; input not from terminal]
+MPI: Detaching from program: /proc/446086/exe, process 446086
+
+MPI: -----stack traceback ends-----
+MPI: MPI_COMM_WORLD rank 47 has terminated without calling MPI_Finalize()
+MPI: aborting job

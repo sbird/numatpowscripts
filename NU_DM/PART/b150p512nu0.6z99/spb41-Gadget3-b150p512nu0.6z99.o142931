@@ -1,0 +1,1071 @@
+
+This is P-Gadget, version 3.0.
+
+Running on 60 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file '/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat.param':
+InitCondFile                       /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat
+OutputDir                          /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       32682
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.01
+TimeMax                            1
+Omega0                             0.3
+OmegaLambda                        0.7
+OmegaBaryon                        0
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        273
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2
+MaxMemSize                         2500
+ErrTolThetaSubfind                 0.45
+DesLinkNgb                         20
+
+
+found 8 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+initialize Ewald correction...
+
+reading Ewald tables from file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+Reading header => 'HEAD' (264 byte)
+
+Allocated 1203.2 MByte for particle storage.
+
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.0' on task=0 (contains 33567062 particles.)
+distributing this file to tasks 0-6
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16811411  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16755651  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.1' on task=7 (contains 16775428 particles.)
+distributing this file to tasks 7-10
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8508939  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8266489  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.2' on task=11 (contains 16785865 particles.)
+distributing this file to tasks 11-14
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8124452  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8661413  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.3' on task=15 (contains 33540436 particles.)
+distributing this file to tasks 15-21
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  17415308  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16125128  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.4' on task=22 (contains 16791772 particles.)
+distributing this file to tasks 22-25
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8874217  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   7917555  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.5' on task=26 (contains 16771230 particles.)
+distributing this file to tasks 26-29
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8162375  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8608855  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.6' on task=30 (contains 33650961 particles.)
+distributing this file to tasks 30-36
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16611988  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  17038973  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.7' on task=37 (contains 16726125 particles.)
+distributing this file to tasks 37-40
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8333531  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8392594  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.8' on task=41 (contains 16785144 particles.)
+distributing this file to tasks 41-44
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8013026  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8772118  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.9' on task=45 (contains 33493978 particles.)
+distributing this file to tasks 45-51
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16512708  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16981270  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.10' on task=52 (contains 16791713 particles.)
+distributing this file to tasks 52-55
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8605871  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8185842  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_008/snapshot_008.11' on task=56 (contains 16755742 particles.)
+distributing this file to tasks 56-59
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8243902  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8511840  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+reading done.
+Total number of particles :  0268435456
+
+sum1=0        0 sum2=0268435456
+Testing ID uniqueness...
+success.  took=22.8917 sec
+domain decomposition... (presently allocated=1203.2 MB)
+Allocated 3.55033 MByte for top-level domain structure
+use of 72.3663 MB of temporary storage for domain decomposition... (presently allocated=1279.12 MB)
+
+At 'DOMAIN', domain_Decomposition()/domain.c/225: Largest Allocation = 1279.12 Mbyte (on task=0), Smallest = 1279.12 Mbyte, Average = 1279.12 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   0    1 0       Exportindex      0.0002       0.0005  allocate_memory()/allocate.c/35
+   0    2 0   Exportnodecount      0.0002       0.0007  allocate_memory()/allocate.c/36
+   0    3 0        Send_count      0.0002       0.0009  allocate_memory()/allocate.c/38
+   0    4 0       Send_offset      0.0002       0.0011  allocate_memory()/allocate.c/39
+   0    5 0        Recv_count      0.0002       0.0014  allocate_memory()/allocate.c/40
+   0    6 0       Recv_offset      0.0002       0.0016  allocate_memory()/allocate.c/41
+   0    7 0     ProcessedFlag      8.5333       8.5349  allocate_memory()/allocate.c/51
+   0    8 0   NextActiveParti     34.1333      42.6683  allocate_memory()/allocate.c/54
+   0    9 0     NextInTimeBin     34.1333      76.8016  allocate_memory()/allocate.c/57
+   0   10 0     PrevInTimeBin     34.1333     110.9349  allocate_memory()/allocate.c/60
+   0   11 0                 P   1092.2666    1203.2015  allocate_memory()/allocate.c/66
+   0   12 0   DomainStartList      0.0002    1203.2018  domain_allocate()/domain.c/355
+   0   13 0     DomainEndList      0.0002    1203.2020  domain_allocate()/domain.c/358
+   0   14 0          TopNodes      3.5499    1206.7519  domain_allocate()/domain.c/361
+   0   15 0        domain_key     68.2667    1275.0185  domain_Decompos()/domain.c/159
+   0   16 0              toGo      0.0002    1275.0188  domain_Decompos()/domain.c/162
+   0   17 0           toGoSph      0.0002    1275.0190  domain_Decompos()/domain.c/164
+   0   18 0             toGet      0.0002    1275.0192  domain_Decompos()/domain.c/166
+   0   19 0          toGetSph      0.0002    1275.0194  domain_Decompos()/domain.c/168
+   0   20 0      list_NumPart      0.0002    1275.0197  domain_Decompos()/domain.c/170
+   0   21 0        list_N_gas      0.0002    1275.0199  domain_Decompos()/domain.c/172
+   0   22 0     list_cadj_cpu      0.0005    1275.0204  domain_Decompos()/domain.c/174
+   0   23 0    list_cadj_cost      0.0005    1275.0208  domain_Decompos()/domain.c/176
+   0   24 0         list_load      0.0002    1275.0210  domain_Decompos()/domain.c/178
+   0   25 0      list_loadsph      0.0002    1275.0213  domain_Decompos()/domain.c/180
+   0   26 0         list_work      0.0005    1275.0217  domain_Decompos()/domain.c/182
+   0   27 0     list_speedfac      0.0005    1275.0222  domain_Decompos()/domain.c/184
+   0   28 0        domainWork      0.2731    1275.2953  domain_Decompos()/domain.c/186
+   0   29 0       domainCount      0.2731    1275.5683  domain_Decompos()/domain.c/188
+   0   30 0    domainCountSph      0.2731    1275.8414  domain_Decompos()/domain.c/190
+   0   31 0          topNodes      3.2768    1279.1182  domain_Decompos()/domain.c/206
+----------------------------------------------------------------------------------------
+Before=617
+After=633
+NTopleaves= 554  NTopnodes=633 (space for 71583)
+work-load balance=1.19528   memory-balance=1.19528
+iter=0 exchange of 0059860556 particles
+domain decomposition done. (took 3.96979 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 3.24783 MByte in top-level domain structure
+
+Allocated 641.767 MByte for BH-tree, and 0.00211334 Mbyte for top-leaves.  (presently allocted 1845 MB)
+
+sum1=0268435456 sum2=0268435456
+Begin Ngb-tree construction.
+Ngb-Tree contruction finished 
+
+Begin to compute FoF group catalogues...  (presently allocated=1845 MB)
+domain decomposition... (presently allocated=1203.2 MB)
+Allocated 3.55033 MByte for top-level domain structure
+use of 72.3663 MB of temporary storage for domain decomposition... (presently allocated=1279.12 MB)
+Before=617
+After=641
+NTopleaves= 561  NTopnodes=641 (space for 71583)
+work-load balance=1.19528   memory-balance=1.19528
+iter=0 exchange of 0000310783 particles
+domain decomposition done. (took 2.93143 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 3.24747 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+
+Comoving linking length: 57.7349    (presently allocated=1203.23 MB)
+Tree construction.
+
+Start linking particles (presently allocated=2089.8 MB)
+links on local processor done (took 18.3971 sec).
+Marked=0001817010 out of the 0134217728 primaries which are linked
+
+linking across processors (presently allocated=2191.88 MB) 
+have done 0000039216 cross links (processed 0001817010, took 0.31853 sec)
+have done 0000009893 cross links (processed 0000673973, took 0.25725 sec)
+have done 0000003266 cross links (processed 0000283875, took 0.240345 sec)
+have done 0000000934 cross links (processed 0000070934, took 0.219465 sec)
+have done 0000000224 cross links (processed 0000009251, took 0.175754 sec)
+have done 0000000079 cross links (processed 0000001507, took 0.168442 sec)
+have done 0000000023 cross links (processed 0000000494, took 0.169514 sec)
+have done 0000000005 cross links (processed 0000000075, took 0.167754 sec)
+have done 0000000001 cross links (processed 0000000011, took 0.168535 sec)
+have done 0000000000 cross links (processed 0000000002, took 0.168468 sec)
+Local groups found.
+
+group finding took = 20.8653 sec
+Start finding nearest dm-particle (presently allocated=2089.8 MB)
+still finding nearest... (presently allocated=2173.44 MB)
+done finding nearest dm-particle
+attaching gas and star particles to nearest dm particles took = 0.442255 sec
+compiling local group data and catalogue took = 6.58328 sec
+
+Total number of groups with at least 32 particles: 167073
+Largest group has 529489 particles.
+Total number of particles in groups: 0055923629
+
+group properties are now allocated.. (presently allocated=1489.65 MB)
+computation of group properties took = 0.105053 sec
+start global sorting of group catalogues
+Group catalogues globally sorted. took = 8.23628 sec
+starting saving of group catalogue
+Group catalogues saved. took = 3.8696 sec
+
+We now execute a parallel version of SUBFIND.
+Tree construction.
+tree build took 1.37009 sec
+finding densities for all particles
+ngb iteration 1: need to repeat for 0053850871 particles. (took 50.9269 sec)
+ngb iteration 2: need to repeat for 0030343112 particles. (took 12.0219 sec)
+ngb iteration 3: need to repeat for 0016258704 particles. (took 7.44773 sec)
+ngb iteration 4: need to repeat for 0009923373 particles. (took 4.06853 sec)
+ngb iteration 5: need to repeat for 0007176871 particles. (took 2.40818 sec)
+ngb iteration 6: need to repeat for 0005483383 particles. (took 1.71957 sec)
+ngb iteration 7: need to repeat for 0004041796 particles. (took 1.34459 sec)
+ngb iteration 8: need to repeat for 0002805809 particles. (took 1.08365 sec)
+ngb iteration 9: need to repeat for 0001846491 particles. (took 0.8596 sec)
+ngb iteration 10: need to repeat for 0001168983 particles. (took 0.681385 sec)
+ngb iteration 11: need to repeat for 0000724003 particles. (took 0.547455 sec)
+ngb iteration 12: need to repeat for 0000442941 particles. (took 0.459126 sec)
+ngb iteration 13: need to repeat for 0000270607 particles. (took 0.395285 sec)
+ngb iteration 14: need to repeat for 0000161650 particles. (took 0.354456 sec)
+ngb iteration 15: need to repeat for 0000090852 particles. (took 0.321412 sec)
+ngb iteration 16: need to repeat for 0000050350 particles. (took 0.303422 sec)
+ngb iteration 17: need to repeat for 0000027405 particles. (took 0.293044 sec)
+ngb iteration 18: need to repeat for 0000014690 particles. (took 0.287412 sec)
+ngb iteration 19: need to repeat for 0000007694 particles. (took 0.284347 sec)
+ngb iteration 20: need to repeat for 0000003933 particles. (took 0.282681 sec)
+ngb iteration 21: need to repeat for 0000001934 particles. (took 0.282556 sec)
+ngb iteration 22: need to repeat for 0000000949 particles. (took 0.281223 sec)
+ngb iteration 23: need to repeat for 0000000417 particles. (took 0.281425 sec)
+ngb iteration 24: need to repeat for 0000000197 particles. (took 0.281535 sec)
+ngb iteration 25: need to repeat for 0000000084 particles. (took 0.280895 sec)
+ngb iteration 26: need to repeat for 0000000024 particles. (took 0.280267 sec)
+ngb iteration 27: need to repeat for 0000000009 particles. (took 0.281285 sec)
+ngb iteration 28: need to repeat for 0000000001 particles. (took 0.281149 sec)
+dark matter density() took 89.6621 sec
+start saving smoothing lengths and densities
+Sorting of densities in ID sequence took = 28.0642 sec
+saving densities took 42.249 sec
+
+Number of FOF halos treated with collective SubFind code = 0
+(the adopted size-limit for the collective algorithm was 2684354 particles.)
+the other 167073 FOF halos are treated in parallel with serial code
+
+subfind_exchange()() took 19.1142 sec
+processing of collective halos took 1.68351e-05 sec
+sort of local particles()() took 4.29256 sec
+contructing tree for serial subfind of local groups
+Start to do local groups with serial subfind algorithm
+
+processing of local groups took took 137.104 sec
+
+unsorting of local particles()() took 4.20962 sec
+subfind_exchange() (for return to original CPU)  took 10.6209 sec
+domain decomposition... (presently allocated=1500.78 MB)
+Allocated 3.55033 MByte for top-level domain structure
+use of 72.3663 MB of temporary storage for domain decomposition... (presently allocated=1576.69 MB)
+
+At 'DOMAIN', domain_Decomposition()/domain.c/225: Largest Allocation = 1576.7 Mbyte (on task=0), Smallest = 1500.82 Mbyte, Average = 1526.26 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   0    1 0       Exportindex      0.0002       0.0005  allocate_memory()/allocate.c/35
+   0    2 0   Exportnodecount      0.0002       0.0007  allocate_memory()/allocate.c/36
+   0    3 0        Send_count      0.0002       0.0009  allocate_memory()/allocate.c/38
+   0    4 0       Send_offset      0.0002       0.0011  allocate_memory()/allocate.c/39
+   0    5 0        Recv_count      0.0002       0.0014  allocate_memory()/allocate.c/40
+   0    6 0       Recv_offset      0.0002       0.0016  allocate_memory()/allocate.c/41
+   0    7 0     ProcessedFlag      8.5333       8.5349  allocate_memory()/allocate.c/51
+   0    8 0   NextActiveParti     34.1333      42.6683  allocate_memory()/allocate.c/54
+   0    9 0     NextInTimeBin     34.1333      76.8016  allocate_memory()/allocate.c/57
+   0   10 0     PrevInTimeBin     34.1333     110.9349  allocate_memory()/allocate.c/60
+   0   11 0                 P   1092.2666    1203.2015  allocate_memory()/allocate.c/66
+   0   12 0   DomainStartList      0.0002    1203.2018  domain_allocate()/domain.c/355
+   0   13 0     DomainEndList      0.0002    1203.2020  domain_allocate()/domain.c/358
+   0   14 0          TopNodes      0.0318    1203.2338  domain_allocate()/domain.c/361
+   0   15 0         FOF_PList    122.3965    1325.6303  fof_fof()/fof.c/201
+   0   16 0         FOF_GList    163.1953    1488.8256  fof_fof()/fof.c/290
+   0   17 0             Group      0.8286    1489.6542  fof_fof()/fof.c/328
+   0   18 0          SubGroup     11.1237    1500.7779  subfind()/subfind.c/314
+   0   19 0   DomainStartList      0.0002    1500.7781  domain_allocate()/domain.c/355
+   0   20 0     DomainEndList      0.0002    1500.7784  domain_allocate()/domain.c/358
+   0   21 0          TopNodes      3.5499    1504.3283  domain_allocate()/domain.c/361
+   0   22 0        domain_key     68.2667    1572.5949  domain_Decompos()/domain.c/159
+   0   23 0              toGo      0.0002    1572.5951  domain_Decompos()/domain.c/162
+   0   24 0           toGoSph      0.0002    1572.5954  domain_Decompos()/domain.c/164
+   0   25 0             toGet      0.0002    1572.5956  domain_Decompos()/domain.c/166
+   0   26 0          toGetSph      0.0002    1572.5958  domain_Decompos()/domain.c/168
+   0   27 0      list_NumPart      0.0002    1572.5961  domain_Decompos()/domain.c/170
+   0   28 0        list_N_gas      0.0002    1572.5963  domain_Decompos()/domain.c/172
+   0   29 0     list_cadj_cpu      0.0005    1572.5967  domain_Decompos()/domain.c/174
+   0   30 0    list_cadj_cost      0.0005    1572.5972  domain_Decompos()/domain.c/176
+   0   31 0         list_load      0.0002    1572.5974  domain_Decompos()/domain.c/178
+   0   32 0      list_loadsph      0.0002    1572.5977  domain_Decompos()/domain.c/180
+   0   33 0         list_work      0.0005    1572.5981  domain_Decompos()/domain.c/182
+   0   34 0     list_speedfac      0.0005    1572.5986  domain_Decompos()/domain.c/184
+   0   35 0        domainWork      0.2731    1572.8717  domain_Decompos()/domain.c/186
+   0   36 0       domainCount      0.2731    1573.1447  domain_Decompos()/domain.c/188
+   0   37 0    domainCountSph      0.2731    1573.4178  domain_Decompos()/domain.c/190
+   0   38 0          topNodes      3.2768    1576.6946  domain_Decompos()/domain.c/206
+----------------------------------------------------------------------------------------
+Before=617
+After=641
+NTopleaves= 561  NTopnodes=641 (space for 71583)
+work-load balance=1.19528   memory-balance=1.19528
+iter=0 exchange of 0000000000 particles
+domain decomposition done. (took 8.83076 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 3.24747 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+SO iteration 1: need to repeat for 0000162360 particles. (took 0.122795 sec)
+SO iteration 2: need to repeat for 0000162360 particles. (took 0.109876 sec)
+SO iteration 3: need to repeat for 0000162360 particles. (took 0.112608 sec)
+SO iteration 4: need to repeat for 0000162360 particles. (took 0.114808 sec)
+SO iteration 5: need to repeat for 0000162360 particles. (took 0.113679 sec)
+SO iteration 6: need to repeat for 0000162360 particles. (took 0.115141 sec)
+SO iteration 7: need to repeat for 0000162360 particles. (took 0.11396 sec)
+SO iteration 8: need to repeat for 0000162360 particles. (took 0.113937 sec)
+SO iteration 9: need to repeat for 0000162360 particles. (took 0.113736 sec)
+SO iteration 10: need to repeat for 0000162360 particles. (took 0.113482 sec)
+SO iteration 11: need to repeat for 0000162360 particles. (took 0.113559 sec)
+SO iteration 12: need to repeat for 0000162360 particles. (took 0.115506 sec)
+SO iteration 13: need to repeat for 0000162360 particles. (took 0.113545 sec)
+SO iteration 14: need to repeat for 0000162360 particles. (took 0.114548 sec)
+SO iteration 15: need to repeat for 0000162360 particles. (took 0.114284 sec)
+SO iteration 16: need to repeat for 0000000142 particles. (took 0.113863 sec)
+SO iteration 1: need to repeat for 0000162360 particles. (took 0.115208 sec)
+SO iteration 2: need to repeat for 0000162360 particles. (took 0.106553 sec)
+SO iteration 3: need to repeat for 0000162360 particles. (took 0.109653 sec)
+SO iteration 4: need to repeat for 0000162360 particles. (took 0.109985 sec)
+SO iteration 5: need to repeat for 0000162360 particles. (took 0.109337 sec)
+SO iteration 6: need to repeat for 0000162360 particles. (took 0.109316 sec)
+SO iteration 7: need to repeat for 0000162360 particles. (took 0.110285 sec)
+SO iteration 8: need to repeat for 0000162360 particles. (took 0.110369 sec)
+SO iteration 9: need to repeat for 0000162360 particles. (took 0.109229 sec)
+SO iteration 10: need to repeat for 0000162360 particles. (took 0.109184 sec)
+SO iteration 11: need to repeat for 0000162360 particles. (took 0.109321 sec)
+SO iteration 12: need to repeat for 0000162360 particles. (took 0.10939 sec)
+SO iteration 13: need to repeat for 0000162360 particles. (took 0.109334 sec)
+SO iteration 14: need to repeat for 0000162360 particles. (took 0.109317 sec)
+SO iteration 15: need to repeat for 0000162360 particles. (took 0.109341 sec)
+SO iteration 16: need to repeat for 0000003240 particles. (took 0.10941 sec)
+SO iteration 17: need to repeat for 0000000003 particles. (took 0.00348644 sec)
+SO iteration 1: need to repeat for 0000162360 particles. (took 0.11598 sec)
+SO iteration 2: need to repeat for 0000162360 particles. (took 0.10283 sec)
+SO iteration 3: need to repeat for 0000162360 particles. (took 0.107238 sec)
+SO iteration 4: need to repeat for 0000162360 particles. (took 0.105333 sec)
+SO iteration 5: need to repeat for 0000162360 particles. (took 0.103948 sec)
+SO iteration 6: need to repeat for 0000162360 particles. (took 0.104578 sec)
+SO iteration 7: need to repeat for 0000162360 particles. (took 0.105387 sec)
+SO iteration 8: need to repeat for 0000162360 particles. (took 0.104651 sec)
+SO iteration 9: need to repeat for 0000162360 particles. (took 0.104427 sec)
+SO iteration 10: need to repeat for 0000162360 particles. (took 0.10552 sec)
+SO iteration 11: need to repeat for 0000162360 particles. (took 0.105653 sec)
+SO iteration 12: need to repeat for 0000162360 particles. (took 0.104378 sec)
+SO iteration 13: need to repeat for 0000162360 particles. (took 0.104629 sec)
+SO iteration 14: need to repeat for 0000162360 particles. (took 0.104651 sec)
+SO iteration 15: need to repeat for 0000162360 particles. (took 0.104551 sec)
+SO iteration 16: need to repeat for 0000105488 particles. (took 0.104469 sec)
+SO iteration 17: need to repeat for 0000000255 particles. (took 0.0698674 sec)
+SO iteration 18: need to repeat for 0000000001 particles. (took 0.00151292 sec)
+determining spherical overdensity masses took 5.36023 sec
+determining contamination of halos took 0.30188 sec
+Subgroup catalogues saved. took = 6.99063 sec
+
+Finished with SUBFIND.  (total time=352.812 sec)
+
+Finished computing FoF groups.  (presently allocated=1203.23 MB)
+
+domain decomposition... (presently allocated=1203.2 MB)
+Allocated 3.55033 MByte for top-level domain structure
+use of 72.3663 MB of temporary storage for domain decomposition... (presently allocated=1279.12 MB)
+Before=617
+After=641
+NTopleaves= 561  NTopnodes=641 (space for 71583)
+work-load balance=1.19528   memory-balance=1.19528
+iter=0 exchange of 0000000000 particles
+domain decomposition done. (took 2.86525 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 3.24747 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+Tree construction.
+
+This is P-Gadget, version 3.0.
+
+Running on 60 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file '/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat.param':
+InitCondFile                       /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/ics_512-150-z99-nu0.013.dat
+OutputDir                          /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       32682
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.01
+TimeMax                            1
+Omega0                             0.3
+OmegaLambda                        0.7
+OmegaBaryon                        0
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        273
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2
+MaxMemSize                         2500
+ErrTolThetaSubfind                 0.45
+DesLinkNgb                         20
+
+
+found 8 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+initialize Ewald correction...
+
+reading Ewald tables from file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+Reading header => 'HEAD' (264 byte)
+
+Allocated 1203.2 MByte for particle storage.
+
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.0' on task=0 (contains 33154719 particles.)
+distributing this file to tasks 0-6
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16621767  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16532952  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.1' on task=7 (contains 16445305 particles.)
+distributing this file to tasks 7-10
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8264928  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8180377  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.2' on task=11 (contains 17717238 particles.)
+distributing this file to tasks 11-14
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8715016  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   9002222  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.3' on task=15 (contains 32577534 particles.)
+distributing this file to tasks 15-21
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16542162  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16035372  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.4' on task=22 (contains 15292388 particles.)
+distributing this file to tasks 22-25
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   7851931  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   7440457  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.5' on task=26 (contains 16912261 particles.)
+distributing this file to tasks 26-29
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8433617  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8478644  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.6' on task=30 (contains 34094043 particles.)
+distributing this file to tasks 30-36
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16979009  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  17115034  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.7' on task=37 (contains 17014234 particles.)
+distributing this file to tasks 37-40
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8446560  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8567674  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.8' on task=41 (contains 18222184 particles.)
+distributing this file to tasks 41-44
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8913877  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   9308307  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.9' on task=45 (contains 33713485 particles.)
+distributing this file to tasks 45-51
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  16751412  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):  16962073  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.10' on task=52 (contains 15922477 particles.)
+distributing this file to tasks 52-55
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8092905  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   7829572  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99//snapdir_002/snapshot_002.11' on task=56 (contains 17369588 particles.)
+distributing this file to tasks 56-59
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):   8604544  (tot=     0134217728) masstab=0.200303
+Type 2 (disk):   8765044  (tot=     0134217728) masstab=0.00907295
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading block 6 (Density)...
+reading block 9 (SmoothingLength)...
+reading done.
+Total number of particles :  0268435456
+
+sum1=0        0 sum2=0268435456
+Testing ID uniqueness...
+success.  took=22.6447 sec
+domain decomposition... (presently allocated=1203.2 MB)
+Allocated 3.55033 MByte for top-level domain structure
+use of 72.3663 MB of temporary storage for domain decomposition... (presently allocated=1279.12 MB)
+
+At 'DOMAIN', domain_Decomposition()/domain.c/225: Largest Allocation = 1279.12 Mbyte (on task=0), Smallest = 1279.12 Mbyte, Average = 1279.12 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0        Exportflag      0.0002       0.0002  allocate_memory()/allocate.c/34
+   0    1 0       Exportindex      0.0002       0.0005  allocate_memory()/allocate.c/35
+   0    2 0   Exportnodecount      0.0002       0.0007  allocate_memory()/allocate.c/36
+   0    3 0        Send_count      0.0002       0.0009  allocate_memory()/allocate.c/38
+   0    4 0       Send_offset      0.0002       0.0011  allocate_memory()/allocate.c/39
+   0    5 0        Recv_count      0.0002       0.0014  allocate_memory()/allocate.c/40
+   0    6 0       Recv_offset      0.0002       0.0016  allocate_memory()/allocate.c/41
+   0    7 0     ProcessedFlag      8.5333       8.5349  allocate_memory()/allocate.c/51
+   0    8 0   NextActiveParti     34.1333      42.6683  allocate_memory()/allocate.c/54
+   0    9 0     NextInTimeBin     34.1333      76.8016  allocate_memory()/allocate.c/57
+   0   10 0     PrevInTimeBin     34.1333     110.9349  allocate_memory()/allocate.c/60
+   0   11 0                 P   1092.2666    1203.2015  allocate_memory()/allocate.c/66
+   0   12 0   DomainStartList      0.0002    1203.2018  domain_allocate()/domain.c/355
+   0   13 0     DomainEndList      0.0002    1203.2020  domain_allocate()/domain.c/358
+   0   14 0          TopNodes      3.5499    1206.7519  domain_allocate()/domain.c/361
+   0   15 0        domain_key     68.2667    1275.0185  domain_Decompos()/domain.c/159
+   0   16 0              toGo      0.0002    1275.0188  domain_Decompos()/domain.c/162
+   0   17 0           toGoSph      0.0002    1275.0190  domain_Decompos()/domain.c/164
+   0   18 0             toGet      0.0002    1275.0192  domain_Decompos()/domain.c/166
+   0   19 0          toGetSph      0.0002    1275.0194  domain_Decompos()/domain.c/168
+   0   20 0      list_NumPart      0.0002    1275.0197  domain_Decompos()/domain.c/170
+   0   21 0        list_N_gas      0.0002    1275.0199  domain_Decompos()/domain.c/172
+   0   22 0     list_cadj_cpu      0.0005    1275.0204  domain_Decompos()/domain.c/174
+   0   23 0    list_cadj_cost      0.0005    1275.0208  domain_Decompos()/domain.c/176
+   0   24 0         list_load      0.0002    1275.0210  domain_Decompos()/domain.c/178
+   0   25 0      list_loadsph      0.0002    1275.0213  domain_Decompos()/domain.c/180
+   0   26 0         list_work      0.0005    1275.0217  domain_Decompos()/domain.c/182
+   0   27 0     list_speedfac      0.0005    1275.0222  domain_Decompos()/domain.c/184
+   0   28 0        domainWork      0.2731    1275.2953  domain_Decompos()/domain.c/186
+   0   29 0       domainCount      0.2731    1275.5683  domain_Decompos()/domain.c/188
+   0   30 0    domainCountSph      0.2731    1275.8414  domain_Decompos()/domain.c/190
+   0   31 0          topNodes      3.2768    1279.1182  domain_Decompos()/domain.c/206
+----------------------------------------------------------------------------------------
+Before=585
+After=585
+NTopleaves= 512  NTopnodes=585 (space for 71583)
+work-load balance=1.10172   memory-balance=1.10172
+iter=0 exchange of 0046215247 particles
+domain decomposition done. (took 4.73556 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 3.25003 MByte in top-level domain structure
+
+Allocated 641.762 MByte for BH-tree, and 0.00195312 Mbyte for top-leaves.  (presently allocted 1845 MB)
+
+sum1=0268435456 sum2=0268435456
+Begin Ngb-tree construction.
+Ngb-Tree contruction finished 
+
+Begin to compute FoF group catalogues...  (presently allocated=1845 MB)
+domain decomposition... (presently allocated=1203.2 MB)
+Allocated 3.55033 MByte for top-level domain structure
+use of 72.3663 MB of temporary storage for domain decomposition... (presently allocated=1279.12 MB)
+Before=585
+After=585
+NTopleaves= 512  NTopnodes=585 (space for 71583)
+work-load balance=1.10172   memory-balance=1.10172
+iter=0 exchange of 0000000000 particles
+domain decomposition done. (took 2.7518 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 3.25003 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+
+Comoving linking length: 57.7349    (presently allocated=1203.23 MB)
+Tree construction.
+
+Start linking particles (presently allocated=2056.28 MB)
+links on local processor done (took 3.52116 sec).
+Marked=0001821215 out of the 0134217728 primaries which are linked
+
+linking across processors (presently allocated=2147.89 MB) 
+have done 0000021227 cross links (processed 0001821215, took 0.27001 sec)
+have done 0000002343 cross links (processed 0000094230, took 0.183401 sec)
+have done 0000000341 cross links (processed 0000015784, took 0.178404 sec)
+have done 0000000044 cross links (processed 0000001878, took 0.172219 sec)
+have done 0000000011 cross links (processed 0000000230, took 0.171828 sec)
+have done 0000000002 cross links (processed 0000000028, took 0.172457 sec)
+have done 0000000000 cross links (processed 0000000005, took 0.172017 sec)
+Local groups found.
+
+group finding took = 5.19359 sec
+Start finding nearest dm-particle (presently allocated=2056.28 MB)
+still finding nearest... (presently allocated=2131.56 MB)
+done finding nearest dm-particle
+attaching gas and star particles to nearest dm particles took = 0.432299 sec
+compiling local group data and catalogue took = 8.0452 sec
+
+Total number of groups with at least 32 particles: 53060
+Largest group has 4233 particles.
+Total number of particles in groups: 0004252214
+
+group properties are now allocated.. (presently allocated=1450.06 MB)
+computation of group properties took = 0.0287008 sec
+start global sorting of group catalogues
+Group catalogues globally sorted. took = 1.11678 sec
+starting saving of group catalogue
+Group catalogues saved. took = 1.02721 sec
+
+We now execute a parallel version of SUBFIND.
+Tree construction.
+tree build took 1.3499 sec
+finding densities for all particles
+ngb iteration 1: need to repeat for 0058919935 particles. (took 28.1937 sec)
+ngb iteration 2: need to repeat for 0020477874 particles. (took 12.7465 sec)
+ngb iteration 3: need to repeat for 0012988242 particles. (took 4.87523 sec)
+ngb iteration 4: need to repeat for 0011192698 particles. (took 2.65988 sec)
+ngb iteration 5: need to repeat for 0009196763 particles. (took 2.25719 sec)
+ngb iteration 6: need to repeat for 0006756123 particles. (took 1.92168 sec)
+ngb iteration 7: need to repeat for 0004415787 particles. (took 1.53635 sec)
+ngb iteration 8: need to repeat for 0002637019 particles. (took 1.1637 sec)
+ngb iteration 9: need to repeat for 0001481016 particles. (took 0.875958 sec)
+ngb iteration 10: need to repeat for 0000803045 particles. (took 0.66153 sec)
+ngb iteration 11: need to repeat for 0000426725 particles. (took 0.532531 sec)
+ngb iteration 12: need to repeat for 0000224053 particles. (took 0.440496 sec)
+ngb iteration 13: need to repeat for 0000115758 particles. (took 0.388559 sec)
+ngb iteration 14: need to repeat for 0000053393 particles. (took 0.348544 sec)
+ngb iteration 15: need to repeat for 0000015507 particles. (took 0.321599 sec)
+ngb iteration 16: need to repeat for 0000004599 particles. (took 0.30104 sec)
+ngb iteration 17: need to repeat for 0000001813 particles. (took 0.295723 sec)
+ngb iteration 18: need to repeat for 0000000777 particles. (took 0.294069 sec)
+ngb iteration 19: need to repeat for 0000000332 particles. (took 0.294259 sec)
+ngb iteration 20: need to repeat for 0000000143 particles. (took 0.293308 sec)
+ngb iteration 21: need to repeat for 0000000054 particles. (took 0.293674 sec)
+ngb iteration 22: need to repeat for 0000000014 particles. (took 0.292748 sec)
+ngb iteration 23: need to repeat for 0000000001 particles. (took 0.293517 sec)
+dark matter density() took 62.4972 sec
+start saving smoothing lengths and densities
+Sorting of densities in ID sequence took = 31.5598 sec
+=>> PBS: job killed: walltime 1811 exceeded limit 1800

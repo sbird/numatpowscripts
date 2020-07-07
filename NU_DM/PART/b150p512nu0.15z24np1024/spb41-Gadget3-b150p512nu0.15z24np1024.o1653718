@@ -1,0 +1,359 @@
+JobID: 1653718
+======
+Time: Tue May 24 19:10:57 BST 2011
+Running on master node: node-p09
+Current directory: /home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024
+
+nodes=13.1666666666667, ppn=12
+
+Executing command:
+==================
+mpirun -tune -ppn 12 -np 158 /home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/P-Gadget3 /home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.param
+
+WARNING: there are no tuned data files appropriate for your configuration: device = shm-dapl, np = 158, ppn = 12
+
+This is P-Gadget, version 3.0.
+
+Running on 158 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file '/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.param':
+InitCondFile                       /home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat
+OutputDir                          /home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       100447
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.04
+TimeMax                            1
+Omega0                             0.3
+OmegaLambda                        0.7
+OmegaBaryon                        0.05
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        68.25
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          1
+StarformationOn                    1
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2.5
+MaxMemSize                         3000
+CritPhysDensity                    0
+MaxSfrTimescale                    1.5
+CritOverDensity                    1000
+TempSupernova                      1e+08
+TempClouds                         1000
+FactorSN                           0.1
+FactorEVP                          1000
+WindEfficiency                     2
+WindFreeTravelLength               20
+WindEnergyFraction                 1
+WindFreeTravelDensFac              0.1
+
+
+found 8 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+
+
+read ionization table with 170 entries in file `TREECOOL'.
+
+
+A0= 1000  
+Computed: PhysDensThresh= 0.000854954  (int units)         0.262995 h^2 cm^-3
+EXPECTED FRACTION OF COLD GAS AT THRESHOLD = 0.904362
+
+tcool=4.67335e-06 dens=0.027755 egyhot=2104.92
+Run-away sets in for dens=0.412657
+Dynamic range for quiescent star formation= 482.666
+Isotherm sheet central density: 0.0481412   z0=0.0519306
+initialize Ewald correction...
+
+No Ewald tables in file `ewald_spc_table_64.dat' found.
+Recomputing them...
+ 0.0 percent done
+ 4.9 percent done
+ 9.9 percent done
+14.8 percent done
+19.8 percent done
+24.7 percent done
+29.7 percent done
+34.6 percent done
+39.6 percent done
+44.5 percent done
+49.5 percent done
+54.4 percent done
+59.4 percent done
+64.3 percent done
+69.3 percent done
+74.2 percent done
+79.2 percent done
+84.1 percent done
+89.1 percent done
+94.0 percent done
+99.0 percent done
+
+writing Ewald tables to file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+Reading header => 'HEAD' (264 byte)
+
+Allocated 1841.01 MByte for particle storage.
+
+
+reading file `/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.0' on task=0 (contains 201326591 particles.)
+distributing this file to tasks 0-38
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  22369621  (tot=     0134217728) masstab=0.207107
+Type 2 (disk):  178956970  (tot=     1073741824) masstab=0.00028353
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.1' on task=39 (contains 201326591 particles.)
+distributing this file to tasks 39-58
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  22369621  (tot=     0134217728) masstab=0.207107
+Type 2 (disk):  178956970  (tot=     1073741824) masstab=0.00028353
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.2' on task=59 (contains 201326591 particles.)
+distributing this file to tasks 59-78
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  22369621  (tot=     0134217728) masstab=0.207107
+Type 2 (disk):  178956970  (tot=     1073741824) masstab=0.00028353
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.3' on task=79 (contains 201326591 particles.)
+distributing this file to tasks 79-117
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  22369621  (tot=     0134217728) masstab=0.207107
+Type 2 (disk):  178956970  (tot=     1073741824) masstab=0.00028353
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.4' on task=118 (contains 201326591 particles.)
+distributing this file to tasks 118-137
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  22369621  (tot=     0134217728) masstab=0.207107
+Type 2 (disk):  178956970  (tot=     1073741824) masstab=0.00028353
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/spb41/scratch/NU_DM/PART/b150p512nu0.15z24np1024/ics_512-150-z24-nu0.00325.dat.5' on task=138 (contains 201326597 particles.)
+distributing this file to tasks 138-157
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  22369623  (tot=     0134217728) masstab=0.207107
+Type 2 (disk):  178956974  (tot=     1073741824) masstab=0.00028353
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading done.
+Total number of particles :  1207959552
+
+sum1=0        0 sum2=1207959552
+Testing ID uniqueness...
+success.  took=63.2131 sec
+domain decomposition... (presently allocated=1841.17 MB)
+Allocated 7.58403 MByte for top-level domain structure
+use of 154.582 MB of temporary storage for domain decomposition... (presently allocated=2003.34 MB)
+
+At 'DOMAIN', domain_Decomposition()/domain.c/225: Largest Allocation = 2003.34 Mbyte (on task=0), Smallest = 2003.34 Mbyte, Average = 2003.34 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0            BetaH0      0.0153       0.0153  InitCoolMemory()/cooling.c/788
+   0    1 0           BetaHep      0.0153       0.0305  InitCoolMemory()/cooling.c/789
+   0    2 0           AlphaHp      0.0153       0.0458  InitCoolMemory()/cooling.c/790
+   0    3 0          AlphaHep      0.0153       0.0611  InitCoolMemory()/cooling.c/791
+   0    4 0            Alphad      0.0153       0.0763  InitCoolMemory()/cooling.c/792
+   0    5 0         AlphaHepp      0.0153       0.0916  InitCoolMemory()/cooling.c/793
+   0    6 0          GammaeH0      0.0153       0.1069  InitCoolMemory()/cooling.c/794
+   0    7 0         GammaeHe0      0.0153       0.1221  InitCoolMemory()/cooling.c/795
+   0    8 0         GammaeHep      0.0153       0.1374  InitCoolMemory()/cooling.c/796
+   0    9 0            Betaff      0.0153       0.1527  InitCoolMemory()/cooling.c/797
+   0   10 0    slabs_per_task      0.0006       0.1533  pm_init_periodi()/pm_periodic.c/123
+   0   11 0   first_slab_of_t      0.0006       0.1539  pm_init_periodi()/pm_periodic.c/126
+   0   12 0        Exportflag      0.0006       0.1545  allocate_memory()/allocate.c/34
+   0   13 0       Exportindex      0.0006       0.1551  allocate_memory()/allocate.c/35
+   0   14 0   Exportnodecount      0.0006       0.1557  allocate_memory()/allocate.c/36
+   0   15 0        Send_count      0.0006       0.1563  allocate_memory()/allocate.c/38
+   0   16 0       Send_offset      0.0006       0.1569  allocate_memory()/allocate.c/39
+   0   17 0        Recv_count      0.0006       0.1575  allocate_memory()/allocate.c/40
+   0   18 0       Recv_offset      0.0006       0.1581  allocate_memory()/allocate.c/41
+   0   19 0     ProcessedFlag     18.2279      18.3859  allocate_memory()/allocate.c/51
+   0   20 0   NextActiveParti     72.9114      91.2973  allocate_memory()/allocate.c/54
+   0   21 0     NextInTimeBin     72.9114     164.2087  allocate_memory()/allocate.c/57
+   0   22 0     PrevInTimeBin     72.9114     237.1201  allocate_memory()/allocate.c/60
+   0   23 0                 P   1604.0505    1841.1706  allocate_memory()/allocate.c/66
+   0   24 0   DomainStartList      0.0006    1841.1712  domain_allocate()/domain.c/355
+   0   25 0     DomainEndList      0.0006    1841.1718  domain_allocate()/domain.c/358
+   0   26 0          TopNodes      7.5828    1848.7546  domain_allocate()/domain.c/361
+   0   27 0        domain_key    145.8228    1994.5774  domain_Decompos()/domain.c/159
+   0   28 0              toGo      0.0006    1994.5780  domain_Decompos()/domain.c/162
+   0   29 0           toGoSph      0.0006    1994.5786  domain_Decompos()/domain.c/164
+   0   30 0             toGet      0.0006    1994.5792  domain_Decompos()/domain.c/166
+   0   31 0          toGetSph      0.0006    1994.5798  domain_Decompos()/domain.c/168
+   0   32 0      list_NumPart      0.0006    1994.5804  domain_Decompos()/domain.c/170
+   0   33 0        list_N_gas      0.0006    1994.5810  domain_Decompos()/domain.c/172
+   0   34 0     list_cadj_cpu      0.0012    1994.5822  domain_Decompos()/domain.c/174
+   0   35 0    list_cadj_cost      0.0012    1994.5834  domain_Decompos()/domain.c/176
+   0   36 0         list_load      0.0006    1994.5840  domain_Decompos()/domain.c/178
+   0   37 0      list_loadsph      0.0006    1994.5846  domain_Decompos()/domain.c/180
+   0   38 0         list_work      0.0012    1994.5858  domain_Decompos()/domain.c/182
+   0   39 0     list_speedfac      0.0012    1994.5870  domain_Decompos()/domain.c/184
+   0   40 0        domainWork      0.5833    1995.1703  domain_Decompos()/domain.c/186
+   0   41 0       domainCount      0.5833    1995.7536  domain_Decompos()/domain.c/188
+   0   42 0    domainCountSph      0.5833    1996.3369  domain_Decompos()/domain.c/190
+   0   43 0          topNodes      6.9995    2003.3364  domain_Decompos()/domain.c/206
+----------------------------------------------------------------------------------------
+Before=1545
+After=4681
+NTopleaves= 4096  NTopnodes=4681 (space for 152907)
+work-load balance=1.0083   memory-balance=1.0083
+iter=0 exchange of 1192750847 particles
+domain decomposition done. (took 15.2356 sec)
+begin Peano-Hilbert order...
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+ 157    0 0            BetaH0      0.0153       0.0153  InitCoolMemory()/cooling.c/788
+ 157    1 0           BetaHep      0.0153       0.0305  InitCoolMemory()/cooling.c/789
+ 157    2 0           AlphaHp      0.0153       0.0458  InitCoolMemory()/cooling.c/790
+ 157    3 0          AlphaHep      0.0153       0.0611  InitCoolMemory()/cooling.c/791
+ 157    4 0            Alphad      0.0153       0.0763  InitCoolMemory()/cooling.c/792
+ 157    5 0         AlphaHepp      0.0153       0.0916  InitCoolMemory()/cooling.c/793
+ 157    6 0          GammaeH0      0.0153       0.1069  InitCoolMemory()/cooling.c/794
+ 157    7 0         GammaeHe0      0.0153       0.1221  InitCoolMemory()/cooling.c/795
+ 157    8 0         GammaeHep      0.0153       0.1374  InitCoolMemory()/cooling.c/796
+ 157    9 0            Betaff      0.0153       0.1527  InitCoolMemory()/cooling.c/797
+ 157   10 0    slabs_per_task      0.0006       0.1533  pm_init_periodi()/pm_periodic.c/123
+ 157   11 0   first_slab_of_t      0.0006       0.1539  pm_init_periodi()/pm_periodic.c/126
+ 157   12 0        Exportflag      0.0006       0.1545  allocate_memory()/allocate.c/34
+ 157   13 0       Exportindex      0.0006       0.1551  allocate_memory()/allocate.c/35
+ 157   14 0   Exportnodecount      0.0006       0.1557  allocate_memory()/allocate.c/36
+ 157   15 0        Send_count      0.0006       0.1563  allocate_memory()/allocate.c/38
+ 157   16 0       Send_offset      0.0006       0.1569  allocate_memory()/allocate.c/39
+ 157   17 0        Recv_count      0.0006       0.1575  allocate_memory()/allocate.c/40
+ 157   18 0       Recv_offset      0.0006       0.1581  allocate_memory()/allocate.c/41
+ 157   19 0     ProcessedFlag     18.2279      18.3859  allocate_memory()/allocate.c/51
+ 157   20 0   NextActiveParti     72.9114      91.2973  allocate_memory()/allocate.c/54
+ 157   21 0     NextInTimeBin     72.9114     164.2087  allocate_memory()/allocate.c/57
+ 157   22 0     PrevInTimeBin     72.9114     237.1201  allocate_memory()/allocate.c/60
+ 157   23 0                 P   1604.0505    1841.1706  allocate_memory()/allocate.c/66
+ 157   24 0   DomainStartList      0.0006    1841.1712  domain_allocate()/domain.c/355
+ 157   25 0     DomainEndList      0.0006    1841.1718  domain_allocate()/domain.c/358
+ 157   26 0          TopNodes      0.2321    1841.4039  domain_allocate()/domain.c/361
+ 157   27 0   DomainNodeIndex      0.0156    1841.4195  force_treealloc()/forcetree.c/4527
+ 157   28 0        Nodes_base    663.7258    2505.1453  force_treealloc()/forcetree.c/4530
+----------------------------------------------------------------------------------------
+
+Task=157: Not enough memory in mymalloc_fullinfo() to allocate 561.614 MB for variable 'Extnodes_base' at force_treeallocate()/forcetree.c/line 4538 (FreeBytes=494.855 MB).
+task 157: endrun called with an error level of 812
+
+
+rank 157 in job 1  node-p09.storage.cluster_39093   caused collective abort of all ranks
+  exit status of rank 157: killed by signal 9 

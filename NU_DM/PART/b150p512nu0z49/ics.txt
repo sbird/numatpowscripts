@@ -1,0 +1,2 @@
+
+perl generate-nu.pl --output /home/spb41/data3/NU_DM/lala/b150p512nu0z49 --glass /home/spb41/data3/reg-grid-128-dm --nglass 128 --onu 0. --redshift 49 --box 150 --npart 512 --ob 0.05 --om 0.25

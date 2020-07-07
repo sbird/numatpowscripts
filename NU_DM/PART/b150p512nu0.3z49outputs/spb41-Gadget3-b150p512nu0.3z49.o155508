@@ -1,0 +1,836 @@
+MPI: dplace use detected, MPI_DSM_... environment variables ignored
+
+This is P-Gadget, version 3.0.
+
+Running on 144 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file 'ics_512-150-z49-nu0.0065.dat.param':
+InitCondFile                       /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.3z49/ics_512-150-z49-nu0.0065.dat
+OutputDir                          /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.3z49outputs
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       5682
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.02
+TimeMax                            1
+Omega0                             0.3
+OmegaLambda                        0.7
+OmegaBaryon                        0
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.3z49outputs/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        136.5
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2
+MaxMemSize                         2500
+
+
+found 98 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+initialize Ewald correction...
+
+reading Ewald tables from file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+
+Allocated 359.111 MByte for particle storage.
+
+Allocated 1.48025 MByte for top-level domain structure
+
+Allocated 267.88 MByte for BH-tree, and 0.0175743 Mbyte for top-leaves.  (presently allocted 628.494 MB)
+
+sum1=0        0 sum2=0        0
+
+There is no valid time for a further snapshot file.
+
+Begin Step 4111, Time: 0.990968, Redshift: 0.00911458, Systemstep: 0.000473116, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0191913760  0000000000   0.00764067
+    bin=19      0035141668  0000000000   0.00382033
+    bin=18      0027766089  0000000000   0.00191017
+    bin=17      0012631405  0000000000   0.000955084
+ X  bin=16      0000982534  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000982534  0000000000    Sum: 0000982534
+Start force computation...
+Begin tree force.  (presently allocated=628.494 MB)
+All.BunchSize=672164
+
+At 'GRAVTREE', gravity_tree()/gravtree.c/578: Largest Allocation = 663.316 Mbyte (on task=132), Smallest = 656.7 Mbyte, Average = 657.009 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+ 132    0 0    slabs_per_task      0.0005       0.0005  pm_init_periodi()/pm_periodic.c/123
+ 132    1 0   first_slab_of_t      0.0005       0.0011  pm_init_periodi()/pm_periodic.c/126
+ 132    2 0        Exportflag      0.0005       0.0016  allocate_memory()/allocate.c/34
+ 132    3 0       Exportindex      0.0005       0.0022  allocate_memory()/allocate.c/35
+ 132    4 0   Exportnodecount      0.0005       0.0027  allocate_memory()/allocate.c/36
+ 132    5 0        Send_count      0.0005       0.0033  allocate_memory()/allocate.c/38
+ 132    6 0       Send_offset      0.0005       0.0038  allocate_memory()/allocate.c/39
+ 132    7 0        Recv_count      0.0005       0.0044  allocate_memory()/allocate.c/40
+ 132    8 0       Recv_offset      0.0005       0.0049  allocate_memory()/allocate.c/41
+ 132    9 0     ProcessedFlag      3.5556       3.5605  allocate_memory()/allocate.c/51
+ 132   10 0   NextActiveParti     14.2222      17.7827  allocate_memory()/allocate.c/54
+ 132   11 0     NextInTimeBin     14.2222      32.0049  allocate_memory()/allocate.c/57
+ 132   12 0     PrevInTimeBin     14.2222      46.2272  allocate_memory()/allocate.c/60
+ 132   13 0                 P    312.8889     359.1160  allocate_memory()/allocate.c/66
+ 132   14 0   DomainStartList      0.0005     359.1166  domain_allocate()/domain.c/355
+ 132   15 0     DomainEndList      0.0005     359.1171  domain_allocate()/domain.c/358
+ 132   16 0          TopNodes      1.4792     360.5963  domain_allocate()/domain.c/363
+ 132   17 0   DomainNodeIndex      0.0176     360.6139  force_treealloc()/forcetree.c/4527
+ 132   18 0        Nodes_base    129.6834     490.2972  force_treealloc()/forcetree.c/4530
+ 132   19 0     Extnodes_base    109.7321     600.0293  force_treealloc()/forcetree.c/4538
+ 132   20 0          Nextnode     14.2423     614.2716  force_treealloc()/forcetree.c/4547
+ 132   21 0            Father     14.2222     628.4938  force_treealloc()/forcetree.c/4554
+ 132   22 0    DataIndexTable      7.6923     636.1861  gravity_tree()/gravtree.c/350
+ 132   23 0      DataNodeList     20.5128     656.6990  gravity_tree()/gravtree.c/352
+ 132   24 0       GravDataGet      4.9416     661.6406  gravity_tree()/gravtree.c/507
+ 132   25 0    GravDataResult      1.6472     663.2878  gravity_tree()/gravtree.c/574
+ 132   26 0       GravDataOut      0.0274     663.3152  gravity_tree()/gravtree.c/576
+----------------------------------------------------------------------------------------
+tree is done.
+force computation done.
+type=1  dmean=290.837 asmth=366.211 minmass=0.204839 a=0.990968  sqrt(<p^2>)=533.847  dlogmax=0.0107442
+type=2  dmean=81.6743 asmth=366.211 minmass=0.00453647 a=0.990968  sqrt(<p^2>)=1808.92  dlogmax=0.000890441
+displacement time constraint: 0.0107442  (0.1)
+I'm guessing 0013613939 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 592 top-level nodes out of 4607
+
+At 'RUN', run()/run.c/159: Largest Allocation = 628.495 Mbyte (on task=0), Smallest = 628.495 Mbyte, Average = 628.495 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0    slabs_per_task      0.0005       0.0005  pm_init_periodi()/pm_periodic.c/123
+   0    1 0   first_slab_of_t      0.0005       0.0011  pm_init_periodi()/pm_periodic.c/126
+   0    2 0        Exportflag      0.0005       0.0016  allocate_memory()/allocate.c/34
+   0    3 0       Exportindex      0.0005       0.0022  allocate_memory()/allocate.c/35
+   0    4 0   Exportnodecount      0.0005       0.0027  allocate_memory()/allocate.c/36
+   0    5 0        Send_count      0.0005       0.0033  allocate_memory()/allocate.c/38
+   0    6 0       Send_offset      0.0005       0.0038  allocate_memory()/allocate.c/39
+   0    7 0        Recv_count      0.0005       0.0044  allocate_memory()/allocate.c/40
+   0    8 0       Recv_offset      0.0005       0.0049  allocate_memory()/allocate.c/41
+   0    9 0     ProcessedFlag      3.5556       3.5605  allocate_memory()/allocate.c/51
+   0   10 0   NextActiveParti     14.2222      17.7827  allocate_memory()/allocate.c/54
+   0   11 0     NextInTimeBin     14.2222      32.0049  allocate_memory()/allocate.c/57
+   0   12 0     PrevInTimeBin     14.2222      46.2272  allocate_memory()/allocate.c/60
+   0   13 0                 P    312.8889     359.1160  allocate_memory()/allocate.c/66
+   0   14 0   DomainStartList      0.0005     359.1166  domain_allocate()/domain.c/355
+   0   15 0     DomainEndList      0.0005     359.1171  domain_allocate()/domain.c/358
+   0   16 0          TopNodes      1.4792     360.5963  domain_allocate()/domain.c/363
+   0   17 0   DomainNodeIndex      0.0176     360.6139  force_treealloc()/forcetree.c/4527
+   0   18 0        Nodes_base    129.6834     490.2972  force_treealloc()/forcetree.c/4530
+   0   19 0     Extnodes_base    109.7321     600.0293  force_treealloc()/forcetree.c/4538
+   0   20 0          Nextnode     14.2423     614.2716  force_treealloc()/forcetree.c/4547
+   0   21 0            Father     14.2222     628.4938  force_treealloc()/forcetree.c/4554
+----------------------------------------------------------------------------------------
+
+Begin Step 4112, Time: 0.991441, Redshift: 0.0086328, Systemstep: 0.000473342, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0191913760  0000000000   0.00764067
+    bin=19      0035141668  0000000000   0.00382033
+    bin=18      0027766089  0000000000   0.00191017
+ X  bin=17      0012631405  0000000000   0.000955084
+ X  bin=16      0000982534  0000000000   0.000477542
+               -----------------------------------
+Total active:   0013613939  0000000000    Sum: 0013613939
+Start force computation...
+Begin tree force.  (presently allocated=628.494 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000982534 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 3231 top-level nodes out of 4607
+
+Begin Step 4113, Time: 0.991915, Redshift: 0.00815125, Systemstep: 0.000473568, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0191913760  0000000000   0.00764067
+    bin=19      0035141668  0000000000   0.00382033
+    bin=18      0027766089  0000000000   0.00191017
+    bin=17      0012638139  0000000000   0.000955084
+ X  bin=16      0000975800  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000975800  0000000000    Sum: 0000975800
+Start force computation...
+Begin tree force.  (presently allocated=628.494 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0268435456 particles to be active in the next step
+
+Begin Step 4114, Time: 0.992388, Redshift: 0.00766993, Systemstep: 0.000473794, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+ X  bin=20      0191913760  0000000000   0.00764067
+ X  bin=19      0035141668  0000000000   0.00382033
+ X  bin=18      0027766089  0000000000   0.00191017
+ X  bin=17      0012638139  0000000000   0.000955084
+ X  bin=16      0000975800  0000000000   0.000477542
+               -----------------------------------
+PM-Step. Total: 0268435456  0000000000    Sum: 0268435456
+domain decomposition... (presently allocated=359.116 MB)
+Allocated 1.48025 MByte for top-level domain structure
+use of 30.1599 MB of temporary storage for domain decomposition... (presently allocated=390.756 MB)
+
+At 'DOMAIN', domain_Decomposition()/domain.c/225: Largest Allocation = 390.757 Mbyte (on task=0), Smallest = 390.757 Mbyte, Average = 390.757 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+   0    0 0    slabs_per_task      0.0005       0.0005  pm_init_periodi()/pm_periodic.c/123
+   0    1 0   first_slab_of_t      0.0005       0.0011  pm_init_periodi()/pm_periodic.c/126
+   0    2 0        Exportflag      0.0005       0.0016  allocate_memory()/allocate.c/34
+   0    3 0       Exportindex      0.0005       0.0022  allocate_memory()/allocate.c/35
+   0    4 0   Exportnodecount      0.0005       0.0027  allocate_memory()/allocate.c/36
+   0    5 0        Send_count      0.0005       0.0033  allocate_memory()/allocate.c/38
+   0    6 0       Send_offset      0.0005       0.0038  allocate_memory()/allocate.c/39
+   0    7 0        Recv_count      0.0005       0.0044  allocate_memory()/allocate.c/40
+   0    8 0       Recv_offset      0.0005       0.0049  allocate_memory()/allocate.c/41
+   0    9 0     ProcessedFlag      3.5556       3.5605  allocate_memory()/allocate.c/51
+   0   10 0   NextActiveParti     14.2222      17.7827  allocate_memory()/allocate.c/54
+   0   11 0     NextInTimeBin     14.2222      32.0049  allocate_memory()/allocate.c/57
+   0   12 0     PrevInTimeBin     14.2222      46.2272  allocate_memory()/allocate.c/60
+   0   13 0                 P    312.8889     359.1160  allocate_memory()/allocate.c/66
+   0   14 0   DomainStartList      0.0005     359.1166  domain_allocate()/domain.c/355
+   0   15 0     DomainEndList      0.0005     359.1171  domain_allocate()/domain.c/358
+   0   16 0          TopNodes      1.4792     360.5963  domain_allocate()/domain.c/363
+   0   17 0        domain_key     28.4444     389.0407  domain_Decompos()/domain.c/159
+   0   18 0              toGo      0.0005     389.0413  domain_Decompos()/domain.c/162
+   0   19 0           toGoSph      0.0005     389.0418  domain_Decompos()/domain.c/164
+   0   20 0             toGet      0.0005     389.0424  domain_Decompos()/domain.c/166
+   0   21 0          toGetSph      0.0005     389.0429  domain_Decompos()/domain.c/168
+   0   22 0      list_NumPart      0.0005     389.0435  domain_Decompos()/domain.c/170
+   0   23 0        list_N_gas      0.0005     389.0440  domain_Decompos()/domain.c/172
+   0   24 0     list_cadj_cpu      0.0011     389.0451  domain_Decompos()/domain.c/174
+   0   25 0    list_cadj_cost      0.0011     389.0462  domain_Decompos()/domain.c/176
+   0   26 0         list_load      0.0005     389.0468  domain_Decompos()/domain.c/178
+   0   27 0      list_loadsph      0.0005     389.0473  domain_Decompos()/domain.c/180
+   0   28 0         list_work      0.0011     389.0484  domain_Decompos()/domain.c/182
+   0   29 0     list_speedfac      0.0011     389.0495  domain_Decompos()/domain.c/184
+   0   30 0        domainWork      0.1138     389.1633  domain_Decompos()/domain.c/186
+   0   31 0       domainCount      0.1138     389.2771  domain_Decompos()/domain.c/188
+   0   32 0    domainCountSph      0.1138     389.3909  domain_Decompos()/domain.c/190
+   0   33 0          topNodes      1.3654     390.7562  domain_Decompos()/domain.c/208
+----------------------------------------------------------------------------------------
+Before=5489
+After=5777
+NTopleaves= 5055  NTopnodes=5777 (space for 29827)
+desired memory imbalance=2.75148  (limit=3653704, needed=5026551)
+Note: the domain decomposition is suboptimum because the ceiling for memory-imbalance is reached
+work-load balance=6.7853   memory-balance=1.16767
+iter=0 exchange of 0003308914 particles
+domain decomposition done. (took 1.63782 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 1.10092 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+Start force computation...
+Starting periodic PM calculation.  (presently allocated=359.404 MB)
+Using 294.532 MByte for periodic FFT computation. (presently allocated=596.635 MB)
+
+At 'PM_PERIODIC', pmforce_periodic()/pm_periodic.c/593: Largest Allocation = 645.087 Mbyte (on task=87), Smallest = 552.996 Mbyte, Average = 602.518 Mbyte
+
+------------------------ Allocated Memory Blocks----------------------------------------
+Task   Nr F          Variable      MBytes   Cumulative         Function/File/Linenumber
+----------------------------------------------------------------------------------------
+  87    0 0    slabs_per_task      0.0005       0.0005  pm_init_periodi()/pm_periodic.c/123
+  87    1 0   first_slab_of_t      0.0005       0.0011  pm_init_periodi()/pm_periodic.c/126
+  87    2 0        Exportflag      0.0005       0.0016  allocate_memory()/allocate.c/34
+  87    3 0       Exportindex      0.0005       0.0022  allocate_memory()/allocate.c/35
+  87    4 0   Exportnodecount      0.0005       0.0027  allocate_memory()/allocate.c/36
+  87    5 0        Send_count      0.0005       0.0033  allocate_memory()/allocate.c/38
+  87    6 0       Send_offset      0.0005       0.0038  allocate_memory()/allocate.c/39
+  87    7 0        Recv_count      0.0005       0.0044  allocate_memory()/allocate.c/40
+  87    8 0       Recv_offset      0.0005       0.0049  allocate_memory()/allocate.c/41
+  87    9 0     ProcessedFlag      3.5556       3.5605  allocate_memory()/allocate.c/51
+  87   10 0   NextActiveParti     14.2222      17.7827  allocate_memory()/allocate.c/54
+  87   11 0     NextInTimeBin     14.2222      32.0049  allocate_memory()/allocate.c/57
+  87   12 0     PrevInTimeBin     14.2222      46.2272  allocate_memory()/allocate.c/60
+  87   13 0                 P    312.8889     359.1160  allocate_memory()/allocate.c/66
+  87   14 0   DomainStartList      0.0005     359.1166  domain_allocate()/domain.c/355
+  87   15 0     DomainEndList      0.0005     359.1171  domain_allocate()/domain.c/358
+  87   16 0          TopNodes      0.2865     359.4036  domain_allocate()/domain.c/363
+  87   17 0           rhogrid      4.0156     363.4193  pm_init_periodi()/pm_periodic.c/153
+  87   18 0         forcegrid      4.0156     367.4349  pm_init_periodi()/pm_periodic.c/160
+  87   19 0              part    199.2313     566.6662  pm_init_periodi()/pm_periodic.c/168
+  87   20 0    part_sortindex     66.4104     633.0766  pm_init_periodi()/pm_periodic.c/175
+  87   21 0   localfield_glob      5.9643     639.0409  pmforce_periodi()/pm_periodic.c/428
+  87   22 0   localfield_d_da      5.9643     645.0052  pmforce_periodi()/pm_periodic.c/430
+  87   23 0   localfield_firs      0.0005     645.0057  pmforce_periodi()/pm_periodic.c/432
+  87   24 0   localfield_coun      0.0005     645.0063  pmforce_periodi()/pm_periodic.c/433
+  87   25 0   localfield_offs      0.0005     645.0068  pmforce_periodi()/pm_periodic.c/434
+  87   26 0   localfield_togo      0.0791     645.0859  pmforce_periodi()/pm_periodic.c/435
+----------------------------------------------------------------------------------------
+done PM.
+Tree construction.  (presently allocated=627.352 MB)
+Tree construction done.
+Begin tree force.  (presently allocated=627.352 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+type=1  dmean=290.837 asmth=366.211 minmass=0.204839 a=0.992388  sqrt(<p^2>)=533.901  dlogmax=0.0107668
+type=2  dmean=81.6743 asmth=366.211 minmass=0.00453647 a=0.992388  sqrt(<p^2>)=1808.92  dlogmax=0.000892411
+displacement time constraint: 0.0107668  (0.1)
+I'm guessing 0000975800 particles to be active in the next step
+
+Begin Step 4115, Time: 0.992862, Redshift: 0.00718884, Systemstep: 0.00047402, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+    bin=18      0027789414  0000000000   0.00191017
+    bin=17      0012633467  0000000000   0.000955084
+ X  bin=16      0000983783  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000983783  0000000000    Sum: 0000983783
+domain decomposition... (presently allocated=359.116 MB)
+Allocated 1.48025 MByte for top-level domain structure
+use of 30.1599 MB of temporary storage for domain decomposition... (presently allocated=390.756 MB)
+Before=4841
+After=5177
+NTopleaves= 4530  NTopnodes=5177 (space for 29827)
+desired memory imbalance=2.85726  (limit=3653704, needed=5219790)
+Note: the domain decomposition is suboptimum because the ceiling for memory-imbalance is reached
+work-load balance=4.23104   memory-balance=1.2029
+iter=0 exchange of 0002561364 particles
+domain decomposition done. (took 1.49013 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 1.12839 MByte in top-level domain structure
+sum1=0   983783 sum2=0   983783
+Start force computation...
+Tree construction.  (presently allocated=627.263 MB)
+Tree construction done.
+Begin tree force.  (presently allocated=627.263 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0013617250 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 604 top-level nodes out of 4530
+
+Begin Step 4116, Time: 0.993337, Redshift: 0.00670798, Systemstep: 0.000474247, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+    bin=18      0027789414  0000000000   0.00191017
+ X  bin=17      0012633467  0000000000   0.000955084
+ X  bin=16      0000983783  0000000000   0.000477542
+               -----------------------------------
+Total active:   0013617250  0000000000    Sum: 0013617250
+Start force computation...
+Begin tree force.  (presently allocated=627.263 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000983783 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 3172 top-level nodes out of 4530
+
+Begin Step 4117, Time: 0.993811, Redshift: 0.00622735, Systemstep: 0.000474473, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+    bin=18      0027789414  0000000000   0.00191017
+    bin=17      0012634050  0000000000   0.000955084
+ X  bin=16      0000983200  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000983200  0000000000    Sum: 0000983200
+Start force computation...
+Begin tree force.  (presently allocated=627.263 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0041406664 particles to be active in the next step
+
+Begin Step 4118, Time: 0.994286, Redshift: 0.00574695, Systemstep: 0.0004747, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+ X  bin=18      0027789414  0000000000   0.00191017
+ X  bin=17      0012634050  0000000000   0.000955084
+ X  bin=16      0000983200  0000000000   0.000477542
+               -----------------------------------
+Total active:   0041406664  0000000000    Sum: 0041406664
+domain decomposition... (presently allocated=359.116 MB)
+Allocated 1.48025 MByte for top-level domain structure
+use of 30.1599 MB of temporary storage for domain decomposition... (presently allocated=390.756 MB)
+Before=5281
+After=5561
+NTopleaves= 4866  NTopnodes=5561 (space for 29827)
+desired memory imbalance=3.03985  (limit=3653704, needed=5553352)
+Note: the domain decomposition is suboptimum because the ceiling for memory-imbalance is reached
+work-load balance=5.73814   memory-balance=1.19996
+iter=0 exchange of 0002992972 particles
+domain decomposition done. (took 1.56887 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 1.11081 MByte in top-level domain structure
+sum1=0 41406664 sum2=0 41406664
+Start force computation...
+Tree construction.  (presently allocated=627.32 MB)
+Tree construction done.
+Begin tree force.  (presently allocated=627.32 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000983200 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 4674 top-level nodes out of 4866
+
+Begin Step 4119, Time: 0.994761, Redshift: 0.00526678, Systemstep: 0.000474927, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+    bin=18      0027797802  0000000000   0.00191017
+    bin=17      0012623073  0000000000   0.000955084
+ X  bin=16      0000985789  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000985789  0000000000    Sum: 0000985789
+Start force computation...
+Begin tree force.  (presently allocated=627.32 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0013608862 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 725 top-level nodes out of 4866
+
+Begin Step 4120, Time: 0.995236, Redshift: 0.00478684, Systemstep: 0.000475153, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+    bin=18      0027797802  0000000000   0.00191017
+ X  bin=17      0012623073  0000000000   0.000955084
+ X  bin=16      0000985789  0000000000   0.000477542
+               -----------------------------------
+Total active:   0013608862  0000000000    Sum: 0013608862
+Start force computation...
+Begin tree force.  (presently allocated=627.32 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000985789 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 3423 top-level nodes out of 4866
+
+Begin Step 4121, Time: 0.995711, Redshift: 0.00430713, Systemstep: 0.00047538, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034920412  0000000000   0.00382033
+    bin=18      0027797802  0000000000   0.00191017
+    bin=17      0012626931  0000000000   0.000955084
+ X  bin=16      0000981931  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000981931  0000000000    Sum: 0000981931
+Start force computation...
+Begin tree force.  (presently allocated=627.32 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0076327076 particles to be active in the next step
+
+Begin Step 4122, Time: 0.996187, Redshift: 0.00382764, Systemstep: 0.000475607, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+ X  bin=19      0034920412  0000000000   0.00382033
+ X  bin=18      0027797802  0000000000   0.00191017
+ X  bin=17      0012626931  0000000000   0.000955084
+ X  bin=16      0000981931  0000000000   0.000477542
+               -----------------------------------
+Total active:   0076327076  0000000000    Sum: 0076327076
+domain decomposition... (presently allocated=359.116 MB)
+Allocated 1.48025 MByte for top-level domain structure
+use of 30.1599 MB of temporary storage for domain decomposition... (presently allocated=390.756 MB)
+Before=5537
+After=5865
+NTopleaves= 5132  NTopnodes=5865 (space for 29827)
+desired memory imbalance=2.89241  (limit=3653704, needed=5284004)
+Note: the domain decomposition is suboptimum because the ceiling for memory-imbalance is reached
+work-load balance=6.83565   memory-balance=1.20285
+iter=0 exchange of 0002927960 particles
+domain decomposition done. (took 1.53939 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 1.09689 MByte in top-level domain structure
+sum1=0 76327076 sum2=0 76327076
+Start force computation...
+Tree construction.  (presently allocated=627.365 MB)
+Tree construction done.
+Begin tree force.  (presently allocated=627.365 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000981931 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 5127 top-level nodes out of 5132
+
+Begin Step 4123, Time: 0.996663, Redshift: 0.00334839, Systemstep: 0.000475835, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+    bin=18      0027767683  0000000000   0.00191017
+    bin=17      0012613664  0000000000   0.000955084
+ X  bin=16      0000983714  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000983714  0000000000    Sum: 0000983714
+Start force computation...
+Begin tree force.  (presently allocated=627.365 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0013597378 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 798 top-level nodes out of 5132
+
+Begin Step 4124, Time: 0.997139, Redshift: 0.00286936, Systemstep: 0.000476062, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+    bin=18      0027767683  0000000000   0.00191017
+ X  bin=17      0012613664  0000000000   0.000955084
+ X  bin=16      0000983714  0000000000   0.000477542
+               -----------------------------------
+Total active:   0013597378  0000000000    Sum: 0013597378
+Start force computation...
+Begin tree force.  (presently allocated=627.365 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000983714 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 3583 top-level nodes out of 5132
+
+Begin Step 4125, Time: 0.997615, Redshift: 0.00239056, Systemstep: 0.000476289, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+    bin=18      0027767683  0000000000   0.00191017
+    bin=17      0012619843  0000000000   0.000955084
+ X  bin=16      0000977535  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000977535  0000000000    Sum: 0000977535
+Start force computation...
+Begin tree force.  (presently allocated=627.365 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0041365061 particles to be active in the next step
+
+Begin Step 4126, Time: 0.998092, Redshift: 0.00191199, Systemstep: 0.000476517, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+ X  bin=18      0027767683  0000000000   0.00191017
+ X  bin=17      0012619843  0000000000   0.000955084
+ X  bin=16      0000977535  0000000000   0.000477542
+               -----------------------------------
+Total active:   0041365061  0000000000    Sum: 0041365061
+domain decomposition... (presently allocated=359.116 MB)
+Allocated 1.48025 MByte for top-level domain structure
+use of 30.1599 MB of temporary storage for domain decomposition... (presently allocated=390.756 MB)
+Before=5521
+After=5817
+NTopleaves= 5090  NTopnodes=5817 (space for 29827)
+desired memory imbalance=2.89161  (limit=3653704, needed=5282545)
+Note: the domain decomposition is suboptimum because the ceiling for memory-imbalance is reached
+work-load balance=6.83046   memory-balance=1.19998
+iter=0 exchange of 0003325632 particles
+domain decomposition done. (took 1.56372 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 1.09909 MByte in top-level domain structure
+sum1=0 41365061 sum2=0 41365061
+Start force computation...
+Tree construction.  (presently allocated=627.358 MB)
+Tree construction done.
+Begin tree force.  (presently allocated=627.358 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000977535 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 4885 top-level nodes out of 5090
+
+Begin Step 4127, Time: 0.998568, Redshift: 0.00143365, Systemstep: 0.000476744, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+    bin=18      0027785428  0000000000   0.00191017
+    bin=17      0012602623  0000000000   0.000955084
+ X  bin=16      0000977010  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000977010  0000000000    Sum: 0000977010
+Start force computation...
+Begin tree force.  (presently allocated=627.358 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0013579633 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 806 top-level nodes out of 5090
+
+Begin Step 4128, Time: 0.999045, Redshift: 0.00095554, Systemstep: 0.000476972, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+    bin=18      0027785428  0000000000   0.00191017
+ X  bin=17      0012602623  0000000000   0.000955084
+ X  bin=16      0000977010  0000000000   0.000477542
+               -----------------------------------
+Total active:   0013579633  0000000000    Sum: 0013579633
+Start force computation...
+Begin tree force.  (presently allocated=627.358 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0000977010 particles to be active in the next step
+kicks will prepare for dynamic update of tree
+I exchange kick momenta for 3572 top-level nodes out of 5090
+
+Begin Step 4129, Time: 0.999523, Redshift: 0.000477656, Systemstep: 0.0004772, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+    bin=20      0192108380  0000000000   0.00764067
+    bin=19      0034962015  0000000000   0.00382033
+    bin=18      0027785428  0000000000   0.00191017
+    bin=17      0012610625  0000000000   0.000955084
+ X  bin=16      0000969008  0000000000   0.000477542
+               -----------------------------------
+Total active:   0000969008  0000000000    Sum: 0000969008
+Start force computation...
+Begin tree force.  (presently allocated=627.358 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+I'm guessing 0268435456 particles to be active in the next step
+
+Begin Step 4130, Time: 1, Redshift: 2.22045e-16, Systemstep: 0.000477428, Dloga: 0.000477542
+Occupied timebins: non-sph         sph       dt
+ X  bin=20      0192108380  0000000000   0.00764067
+ X  bin=19      0034962015  0000000000   0.00382033
+ X  bin=18      0027785428  0000000000   0.00191017
+ X  bin=17      0012610625  0000000000   0.000955084
+ X  bin=16      0000969008  0000000000   0.000477542
+               -----------------------------------
+PM-Step. Total: 0268435456  0000000000    Sum: 0268435456
+domain decomposition... (presently allocated=359.116 MB)
+Allocated 1.48025 MByte for top-level domain structure
+use of 30.1599 MB of temporary storage for domain decomposition... (presently allocated=390.756 MB)
+Before=5521
+After=5849
+NTopleaves= 5118  NTopnodes=5849 (space for 29827)
+desired memory imbalance=2.89071  (limit=3653704, needed=5280892)
+Note: the domain decomposition is suboptimum because the ceiling for memory-imbalance is reached
+work-load balance=6.83649   memory-balance=1.20284
+iter=0 exchange of 0002990678 particles
+domain decomposition done. (took 1.52984 sec)
+begin Peano-Hilbert order...
+Peano-Hilbert done.
+Freed 1.09763 MByte in top-level domain structure
+sum1=0268435456 sum2=0268435456
+Start force computation...
+Starting periodic PM calculation.  (presently allocated=359.407 MB)
+Using 294.992 MByte for periodic FFT computation. (presently allocated=597.007 MB)
+done PM.
+Tree construction.  (presently allocated=627.362 MB)
+Tree construction done.
+Begin tree force.  (presently allocated=627.362 MB)
+All.BunchSize=672164
+tree is done.
+force computation done.
+type=1  dmean=290.837 asmth=366.211 minmass=0.204839 a=1  sqrt(<p^2>)=538.082  dlogmax=0.0108102
+type=2  dmean=81.6743 asmth=366.211 minmass=0.00453647 a=1  sqrt(<p^2>)=1809.09  dlogmax=0.000902932
+displacement time constraint: 0.0108102  (0.1)
+I'm guessing 0268435456 particles to be active in the next step
+
+writing snapshot file #98... 
+done with snapshot.
+
+computing power spectra...
+Starting periodic PM calculation.  (presently allocated=359.407 MB)
+Using 294.992 MByte for periodic FFT computation. (presently allocated=597.007 MB)
+begin folding for power spectrum estimation...
+buffer filled (took 0.629606 sec)
+particles exchanged and binned. (took 0.0709933 sec) max-rest=2137001
+buffer filled (took 0.0375012 sec)
+particles exchanged and binned. (took 0.0619011 sec) max-rest=2031686
+buffer filled (took 0.0340039 sec)
+particles exchanged and binned. (took 0.0614165 sec) max-rest=1926447
+buffer filled (took 0.0359786 sec)
+particles exchanged and binned. (took 0.0626761 sec) max-rest=1821219
+buffer filled (took 0.035907 sec)
+particles exchanged and binned. (took 0.0630435 sec) max-rest=1716053
+buffer filled (took 0.0337294 sec)
+particles exchanged and binned. (took 0.0616796 sec) max-rest=1610701
+buffer filled (took 0.0348441 sec)
+particles exchanged and binned. (took 0.0606224 sec) max-rest=1505482
+buffer filled (took 0.0352661 sec)
+particles exchanged and binned. (took 0.0582637 sec) max-rest=1400084
+buffer filled (took 0.0356998 sec)
+particles exchanged and binned. (took 0.0580323 sec) max-rest=1294836
+buffer filled (took 0.0351973 sec)
+particles exchanged and binned. (took 0.0572087 sec) max-rest=1189602
+buffer filled (took 0.0340279 sec)
+particles exchanged and binned. (took 0.0562609 sec) max-rest=1084229
+buffer filled (took 0.03423 sec)
+particles exchanged and binned. (took 0.0596432 sec) max-rest=978929
+buffer filled (took 0.0345997 sec)
+particles exchanged and binned. (took 0.0574515 sec) max-rest=873945
+buffer filled (took 0.035162 sec)
+particles exchanged and binned. (took 0.0594414 sec) max-rest=768907
+buffer filled (took 0.0352495 sec)
+particles exchanged and binned. (took 0.058278 sec) max-rest=663687
+buffer filled (took 0.0337528 sec)
+particles exchanged and binned. (took 0.0559726 sec) max-rest=558443
+buffer filled (took 0.0347117 sec)
+particles exchanged and binned. (took 0.0526115 sec) max-rest=453315
+buffer filled (took 0.0344361 sec)
+particles exchanged and binned. (took 0.0440694 sec) max-rest=348169
+buffer filled (took 0.0320346 sec)
+particles exchanged and binned. (took 0.0292249 sec) max-rest=243140
+buffer filled (took 0.0341231 sec)
+particles exchanged and binned. (took 0.0242727 sec) max-rest=137770
+buffer filled (took 0.0349276 sec)
+particles exchanged and binned. (took 0.0176042 sec) max-rest=32559
+buffer filled (took 0.00778515 sec)
+particles exchanged and binned. (took 0.00549982 sec) max-rest=0
+folded density field assembled (took 2.47675 seconds, iter=22)
+FFT for folded density done (took 0.145194 seconds)
+begin power spectrum. (step=0)  POWERSPEC_FOLDFAC=32
+end power spectrum. (step=0) took 0.234593 seconds
+begin power spectrum. (step=1)  POWERSPEC_FOLDFAC=32
+end power spectrum. (step=1) took 0.249545 seconds
+done PM.
+Starting periodic PM calculation.  (presently allocated=359.407 MB)
+Using 294.992 MByte for periodic FFT computation. (presently allocated=597.007 MB)
+begin folding for power spectrum estimation...
+buffer filled (took 0.178337 sec)
+particles exchanged and binned. (took 0.0572011 sec) max-rest=2058599
+buffer filled (took 0.030627 sec)
+particles exchanged and binned. (took 0.0568489 sec) max-rest=1840729
+buffer filled (took 0.0310857 sec)
+particles exchanged and binned. (took 0.0610443 sec) max-rest=1694008
+buffer filled (took 0.0304046 sec)
+particles exchanged and binned. (took 0.0571737 sec) max-rest=1510774
+buffer filled (took 0.0310242 sec)
+particles exchanged and binned. (took 0.05898 sec) max-rest=1389061
+buffer filled (took 0.0310957 sec)
+particles exchanged and binned. (took 0.0588369 sec) max-rest=1197164
+buffer filled (took 0.0291751 sec)
+particles exchanged and binned. (took 0.0568412 sec) max-rest=1013163
+buffer filled (took 0.0297333 sec)
+particles exchanged and binned. (took 0.0532823 sec) max-rest=899395
+buffer filled (took 0.0286502 sec)
+particles exchanged and binned. (took 0.0467848 sec) max-rest=773559
+buffer filled (took 0.0307082 sec)
+particles exchanged and binned. (took 0.0371608 sec) max-rest=597484
+buffer filled (took 0.0227528 sec)
+particles exchanged and binned. (took 0.0262819 sec) max-rest=356913
+buffer filled (took 0.0196771 sec)
+particles exchanged and binned. (took 0.0160124 sec) max-rest=175080
+buffer filled (took 0.0176803 sec)
+particles exchanged and binned. (took 0.00952293 sec) max-rest=0
+folded density field assembled (took 1.11131 seconds, iter=13)
+FFT for folded density done (took 0.0705509 seconds)
+begin power spectrum. (step=0)  POWERSPEC_FOLDFAC=32
+end power spectrum. (step=0) took 0.220651 seconds
+begin power spectrum. (step=1)  POWERSPEC_FOLDFAC=32
+end power spectrum. (step=1) took 0.248901 seconds
+done PM.
+Starting periodic PM calculation.  (presently allocated=359.407 MB)
+Using 294.992 MByte for periodic FFT computation. (presently allocated=597.007 MB)
+begin folding for power spectrum estimation...
+buffer filled (took 1.16674 sec)
+particles exchanged and binned. (took 0.0525026 sec) max-rest=2056040
+buffer filled (took 0.0517599 sec)
+particles exchanged and binned. (took 0.0525886 sec) max-rest=1888213
+buffer filled (took 0.0411301 sec)
+particles exchanged and binned. (took 0.0531741 sec) max-rest=1739054
+buffer filled (took 0.0404782 sec)
+particles exchanged and binned. (took 0.0514513 sec) max-rest=1532361
+buffer filled (took 0.0405272 sec)
+particles exchanged and binned. (took 0.0532739 sec) max-rest=1366157
+buffer filled (took 0.0399668 sec)
+particles exchanged and binned. (took 0.0523279 sec) max-rest=1201316
+buffer filled (took 0.040147 sec)
+particles exchanged and binned. (took 0.0488364 sec) max-rest=1046191
+buffer filled (took 0.0387875 sec)
+particles exchanged and binned. (took 0.0480991 sec) max-rest=875611
+buffer filled (took 0.038513 sec)
+particles exchanged and binned. (took 0.0434063 sec) max-rest=659149
+buffer filled (took 0.0360736 sec)
+particles exchanged and binned. (took 0.0325674 sec) max-rest=522518
+buffer filled (took 0.036404 sec)
+particles exchanged and binned. (took 0.0278684 sec) max-rest=339617
+buffer filled (took 0.0363713 sec)
+particles exchanged and binned. (took 0.0185155 sec) max-rest=167560
+buffer filled (took 0.030788 sec)
+particles exchanged and binned. (took 0.00866806 sec) max-rest=0
+folded density field assembled (took 2.18533 seconds, iter=13)
+FFT for folded density done (took 0.0699335 seconds)
+begin power spectrum. (step=0)  POWERSPEC_FOLDFAC=32
+end power spectrum. (step=0) took 0.218846 seconds
+begin power spectrum. (step=1)  POWERSPEC_FOLDFAC=32
+end power spectrum. (step=1) took 0.243335 seconds
+done PM.
+done with power spectra.

@@ -1,0 +1,668 @@
+MPI: dplace use detected, MPI_DSM_... environment variables ignored
+
+This is P-Gadget, version 3.0.
+
+Running on 144 processors.
+
+Code was compiled with settings:
+ Unsupported
+
+Obtaining parameters from file '/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/ics_512-150-z99-nu0.013.dat.param':
+InitCondFile                       /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/ics_512-150-z99-nu0.013.dat
+OutputDir                          /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics
+SnapshotFileBase                   snapshot
+TimeLimitCPU                       32682
+ResubmitOn                         0
+ResubmitCommand                    my-scriptfile
+TimeBegin                          0.01
+TimeMax                            1
+Omega0                             0.25
+OmegaLambda                        0.75
+OmegaBaryon                        0
+HubbleParam                        0.7
+BoxSize                            150000
+OutputListOn                       1
+OutputListFilename                 /home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/times.txt
+TimeBetSnapshot                    1.07
+TimeOfFirstSnapshot                0.1
+CpuTimeBetRestartFile              125000
+TimeBetStatistics                  0.05
+NumFilesPerSnapshot                12
+NumFilesWrittenInParallel          1
+InitGasTemp                        273
+MinGasTemp                         1
+SofteningGas                       9.76562
+SofteningHalo                      9.76562
+SofteningDisk                      9.76562
+SofteningBulge                     9.76562
+SofteningStars                     9.76562
+SofteningBndry                     9.76562
+SofteningGasMaxPhys                9.76562
+SofteningHaloMaxPhys               9.76562
+SofteningDiskMaxPhys               9.76562
+SofteningBulgeMaxPhys              9.76562
+SofteningStarsMaxPhys              9.76562
+SofteningBndryMaxPhys              9.76562
+ICFormat                           2
+SnapFormat                         2
+ComovingIntegrationOn              1
+TypeOfTimestepCriterion            0
+PeriodicBoundariesOn               1
+CoolingOn                          0
+StarformationOn                    0
+EnergyFile                         energy.txt
+InfoFile                           info.txt
+TimingsFile                        timings.txt
+CpuFile                            cpu.txt
+RestartFile                        restart
+ErrTolIntAccuracy                  0.025
+MaxRMSDisplacementFac              0.2
+CourantFac                         0.15
+MaxSizeTimestep                    0.1
+MinSizeTimestep                    0
+ErrTolTheta                        0.5
+TypeOfOpeningCriterion             1
+ErrTolForceAcc                     0.005
+TreeDomainUpdateFrequency          0.1
+DesNumNgb                          33
+MaxNumNgbDeviation                 2
+ArtBulkViscConst                   0.8
+UnitLength_in_cm                   3.08568e+21
+UnitMass_in_g                      1.989e+43
+UnitVelocity_in_cm_per_s           100000
+GravityConstantInternal            0
+MinGasHsmlFractional               0.25
+BufferSize                         100
+PartAllocFactor                    2
+MaxMemSize                         2500
+
+
+found 8 times in output-list.
+
+Hubble (internal units) = 0.1
+G (internal units) = 43007.1
+UnitMass_in_g = 1.989e+43 
+UnitTime_in_s = 3.08568e+16 
+UnitVelocity_in_cm_per_s = 100000 
+UnitDensity_in_cgs = 6.76991e-22 
+UnitEnergy_in_cgs = 1.989e+53 
+
+initialize Ewald correction...
+
+No Ewald tables in file `ewald_spc_table_64.dat' found.
+Recomputing them...
+ 0.0 percent done
+ 5.0 percent done
+10.0 percent done
+14.9 percent done
+19.9 percent done
+24.9 percent done
+29.9 percent done
+34.9 percent done
+39.9 percent done
+44.8 percent done
+49.8 percent done
+54.8 percent done
+59.8 percent done
+64.8 percent done
+69.7 percent done
+74.7 percent done
+79.7 percent done
+84.7 percent done
+89.7 percent done
+94.7 percent done
+99.6 percent done
+
+writing Ewald tables to file `ewald_spc_table_64.dat'
+initialization of periodic boundaries finished.
+Reading header => 'HEAD' (264 byte)
+
+Allocated 179.555 MByte for particle storage.
+
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/ics_512-150-z99-nu0.013.dat.0' on task=0 (contains 33554432 particles.)
+distributing this file to tasks 0-35
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  33554432  (tot=     0134217728) masstab=0.209376
+Type 2 (disk):         0  (tot=     0000000000) masstab=0
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/ics_512-150-z99-nu0.013.dat.1' on task=36 (contains 33554432 particles.)
+distributing this file to tasks 36-71
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  33554432  (tot=     0134217728) masstab=0.209376
+Type 2 (disk):         0  (tot=     0000000000) masstab=0
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/ics_512-150-z99-nu0.013.dat.2' on task=72 (contains 33554432 particles.)
+distributing this file to tasks 72-107
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  33554432  (tot=     0134217728) masstab=0.209376
+Type 2 (disk):         0  (tot=     0000000000) masstab=0
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+Reading header => 'HEAD' (264 byte)
+
+reading file `/home/cosmos/users/spb41/data/NU_DM/PART/b150p512nu0.6z99ics/ics_512-150-z99-nu0.013.dat.3' on task=108 (contains 33554432 particles.)
+distributing this file to tasks 108-143
+Type 0 (gas):          0  (tot=     0000000000) masstab=0
+Type 1 (halo):  33554432  (tot=     0134217728) masstab=0.209376
+Type 2 (disk):         0  (tot=     0000000000) masstab=0
+Type 3 (bulge):        0  (tot=     0000000000) masstab=0
+Type 4 (stars):        0  (tot=     0000000000) masstab=0
+Type 5 (bndry):        0  (tot=     0000000000) masstab=0
+
+reading block 0 (Coordinates)...
+reading block 1 (Velocities)...
+reading block 2 (ParticleIDs)...
+reading block 3 (Masses)...
+reading block 5 (InternalEnergy)...
+reading done.
+Total number of particles :  0134217728
+
+
+
+I've found something odd!
+The mass content accounts only for Omega=0.3,
+but you specified Omega=0.25 in the parameterfile.
+
+I better stop.
+task 0: endrun called with an error level of 1
+
+
+task 1: endrun called with an error level of 1
+
+
+task 2: endrun called with an error level of 1
+
+
+task 3: endrun called with an error level of 1
+
+
+task 4: endrun called with an error level of 1
+
+
+task 5: endrun called with an error level of 1
+
+
+task 20: endrun called with an error level of 1
+
+
+task 31: endrun called with an error level of 1
+
+
+task 32: endrun called with an error level of 1
+
+
+task 33: endrun called with an error level of 1
+
+
+task 34: endrun called with an error level of 1
+
+
+task 36: endrun called with an error level of 1
+
+
+task 37: endrun called with an error level of 1
+
+
+task 38: endrun called with an error level of 1
+
+
+task 40: endrun called with an error level of 1
+
+
+task 41: endrun called with an error level of 1
+
+
+task 43: endrun called with an error level of 1
+
+
+task 44: endrun called with an error level of 1
+
+
+task 46: endrun called with an error level of 1
+
+
+task 54: endrun called with an error level of 1
+
+
+task 55: endrun called with an error level of 1
+
+
+task 56: endrun called with an error level of 1
+
+
+task 57: endrun called with an error level of 1
+
+
+task 58: endrun called with an error level of 1
+
+
+task 59: endrun called with an error level of 1
+
+
+task 60: endrun called with an error level of 1
+
+
+task 61: endrun called with an error level of 1
+
+
+task 62: endrun called with an error level of 1
+
+
+task 63: endrun called with an error level of 1
+
+
+task 64: endrun called with an error level of 1
+
+
+task 65: endrun called with an error level of 1
+
+
+task 66: endrun called with an error level of 1
+
+
+task 67: endrun called with an error level of 1
+
+
+task 68: endrun called with an error level of 1
+
+
+task 69: endrun called with an error level of 1
+
+
+task 70: endrun called with an error level of 1
+
+
+task 71: endrun called with an error level of 1
+
+
+task 72: endrun called with an error level of 1
+
+
+task 73: endrun called with an error level of 1
+
+
+task 74: endrun called with an error level of 1
+
+
+task 75: endrun called with an error level of 1
+
+
+task 76: endrun called with an error level of 1
+
+
+task 77: endrun called with an error level of 1
+
+
+task 78: endrun called with an error level of 1
+
+
+task 79: endrun called with an error level of 1
+
+
+task 80: endrun called with an error level of 1
+
+
+task 81: endrun called with an error level of 1
+
+
+task 82: endrun called with an error level of 1
+
+
+task 83: endrun called with an error level of 1
+
+
+task 84: endrun called with an error level of 1
+
+
+task 85: endrun called with an error level of 1
+
+
+task 86: endrun called with an error level of 1
+
+
+task 87: endrun called with an error level of 1
+
+
+task 88: endrun called with an error level of 1
+
+
+task 89: endrun called with an error level of 1
+
+
+task 91: endrun called with an error level of 1
+
+
+task 92: endrun called with an error level of 1
+
+
+task 94: endrun called with an error level of 1
+
+
+task 95: endrun called with an error level of 1
+
+
+task 96: endrun called with an error level of 1
+
+
+task 97: endrun called with an error level of 1
+
+
+task 98: endrun called with an error level of 1
+
+
+task 99: endrun called with an error level of 1
+
+
+task 100: endrun called with an error level of 1
+
+
+task 103: endrun called with an error level of 1
+
+
+task 105: endrun called with an error level of 1
+
+
+task 106: endrun called with an error level of 1
+
+
+task 107: endrun called with an error level of 1
+
+
+task 110: endrun called with an error level of 1
+
+
+task 111: endrun called with an error level of 1
+
+
+task 113: endrun called with an error level of 1
+
+
+task 114: endrun called with an error level of 1
+
+
+task 115: endrun called with an error level of 1
+
+
+task 116: endrun called with an error level of 1
+
+
+task 117: endrun called with an error level of 1
+
+
+task 118: endrun called with an error level of 1
+
+
+task 119: endrun called with an error level of 1
+
+
+task 120: endrun called with an error level of 1
+
+
+task 121: endrun called with an error level of 1
+
+
+task 122: endrun called with an error level of 1
+
+
+task 123: endrun called with an error level of 1
+
+
+task 124: endrun called with an error level of 1
+
+
+task 125: endrun called with an error level of 1
+
+
+task 127: endrun called with an error level of 1
+
+
+task 128: endrun called with an error level of 1
+
+
+task 131: endrun called with an error level of 1
+
+
+task 135: endrun called with an error level of 1
+
+
+MPI: Global rank 1 is aborting with error code 1.
+     Process ID: 389140, Host: universe, Program: /nfs/scratch/spb41/NU_DM/PART/b150p512nu0.6z99ics/P-Gadget3
+
+MPI: --------stack traceback-------
+task 6: endrun called with an error level of 1
+
+
+task 7: endrun called with an error level of 1
+
+
+task 8: endrun called with an error level of 1
+
+
+task 9: endrun called with an error level of 1
+
+
+task 10: endrun called with an error level of 1
+
+
+task 11: endrun called with an error level of 1
+
+
+task 12: endrun called with an error level of 1
+
+
+task 13: endrun called with an error level of 1
+
+
+task 14: endrun called with an error level of 1
+
+
+task 15: endrun called with an error level of 1
+
+
+task 16: endrun called with an error level of 1
+
+
+task 17: endrun called with an error level of 1
+
+
+task 18: endrun called with an error level of 1
+
+
+task 19: endrun called with an error level of 1
+
+
+task 21: endrun called with an error level of 1
+
+
+task 22: endrun called with an error level of 1
+
+
+task 23: endrun called with an error level of 1
+
+
+task 24: endrun called with an error level of 1
+
+
+task 25: endrun called with an error level of 1
+
+
+task 26: endrun called with an error level of 1
+
+
+task 27: endrun called with an error level of 1
+
+
+task 28: endrun called with an error level of 1
+
+
+task 29: endrun called with an error level of 1
+
+
+task 30: endrun called with an error level of 1
+
+
+task 35: endrun called with an error level of 1
+
+
+task 39: endrun called with an error level of 1
+
+
+task 42: endrun called with an error level of 1
+
+
+task 45: endrun called with an error level of 1
+
+
+task 47: endrun called with an error level of 1
+
+
+task 48: endrun called with an error level of 1
+
+
+task 49: endrun called with an error level of 1
+
+
+task 50: endrun called with an error level of 1
+
+
+task 51: endrun called with an error level of 1
+
+
+task 52: endrun called with an error level of 1
+
+
+task 53: endrun called with an error level of 1
+
+
+task 90: endrun called with an error level of 1
+
+
+task 93: endrun called with an error level of 1
+
+
+task 101: endrun called with an error level of 1
+
+
+task 102: endrun called with an error level of 1
+
+
+task 104: endrun called with an error level of 1
+
+
+task 108: endrun called with an error level of 1
+
+
+task 109: endrun called with an error level of 1
+
+
+task 112: endrun called with an error level of 1
+
+
+task 129: endrun called with an error level of 1
+
+
+task 130: endrun called with an error level of 1
+
+
+task 132: endrun called with an error level of 1
+
+
+task 133: endrun called with an error level of 1
+
+
+task 134: endrun called with an error level of 1
+
+
+task 136: endrun called with an error level of 1
+
+
+task 137: endrun called with an error level of 1
+
+
+task 138: endrun called with an error level of 1
+
+
+task 139: endrun called with an error level of 1
+
+
+task 140: endrun called with an error level of 1
+
+
+task 141: endrun called with an error level of 1
+
+
+task 142: endrun called with an error level of 1
+
+
+task 143: endrun called with an error level of 1
+
+
+task 126: endrun called with an error level of 1
+
+
+MPI: Attaching to program: /proc/389140/exe, process 389140
+MPI: Try: zypper install -C "debuginfo(build-id)=365e4d2c812908177265c8223f222a1665fe1035"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=3f06bcfc74f9b01780d68e89b8dce403bef9b2e3"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=609a6e344dfdc723c6c768cae37c3d91373a731b"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=fbb2084bce1dd7adc76d9ef90319cf89b601db94"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=31d4dbbe49e777eb2dceeb2b6cb722d01a7b35dc"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=81a3a96c7c0bc95cb4aa5b29702689cf324a7fcd"
+MPI: (no debugging symbols found)...done.
+MPI: Try: zypper install -C "debuginfo(build-id)=1f39dc121cb7220d95ee27e00f745c2832346070"
+MPI: (no debugging symbols found)...done.
+MPI: [Thread debugging using libthread_db enabled]
+MPI: Try: zypper install -C "debuginfo(build-id)=7bcdd7deb661fbb367edf63273568fc962aefbed"
+MPI: (no debugging symbols found)...done.
+MPI: 0x00002b4ff92fd995 in waitpid () from /lib64/libc.so.6
+MPI: (gdb) #0  0x00002b4ff92fd995 in waitpid () from /lib64/libc.so.6
+MPI: #1  0x00002b4ff7d5cba4 in mpi_sgi_system (command=<value optimized out>)
+MPI:     at sig.c:88
+MPI: #2  MPI_SGI_stacktraceback (command=<value optimized out>) at sig.c:271
+MPI: #3  0x00002b4ff7ce8641 in print_traceback (ecode=1) at abort.c:168
+MPI: #4  0x00002b4ff7ce88eb in PMPI_Abort (comm=<value optimized out>, errorcode=1)
+MPI:     at abort.c:59
+MPI: #5  0x0000000000415bf8 in endrun (ierr=390225) at endrun.c:31
+MPI: #6  0x0000000000000000 in ?? ()
+MPI: (gdb) A debugging session is active.
+MPI: 
+MPI: 	Inferior 1 [process 389140] will be detached.
+MPI: 
+MPI: Quit anyway? (y or n) [answered Y; input not from terminal]
+MPI: Detaching from program: /proc/389140/exe, process 389140
+
+MPI: -----stack traceback ends-----
+MPI: MPI_COMM_WORLD rank 1 has terminated without calling MPI_Finalize()
+MPI: aborting job
