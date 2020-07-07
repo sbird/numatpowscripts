@@ -231,7 +231,7 @@ class relhalofit(halofit):
         #Modifications from fitting halofit to the small-scale power
         #Fit with rescaling:
 
-#       dd11=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0z99","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99as2.0","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z49om0.4", "/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99h0.75"],maxz=3.1,npar=3, maxk=500,mink=6)
+#       dd11=fitter.data(["NU_DM/PART/b150p512nu0z99","NU_DM/COSMO-CHECK/b150p512nu0z99as2.0","NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","NU_DM/COSMO-CHECK/b150p512nu0z49om0.4", "NU_DM/COSMO-CHECK/b150p512nu0z99h0.75"],maxz=3.1,npar=3, maxk=500,mink=6)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 10.495262
@@ -278,7 +278,7 @@ class relhalofit(halofit):
 #This has ph = A fnu /(1+By**3)
 # pq = delta*(1+fnu k**2/(1+1.5*k**2)) beta+=fnu(C+rn*D)
 
-#dd2=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0.6z99","/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49","/home/spb41/data3/NU_DM/PART/b150p512nu0.15z24","/home/spb41/data3/NU_DM/PART/b512p512nu0.6z99","/home/spb41/data3/NU_DM/PART/b512p512nu0.3z49","/home/spb41/data3/NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=106,mink=6)
+#dd2=fitter.data(["NU_DM/PART/b150p512nu0.6z99","NU_DM/PART/b150p512nu0.3z49","NU_DM/PART/b150p512nu0.15z24","NU_DM/PART/b512p512nu0.6z99","NU_DM/PART/b512p512nu0.3z49","NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=106,mink=6)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.074884
@@ -288,7 +288,7 @@ class relhalofit(halofit):
 #   1.43734127e+00]
 
 #Fitting only for residual O_m dependence:
-#dd4=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49om0.25","/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=106,mink=6)
+#dd4=fitter.data(["NU_DM/PART/b150p512nu0.3z49om0.25","NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=106,mink=6)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.098976
