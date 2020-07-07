@@ -36,8 +36,8 @@ class fitter:
 #                     try:
                     norm = pmat.calc_norm(bigger,s)
 #                     except IOError:
-#                         norm = pmat.calc_norm(path.join("/home/spb41/data3/NU_DM/PART/b512p512nu0z99",f),
-#                                path.join("/home/spb41/data3/NU_DM/PART/b150p512nu0z99",f))
+#                         norm = pmat.calc_norm(path.join("NU_DM/PART/b512p512nu0z99",f),
+#                                path.join("NU_DM/PART/b150p512nu0z99",f))
                 #Rebin it to be evenly log spaced
                 logk=np.linspace(np.log(k[ind][0]),np.log(k[ind][-1]),np.size(k[ind])*2)
                 intpk=InterpolatedUnivariateSpline(np.log(k[ind]),norm*pk[ind])
@@ -91,7 +91,7 @@ class fitter:
             plt.semilogx(k,pk)
             plt.semilogx(k,halofit,ls="--")
 
-#dd3=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0z99","/home/spb41/data3/NU_DM/PART/b150p512nu0z99as2.0","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","/home/spb41/data3/NU_DM/KSPACE/b150p512nu0z99om0.2","/home/spb41/data3/NU_DM/KSPACE/b150p512nu0z49om0.4"])
+#dd3=fitter.data(["NU_DM/PART/b150p512nu0z99","NU_DM/PART/b150p512nu0z99as2.0","NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","NU_DM/KSPACE/b150p512nu0z99om0.2","NU_DM/KSPACE/b150p512nu0z49om0.4"])
 #Optimization terminated successfully.
 #         Current function value: 30.738233
 #         Iterations: 208

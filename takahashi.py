@@ -1,3 +1,7 @@
+"""This implements Halofit in python and allows me to fit out
+   new parameters (in particular massive neutrinos). To reproduce
+   the fit currently present in CAMB, run the commented code from line 288.
+   Any occurences of /home/spb41/data3 should be removed."""
 #!%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #! The `halofit' code models the nonlinear evolution of cold matter
 #! cosmological power spectra. The full details of the way in which
@@ -234,7 +238,7 @@ class relhalofit(halofit):
         #Modifications from fitting halofit to the small-scale power
         #Fit with rescaling:
 
-#       dd11=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0z99","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99as2.0","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z49om0.4", "/home/spb41/data3/NU_DM/COSMO-CHECK/b150p512nu0z99h0.75"],maxz=3.1,npar=3, maxk=500,mink=6)
+#       dd11=fitter.data(["NU_DM/PART/b150p512nu0z99","NU_DM/COSMO-CHECK/b150p512nu0z99as2.0","NU_DM/COSMO-CHECK/b150p512nu0z99ns0.9","NU_DM/COSMO-CHECK/b150p512nu0z49om0.4", "NU_DM/COSMO-CHECK/b150p512nu0z99h0.75"],maxz=3.1,npar=3, maxk=500,mink=6)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 10.495262
@@ -282,7 +286,7 @@ class relhalofit(halofit):
 #This has ph = A fnu /(1+By**3)
 # pq = delta*(1+fnu k**2/(1+1.5*k**2)) beta+=fnu(C+rn*D)
 
-#dd2=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0.6z99","/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49","/home/spb41/data3/NU_DM/PART/b150p512nu0.15z24","/home/spb41/data3/NU_DM/PART/b512p512nu0.6z99","/home/spb41/data3/NU_DM/PART/b512p512nu0.3z49","/home/spb41/data3/NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=106,mink=6)
+#dd2=fitter.data(["NU_DM/PART/b150p512nu0.6z99","NU_DM/PART/b150p512nu0.3z49","NU_DM/PART/b150p512nu0.15z24","NU_DM/PART/b512p512nu0.6z99","NU_DM/PART/b512p512nu0.3z49","NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=106,mink=6)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.074884
@@ -292,7 +296,7 @@ class relhalofit(halofit):
 #   1.43734127e+00]
 
 #Fitting only for residual O_m dependence:
-#dd4=fitter.data(["/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49om0.25","/home/spb41/data3/NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=106,mink=6)
+#dd4=fitter.data(["NU_DM/PART/b150p512nu0.3z49om0.25","NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=106,mink=6)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.098976
@@ -302,7 +306,7 @@ class relhalofit(halofit):
 
 
 #With Takahashi Halofit:
-#dd2=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.6z99","/home/spb/data/NU_DM/PART/b150p512nu0.3z49","/home/spb/data/NU_DM/PART/b150p512nu0.15z24","/home/spb/data/NU_DM/PART/b512p512nu0.6z99","/home/spb/data/NU_DM/PART/b512p512nu0.3z49","/home/spb/data/NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=30,mink=0.1)
+#dd2=fitter.data(["NU_DM/PART/b150p512nu0.6z99","NU_DM/PART/b150p512nu0.3z49","NU_DM/PART/b150p512nu0.15z24","NU_DM/PART/b512p512nu0.6z99","NU_DM/PART/b512p512nu0.3z49","NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=5, maxk=30,mink=0.1)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.113300
@@ -311,7 +315,7 @@ class relhalofit(halofit):
 #[  0.69107114  -0.13066274  47.49450963   1.76081586   0.28770219]
 
 
-#dd4=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.3z49om0.25","/home/spb/data/NU_DM/PART/b150p512nu0.3z49","/home/spb/data/NU_DM/COSMO-CHECK/b150p512nu0.3z49om0.4"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=30,mink=0.1)
+#dd4=fitter.data(["NU_DM/PART/b150p512nu0.3z49om0.25","NU_DM/PART/b150p512nu0.3z49","NU_DM/COSMO-CHECK/b150p512nu0.3z49om0.4"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=30,mink=0.1)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.092392
@@ -321,7 +325,7 @@ class relhalofit(halofit):
 #Adding the Omega_M = 0.4 simulation gives a very different result. Omega_M = 0.3, 0.4 are
 
 #again because p[1] being negative leads to problems
-#In [12]: dd2=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.6z99","/home/spb/data/NU_DM/PART/b150p512nu0.3z49","/home/spb/data/NU_DM/PART/b150p512nu0.15z24","/home/spb/data/NU_DM/PART/b512p512nu0.6z99","/home/spb/data/NU_DM/PART/b512p512nu0.3z49","/home/spb/data/NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=4, maxk=30,mink=0.1)
+#In [12]: dd2=fitter.data(["NU_DM/PART/b150p512nu0.6z99","NU_DM/PART/b150p512nu0.3z49","NU_DM/PART/b150p512nu0.15z24","NU_DM/PART/b512p512nu0.6z99","NU_DM/PART/b512p512nu0.3z49","NU_DM/PART/b512p512nu0.15z24"],fitter=fitter.relfit,maxz=3.1,npar=4, maxk=30,mink=0.1)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.126754
@@ -329,7 +333,7 @@ class relhalofit(halofit):
 #         Function evaluations: 306
 #[  0.97737709  47.47898431   1.0810028    0.39540887]
 #
-# dd4=fitter.data(["/home/spb/data/NU_DM/PART/b150p512nu0.3z49om0.25","/home/spb/data/NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=30,mink=0.1)
+# dd4=fitter.data(["NU_DM/PART/b150p512nu0.3z49om0.25","NU_DM/PART/b150p512nu0.3z49"],fitter=fitter.relfit,maxz=3.1,npar=1, maxk=30,mink=0.1)
 #Loaded files, minimising
 #Optimization terminated successfully.
 #         Current function value: 0.091346
